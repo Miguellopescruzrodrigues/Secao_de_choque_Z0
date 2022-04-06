@@ -1,88 +1,113 @@
-# Cálculo da eficiencia do detector, utilizando o método de TagAndProbe.
+# Cálculo da eficiência de identificação do múon
 
-**Introduction**
+**Introdução**
 
-Este repositório é baseado 
+Este é um exemplo simples do cálculo da eficiência de identificação do múon utilizando o método de ** TagAndProbe ** usando conjuntos de dados de CMS Open Data. Este projeto foi realizado utilizando um exemplo realizado pelo Allan Jales e Raphael Gomes de Souza sobre a orientação do professor Sandro fonseca.
 
-https://twiki.cern.ch/twiki/bin/view/Sandbox/TestTopic11111203
-
-
-**About the Structure**
-
-To access the data you must use the CMSSW, the structure that have the analysis environment. To do so, you have two ways:
-
- - **Using Vitual Machine**: You have to download the [VM Virtual Box](https://www.virtualbox.org/wiki/Download_Old_Builds). Make sure that the version you downloaded is working with your CMS VM Image. You can read more [here](http://opendata-dev.web.cern.ch/docs/cms-virtual-machine-2011). You must use the CMS SHELL in the CMS Open Data VM 1.5.1 version as you can see [here](http://opendata-dev.web.cern.ch/docs/cms-getting-started-2011). With other versions (CMS-OpenData-1.2.0" or "CMS-OpenData-1.3.0) you can use the normal terminal.
+https://github.com/allanjales/TagAndProbe/tree/systematic
 
 
-- **Using Docker Container**: If you are having problem with virtual machine you can use the [Docker Container](https://www.docker.com/resources/what-container). The instruction of installation are in this [page](https://docs.docker.com/install/). As you can see in the page, you can fetch a CMSSW image, and create and start a container using the docker run command `$ docker run --name opendata -it clelange/cmssw:5_3_32 /bin/bash`, but with that you will not be able to use ROOT. To do so, you must use the command:
+**Estrutura**
 
-`$ sudo docker run --name opendata -it -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix clelange/cmssw:5_3_32 /bin/bash`
+Para acessar os dados deve-se utilizar o CMSSW, estrutura que possui o ambiente de análise. Para fazer isso, você tem duas maneiras:
 
-and you will able to use ROOT. To list the containers you created use the command:
+ - **Usando Máquina Vitual**: Você deve baixar o [VM Virtual Box] (https://www.virtualbox.org/wiki/Download_Old_Builds). Certifique-se de que a versão baixada está funcionando com sua imagem CMS VM. Você pode ler mais [aqui] (http://opendata-dev.web.cern.ch/docs/cms-virtual-machine-2011). Você deve usar o CMS SHELL na versão CMS Open Data VM 1.5.1 como você pode ver [aqui] (http://opendata-dev.web.cern.ch/docs/cms-getting-started-2011). Com outras versões (CMS-OpenData-1.2.0 "ou" CMS-OpenData-1.3.0) você pode usar o terminal normal.
+
+
+- **Usando Docker Container**: Se você está tendo problemas com a máquina virtual, pode usar o [Docker Container] (https://www.docker.com/resources/what-container). As instruções de instalação estão nesta [página] (https://docs.docker.com/install/). Como você pode ver na página, você pode buscar uma imagem CMSSW e criar e iniciar um contêiner usando o comando docker run `$ docker run --name opendata -it clelange / cmssw: 5_3_32 / bin / bash`, **mas com isso você não poderá usar o ROOT. Para fazer isso, você deve usar o comando:**
+
+`$ sudo docker run --name {Nome do seu container} -it -e DISPLAY = $ DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix clelange / cmssw: 5_3_32 / bin / bash`
+
+e você poderá usar ROOT. Para listar os contêineres que você criou, use o comando:
 
 `$ sudo docker container ls -a`
 
-To open a container, just use the command with the ID of the container that you can see the list of the containers you created.
+Para abrir um container, basta usar o comando com o nome do container que você poderá ver a lista dos containers que você criou.
 
-`$ sudo docker start <ID_Container>`
+`$ sudo docker start <Nome_Container>`
 
-`$ sudo docker attach <ID_Container>`
+`$ sudo docker attach <Nome_Container>`
 
-Now, lets create the CMSSW structure. In this example we are using the **CMSSW_5_3_32**. After you emulate you CMS Open Data ova with success, you must created a CMSSW environment and change to the `CMSSW_5_3_32/src/` directory (Notice that you use the container you do not need to use the the commands below): 
+
+Vamos criar a estrutura CMSSW. Neste exemplo, estamos usando **CMSSW_5_3_32**. Depois de emular as configurações de dados abertos do CMS com sucesso, você deve criar um ambiente CMSSW e mudar para o diretório `CMSSW_5_3_32 / src /` (observe que você usa o contêiner e não precisa usar os comandos abaixo):
 
 `$ cmsrel CMSSW_5_3_32`
 
-`$ cd CMSSW_5_3_32/src/`
+`$ cd CMSSW_5_3_32 / src /`
 
-Launch the CMS analysis environment.
+Inicie o ambiente de análise CMS.
 
 `$ cmsenv`
 
-Create a working directory for the analyzer and go to that directory 
+Crie um diretório de trabalho para o analisador e vá para esse diretório
 
 `$ mkdir TagAndProbeSample`
 
-At this point, you must copy this Git to your area using the command:
 
-`$ git clone git@github.com:sandrofonseca/TagAndProbe.git`
+**Obtendo os dados**
 
-Go to this directory that you copied from Git and compile the code:
 
-`$ cd TagAndProbe`
+Neste ponto, você deve copiar este Git para sua área usando o comando:
+
+`$ git clone git@github.com:Miguellopescruzrodrigues/Secao_de_choque_Z0.git`
+
+Vá para este diretório que você copiou do Git e compile o código:
+
+`$ cd Secao_de_choque_Z0/Eficiencia-TagAndProbe`
 
 `$ scram b`
 
-After that go to `test` folder and run the python file:
+Depois disso já é possível executar o código.
 
-`$ cmsRun TagAndProbe_Model_Trigger.py`
+`$ cmsRun src/TagAndProbe2019.cc`
 
-Wait and you will see a root file, named TagAndProbe2019.root, that will be created. You can open this file and see its contents:
+Aguarde e você verá um novo arquivo .root, chamado TagAndProbe.root. Você pode abrir este arquivo e ver seu conteúdo:
 
-`$ root -l TagAndProbe2019.root`
+`$ root -l TagAndProbe_Z0_Data.root`
 
 `$ new TBrownser`
 
-We use the **J/$\psi$** resonance in this example and make an output tree (root file) with the same content as the CMSSW **TagAndProbe** method. If you want study another resonance, just open the config file (TagAndProbe_Model_Trigger.py) and modify the range of mass in the line 43 and 44:
+Usou-se a ressonância do **Z0** neste exemplo para criar um arquivo .root com o mesmo conteúdo do método CMSSW **TagAndProbe**. Se você quiser estudar outra ressonância, basta abrir o arquivo de configuração (TagAndProbe_Model_Trigger.py) e modificar a faixa de massa na linha 46 e 47:
 
-	minResonanceMass = cms.double(2.8),# in GeV
-	maxResonanceMass = cms.double(3.4)# in GeV
+	minResonanceMass = cms.double(70.),# in GeV
+	maxResonanceMass = cms.double(120.)# in GeV
 
-You can change the dataset files in the 14:
+Você pode alterar os arquivos do conjunto de dados na linha 15:
 
-	'root://eospublic.cern.ch//eos/opendata/cms/Run2011A/MuOnia/AOD/12Oct2013-v1/20000/0045B338-934C-E311-BEF1-0026189438B0.root'     
+`$ "data/CMS_Run2011A_DoubleMu_AOD_12Oct2013-v1_10000_file_index.txt"`
 	
-and the triggers in the line 36:
+e os triggers na linha 41:
 
-	PathName = cms.untracked.vstring(["HLT_Dimuon10_Jpsi_Barrel_v","HLT_Dimuon7_PsiPrime_v"]), 
-
-	
-
-**Recipe to produce ntuples using condor**
-
-[Recipe Tutorial](https://twiki.cern.ch/twiki/pub/CMS/UERJLIPInternshipProgram2020/Condor_tagprobeRecipe.pdf)
+	PathName = cms.untracked.vstring(["HLT_IsoMu24_eta2p1"]),
 
 
 
-	
+Já em posse de uma Ntuple contendo os as informações necessárias para calcular a eficiência de identificação do múon, mova seus dados e dirija-se para:
+`$ mv TagAndProbe_Z0_Data efficiency_tools/fitting/tests`
+`$ cd efficiency_tools/fitting/tests `
 
+Onde se encontra um programa chamado **simplify_data.cpp**. Esse programa muda a organização do seu arquivo .root de modo que ele possa ser aplicado no código para calcular a eficiência 
 
+`$ root -l simplify_data.cpp `
+
+Com seu novo arquivo **Eficiencia_Z0_Data.root**, basta move-lo para a pasta DATA que se encontra o diretório anterior `$ cd ..`onde se está o **efficiency.cpp**(Código que realiza o calculo da eficiência).
+
+`$ root -l efficiency.cpp `
+
+É possível que ocorra algum problema na com os plots das eficiências caso a sua versão do root não esteja atualizada.
+
+<div align="center">
+<img src="https://user-images.githubusercontent.com/43889863/161596074-eb3ce7ae-e55c-4aa1-bef5-0635c2a91525.png" width="700px" />
+</div>
+
+<div align="center">
+<img src="https://user-images.githubusercontent.com/43889863/161597071-2eef1120-9ad6-4181-aed6-6b7fa2f08cb2.png" width="700px" />
+</div>
+
+<div align="center">
+<img src="https://user-images.githubusercontent.com/43889863/161598534-2045b388-98b5-4bd6-974f-a27e364983ac.png" width="700px" />
+</div>
+
+<div align="center">
+<img src="https://user-images.githubusercontent.com/43889863/161597602-8a261f5f-89e2-4d6e-9d33-8d7972795e64.png" width="700px" />
+</div>

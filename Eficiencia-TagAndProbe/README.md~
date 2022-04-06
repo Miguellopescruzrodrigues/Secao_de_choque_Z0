@@ -1,8 +1,8 @@
-# TagAndProbe package using Legacy Open Data samples
+# Cálculo da eficiencia do detector, utilizando o método de TagAndProbe.
 
 **Introduction**
 
-This is a simple example of the **TagAndProbe** method using datasets of CMS Open Data. The main goal of this project is to make a simple example code applying the Tag and Probe methods, since the official TagAndProbe tool is complex. In this project, we did a more easy-to-understand code for CMS Open Data users. More about it can be seen in this twiki:
+Este repositório é baseado 
 
 https://twiki.cern.ch/twiki/bin/view/Sandbox/TestTopic11111203
 

@@ -2,15 +2,15 @@ using namespace RooFit;
 using namespace std;
 
 //We start by declaring the nature of our dataset. (Is the data real or simulated?)
-const char* output_folder_name = "Z0_Run_2011";
+const char* output_folder_name = "Z0_Run";
 
 //Header of this function
 double _mmin = 60;
-double _mmax = 120;
+double _mmax = 110;
 double fit_bins = 0;
 
 // Information for output at the end of run
-const char* fit_functions = "Gaussian + Breit-Wigner";
+const char* fit_functions = "Voigtian + CrystalBall + Polynomial";
 string prefix_file_name = "";
 
 double* doFit(string condition, string MuonId, const char* savePath = NULL) // RETURNS ARRAY WITH [yield_all, yield_pass, err_all, err_pass]
@@ -20,14 +20,14 @@ double* doFit(string condition, string MuonId, const char* savePath = NULL) // R
 	else if (MuonId == "standaloneMuon") MuonId_str = "PassingProbeStandAloneMuon";
 	else if (MuonId == "globalMuon")     MuonId_str = "PassingProbeGlobalMuon";
 	
-	TFile *file0       = TFile::Open("DATA/TagAndProbe_Z0_Run2011.root");
+	TFile *file0       = TFile::Open("DATA/TagAndProbeSingleMu200Mil.root");
 	TTree *DataTree    = (TTree*)file0->Get(("tagandprobe"));
 	
 	RooCategory MuonId_var(MuonId_str.c_str(), MuonId_str.c_str());
 	MuonId_var.defineType("All");
 	MuonId_var.defineType("PASSING");
 	RooRealVar  InvariantMass("InvariantMass", "InvariantMass", _mmin, _mmax);
-	RooRealVar  quantityPt   ("ProbeMuon_Pt",  "ProbeMuon_Pt",  0., 80.);
+	RooRealVar  quantityPt   ("ProbeMuon_Pt",  "ProbeMuon_Pt",  15.0, 150.);
 	RooRealVar  quantityEta  ("ProbeMuon_Eta", "ProbeMuon_Eta", -2.4, 2.4);
 	RooRealVar  quantityPhi  ("ProbeMuon_Phi", "ProbeMuon_Phi", -TMath::Pi(), TMath::Pi());
 
@@ -46,7 +46,37 @@ double* doFit(string condition, string MuonId, const char* savePath = NULL) // R
 	TCanvas* c_all  = new TCanvas;
 	TCanvas* c_pass = new TCanvas;
 	
+	RooPlot *frame = InvariantMass.frame(RooFit::Title("Invariant Mass"));
 
+
+//====================================AJUSTE USANDO VOIGTIAN, CRYSTALBALL, Polynomial PARA O background =========================
+	   
+	// VOIGTIAN VARIABLES
+	RooRealVar mean("mean","mean",91.1976, 90., 92.); //Z0 mass
+	RooRealVar sigma("sigma","sigma",1.0);
+	RooRealVar width("width","width",2.45);
+	//CRYSTALBALL VARIABLES
+	RooRealVar sigma_cb("sigma_cb","sigma_cb", 2.0);
+	RooRealVar alpha("alpha", "alpha", 0.7);
+	RooRealVar n("n", "n", 3.0);
+	// BACKGROUND VARIABLES
+    	RooRealVar a0("a0", "a0", 0, -10, 10);
+    	RooRealVar a1("a1", "a1", 0, -10, 10);
+	//FIT FUNCTIONS
+	RooVoigtian voitgtian("VT","VT",InvariantMass,mean,width,sigma);
+	RooPolynomial background("BG", "BG", InvariantMass, RooArgList(a0,a1));
+	RooCBShape crystalball("CBS", "CBS", InvariantMass, mean, sigma_cb, alpha, n);
+	double n_signal_initial_total = 80000;
+	double n_back_initial = 10000;
+	RooRealVar frac1("frac1","frac1",0.5);
+
+	RooAddPdf* signal;
+	
+	signal      = new RooAddPdf("signal", "signal", RooArgList(voitgtian, crystalball), RooArgList(frac1));
+//=====================================FIM ======= AJUSTE USANDO VOIGTIAN, CRYSTALBALL, Polynomial PARA O background ======================
+
+
+/*TENTATIVA DE AJUSTE UTILIZANDO UMA BREIT-WIGNER E UMA CBS////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// BACKGROUND VARIABLES
 	//RooRealVar a0("a0", "a0", 0, -10, 10);
 	//RooRealVar a1("a1", "a1", 0, -10, 10);
@@ -57,18 +87,19 @@ double* doFit(string condition, string MuonId, const char* savePath = NULL) // R
 	//Now we must choose initial conditions in order to fit our data
 	double *init_conditions = new double[2];
 	init_conditions[0] = 91.0;
-	init_conditions[1] = 5.5;
+	init_conditions[1] = 2.0;
 	init_conditions[2] = 2.4952; //Largura do Z0  ----- 1/tempo de vida
 	
 	// GAUSSIAN and Breit-Wigner VARIABLES
-	RooRealVar mean2("mean2","mean2",init_conditions[0]);
+	RooRealVar mean2("mean2","mean2", 91.0, 90., 92.);
 	RooRealVar sigma("sigma","sigma",init_conditions[1]);
 	RooRealVar largura("largura","largura",init_conditions[2]);
-	RooRealVar alpha("alpha","alpha",init_conditions[1]);
-	RooRealVar n( "n", "n",init_conditions[1]);	
+	RooRealVar alpha("alpha","alpha", 0.7);
+	RooRealVar n( "n", "n", 3.0);	
+
 	// FIT FUNCTIONS
 	//RooCBShape  gaussian1("signal1","signal1",InvariantMass,mean1,sigma, alpha, n);
-	RooGaussian gaussian2("gaussian2","gaussian2",InvariantMass,mean2,sigma);
+	//RooGaussian gaussian2("gaussian2","gaussian2",InvariantMass,mean2,sigma);
 	RooBreitWigner BW("BW","BW",InvariantMass,mean2,largura);
 	RooCBShape  CBS("CBS","CBS",InvariantMass,mean2,sigma, alpha, n);
 	double n_signal_initial0 =(Data_ALL->sumEntries(TString::Format("abs(InvariantMass-%g)<0.015",init_conditions[0]))-Data_ALL->sumEntries(TString::Format("abs(InvariantMass-%g)<0.030&&abs(InvariantMass-%g)>.015",init_conditions[0],init_conditions[0]))) / Data_ALL->sumEntries();
@@ -77,12 +108,13 @@ double* doFit(string condition, string MuonId, const char* savePath = NULL) // R
 	double n_signal_initial_total = n_signal_initial0 + n_signal_initial1;
 	
 	RooRealVar frac1("frac1","frac1", 0.55);
-	RooRealVar frac2("frac2","frac2",0.45);
 
 	RooAddPdf* signal;
 	
-	signal      = new RooAddPdf("signal", "signal + BW + CBS", RooArgList(BW, CBS), RooArgList(frac1));
+	signal      = new RooAddPdf("signal", "signal", RooArgList(BW, CBS), RooArgList(frac1));
 	double n_back_initial = 1. - n_signal_initial0 -n_signal_initial1;
+*/ //FINAL  TENTATIVA DE AJUSTE UTILIZANDO UMA BREIT-WIGNER E UMA CBS ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 	RooRealVar n_signal_total("n_signal_total","n_signal_total",n_signal_initial_total,0.,Data_ALL->sumEntries());
 	RooRealVar n_signal_total_pass("n_signal_total_pass","n_signal_total_pass",n_signal_initial_total,0.,Data_PASSING->sumEntries());
@@ -92,8 +124,8 @@ double* doFit(string condition, string MuonId, const char* savePath = NULL) // R
 	RooAddPdf* model;
 	RooAddPdf* model_pass;
 	
-	model      = new RooAddPdf("model","model", RooArgList(*signal),RooArgList(n_signal_total));
-	model_pass = new RooAddPdf("model_pass", "model_pass", RooArgList(*signal),RooArgList(n_signal_total_pass));
+	model      = new RooAddPdf("model","model", RooArgList(*signal, background),RooArgList(n_signal_total, n_back));
+	model_pass = new RooAddPdf("model_pass", "model_pass", RooArgList(*signal, background),RooArgList(n_signal_total_pass, n_back_pass));
 	
 	// SIMULTANEOUS FIT
 	RooCategory sample("sample","sample") ;
@@ -109,6 +141,24 @@ double* doFit(string condition, string MuonId, const char* savePath = NULL) // R
 	
 	RooFitResult* fitres = new RooFitResult;
 	fitres = simPdf.fitTo(combData, RooFit::Save());
+
+
+
+	//legenda
+	TH1F *orange = new TH1F("h1","Ex",1,-10,10);
+	TH1F *green = new TH1F("h2","Ex",1,-10,10);
+	TH1F *red = new TH1F("h3","Ex",1,-10,10);
+	TH1F *magenta = new TH1F("h4","Ex",1,-10,10);
+	TH1F *blue = new TH1F("h5","Ex",1,-10,10);
+	orange->SetLineColor(kOrange);
+	green->SetLineColor(kGreen);
+	red->SetLineColor(kRed);
+	magenta->SetLineColor(kMagenta);
+	blue->SetLineColor(kBlue);
+	orange->SetLineStyle(2);
+	green->SetLineStyle(2);
+	red->SetLineStyle(2);
+	magenta->SetLineStyle(2);
 	
 	// OUTPUT ARRAY
 	double* output = new double[4];
@@ -121,50 +171,46 @@ double* doFit(string condition, string MuonId, const char* savePath = NULL) // R
 	
 	output[2] = yield_ALL->getError();
 	output[3] = yield_PASS->getError();
-
-	RooPlot *frame = InvariantMass.frame(RooFit::Title("Invariant Mass"));
-
-	c_all->cd();
-
+	
 	frame->SetTitle("ALL");
 	frame->SetXTitle("#mu^{+}#mu^{-} invariant mass [GeV/c^{2}]");
 	Data_ALL->plotOn(frame);
+	
 	model->plotOn(frame);
+	model->plotOn(frame,RooFit::Components("signal"),RooFit::LineStyle(kDashed),RooFit::LineColor(kGreen));
+	model->plotOn(frame,RooFit::Components("BG"),RooFit::LineStyle(kDashed),RooFit::LineColor(kRed));
+	model->plotOn(frame,RooFit::Components("VT"),RooFit::LineStyle(kDashed),RooFit::LineColor(kOrange));
+	model->plotOn(frame,RooFit::Components("CBS"),RooFit::LineStyle(kDashed),RooFit::LineColor(kMagenta));
 	
-	model->plotOn(frame,RooFit::Components("signal"),RooFit::LineStyle(kDashed),RooFit::LineColor(kBlue));
-	model->plotOn(frame, RooFit::Name("BW"),Components("BW"),Range("all"), LineColor(kRed), LineStyle(kDashed));
-	model->plotOn(frame,RooFit::Components("gaussian2"),RooFit::LineStyle(kDashed),RooFit::LineColor(kGreen));
-	model->plotOn(frame, RooFit::Name("BW"),Components("BW"),Range("all"), LineColor(kRed), LineStyle(kDashed));
-	model->plotOn(frame, RooFit::Name("CBS"),Components("CBS"),Range("all"), LineColor(kViolet), LineStyle(kDashed));
-
-
-
-	TLegend *leg = new TLegend (0.15,0.45,0.40,0.75);
-	leg->AddEntry(frame->findObject("n_signal_initial_total"), "Massa Z0", "LP");
-	leg->AddEntry(frame->findObject("signal"),"Sinal","L");
-	//leg->AddEntry("gauss1","Gaussiana","L");
-	leg->AddEntry(frame->findObject("BW"),"Breit-Wigner","L");
-	leg->AddEntry(frame->findObject("CBS"),"Crystal ball","L");
-
 	
-
+	c_all->cd();
 	frame->Draw("");
+	//CREATING LEGEND
+	TLegend *leg = new TLegend(0.6,0.6,0.9,0.9);
+	leg->AddEntry(blue,"Total Fit","l");
+	leg->AddEntry(green,"Signal","l");
+	leg->AddEntry(orange,"Voitgtian","l");
+	leg->AddEntry(magenta,"Crystalball","l");
+	leg->AddEntry(red,"Background","l");
 	leg->Draw();
 
 	RooPlot *frame_pass = InvariantMass.frame(RooFit::Title("Invariant Mass"));
-
+	
 	c_pass->cd();
-
+	
 	frame_pass->SetTitle("PASSING");
 	frame_pass->SetXTitle("#mu^{+}#mu^{-} invariant mass [GeV/c^{2}]");
 	Data_PASSING->plotOn(frame_pass);
+	
 	model_pass->plotOn(frame_pass);
-
-	model_pass->plotOn(frame_pass,RooFit::Components("gaussian2"),RooFit::LineStyle(kDashed),RooFit::LineColor(kGreen));
-	model_pass->plotOn(frame_pass, RooFit::Name("BW"),Components("BW"),Range("all"), LineColor(kRed), LineStyle(kDashed));
-	model_pass->plotOn(frame_pass, RooFit::Name("CBS"),Components("CBS"),Range("all"), LineColor(kViolet), LineStyle(kDashed));
+	model_pass->plotOn(frame_pass,RooFit::Components("signal"),RooFit::LineStyle(kDashed),RooFit::LineColor(kGreen));
+	model_pass->plotOn(frame_pass,RooFit::Components("BG"),RooFit::LineStyle(kDashed),RooFit::LineColor(kRed));
+	model_pass->plotOn(frame_pass,RooFit::Components("VT"),RooFit::LineStyle(kDashed),RooFit::LineColor(kOrange));
+	model_pass->plotOn(frame_pass,RooFit::Components("CBS"),RooFit::LineStyle(kDashed),RooFit::LineColor(kMagenta));
+	
 
 	frame_pass->Draw();
+		//CREATING LEGEND
 	leg->Draw();
 
 	if (savePath != NULL)
@@ -172,8 +218,7 @@ double* doFit(string condition, string MuonId, const char* savePath = NULL) // R
 		c_pass->SaveAs((string(savePath) + condition + "_PASS.png").c_str());
 		c_all->SaveAs ((string(savePath) + condition + "_ALL.png").c_str());
 	}
-
-	// DELETING ALLOCATED MEMORY
+	// DELETING ALLOCATED MEMORY*/
 	delete file0;
 	//
 	delete Data_ALL;

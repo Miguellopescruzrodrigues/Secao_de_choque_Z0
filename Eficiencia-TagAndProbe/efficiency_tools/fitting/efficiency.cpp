@@ -1,6 +1,5 @@
 //Change if you need
 #include "src/dofits/DoFit_Z0.cpp"
-
 #include "src/create_folder.cpp"
 #include "src/get_efficiency.cpp"
 #include "src/make_TH1D.cpp"
@@ -70,15 +69,15 @@ string MuonId   = "trackerMuon";
 //string MuonId   = "globalMuon";
 
 //Which quantity do you want to use?
-//string quantity = "Pt";     double bins[] =  {10., 12., 14., 16., 18., 21., 25., 30., 35., 45., 60., 80.};
-string quantity = "Eta";    double bins[] =  {-2.0, -1.0, -0.5, 0., 0.5, 1.0, 2.0};
-//string quantity = "Phi";    double bins[] = {-3.0, -1.8, -1.6, -1.2, -1.0, -0.7, -0.4, -0.2, 0, 0.2, 0.4, 0.7, 1.0, 1.2, 1.6, 1.8, 3.0};
+string quantity = "Pt";     double bins[] =  {10., 15., 20., 25., 30., 35., 40., 45., 50.0, 65.0};
+//string quantity = "Eta";    double bins[] =  {-2.0, -1.5, -1.0, -0.5, 0., 0.5, 1.0, 1.5, 2.0};
+//string quantity = "Phi";    double bins[] = {-3.0, -2.5, -2.0, -1.0, -0.5, -0, 0.5, 1.0, 1.5, 2.0, 2.5, 3.0};
 
 void efficiency()
 {
 	//Path where is going to save results png for every bin 
-	const char* path_bins_fit_folder = "results/bins_fit/efficiency/";
-	//create_folder(path_bins_fit_folder, true);
+	const char* path_bins_fit_folder = "results/bins_fit/";
+	create_folder(path_bins_fit_folder, true);
 
 	// Loop for every bin and fit it
 	int nbins = sizeof(bins)/sizeof(*bins) - 1;
@@ -94,7 +93,7 @@ void efficiency()
 	}
 
 	//Path where is going to save efficiency 
-	string directoryToSave = string("results/bins_fit/efficiency/pt") + output_folder_name + string("/");
+	string directoryToSave = string("results/efficiencies/") + output_folder_name + string("/");
 	create_folder(directoryToSave.c_str());
 
 	//Create file

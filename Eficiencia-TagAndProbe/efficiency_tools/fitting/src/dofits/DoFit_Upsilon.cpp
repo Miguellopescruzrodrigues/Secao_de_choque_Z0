@@ -1,11 +1,11 @@
 using namespace RooFit;
 
 //We start by declaring the nature of our dataset. (Is the data real or simulated?)
-const char* output_folder_name = "Z0_Run_2011";
+const char* output_folder_name = "Upsilon_Run_2011";
 
 //Header of this function
-double _mmin = 60;
-double _mmax = 120;
+double _mmin = 9;
+double _mmax = 10.8;
 double fit_bins = 0; //Let it 0 if dont want to change
 
 // Information for output at the end of run
@@ -19,14 +19,14 @@ double* doFit(string condition, string MuonId, const char* savePath = NULL) // R
 	else if (MuonId == "standaloneMuon") MuonId_str = "PassingProbeStandAloneMuon";
 	else if (MuonId == "globalMuon")     MuonId_str = "PassingProbeGlobalMuon";
 	
-	TFile *file0       = TFile::Open("DATA/TagAndProbe_Z0_Run2011.root");
+	TFile *file0       = TFile::Open("DATA/TagAndProbe_Upsilon_Run2011.root");
 	TTree *DataTree    = (TTree*)file0->Get(("tagandprobe"));
 	
 	RooCategory MuonId_var(MuonId_str.c_str(), MuonId_str.c_str());
 	MuonId_var.defineType("All");
 	MuonId_var.defineType("PASSING");
 	RooRealVar  InvariantMass("InvariantMass", "InvariantMass", _mmin, _mmax);
-	RooRealVar  quantityPt   ("ProbeMuon_Pt",  "ProbeMuon_Pt",  0., 80.);
+	RooRealVar  quantityPt   ("ProbeMuon_Pt",  "ProbeMuon_Pt",  0., 40.);
 	RooRealVar  quantityEta  ("ProbeMuon_Eta", "ProbeMuon_Eta", -2.4, 2.4);
 	RooRealVar  quantityPhi  ("ProbeMuon_Phi", "ProbeMuon_Phi", -TMath::Pi(), TMath::Pi());
 

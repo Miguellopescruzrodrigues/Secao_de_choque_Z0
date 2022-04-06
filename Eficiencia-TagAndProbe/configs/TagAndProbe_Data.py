@@ -9,10 +9,10 @@ process = cms.Process("TagAndProbeData")
 process.load("FWCore.MessageService.MessageLogger_cfi")
 
 # Set the maximum number of events to be processed (-1 processes all events)
-process.maxEvents = cms.untracked.PSet(input=cms.untracked.int32(-1))
+process.maxEvents = cms.untracked.PSet(input=cms.untracked.int32(100000))
 
 # Define files of dataset
-files = FileUtils.loadListFromFile("data/CMS_Run2011A_MuOnia_AOD_12Oct2013-v1_00001_file_index.txt")
+files = FileUtils.loadListFromFile("data/CMS_Run2011B_SingleMu_AOD_12Oct2013-v1_10000_file_index")
 
 process.source = cms.Source(
     "PoolSource", fileNames=cms.untracked.vstring(*files))
@@ -28,7 +28,7 @@ process.source.skipEvents = cms.untracked.uint32(0)
 
 process.TFileService = cms.Service ('TFileService',
     fileName = cms.string (
-    'output.root'
+    'TagAndProbe.root'
     )
 )
   
@@ -43,8 +43,8 @@ process.tagandprobe = cms.EDAnalyzer('TagAndProbe2019',
 	primaryVertexProducer = cms.InputTag("offlinePrimaryVertices"),
 	recoMuonsLabel = cms.InputTag("muons"), 
 	# RECO Configs
-	minResonanceMass = cms.double(2.5),# in GeV
-	maxResonanceMass = cms.double(3.5)# in GeV 
+	minResonanceMass = cms.double(60.0),# in GeV
+	maxResonanceMass = cms.double(110.0)# in GeV 
 )
 
 
