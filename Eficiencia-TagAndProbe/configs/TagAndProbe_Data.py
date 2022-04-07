@@ -9,10 +9,10 @@ process = cms.Process("TagAndProbeData")
 process.load("FWCore.MessageService.MessageLogger_cfi")
 
 # Set the maximum number of events to be processed (-1 processes all events)
-process.maxEvents = cms.untracked.PSet(input=cms.untracked.int32(100000))
+process.maxEvents = cms.untracked.PSet(input=cms.untracked.int32(10000))
 
 # Define files of dataset
-files = FileUtils.loadListFromFile("data/CMS_Run2011B_SingleMu_AOD_12Oct2013-v1_10000_file_index")
+files = FileUtils.loadListFromFile("data/CMS_Run2011B_SingleMu_AOD_12Oct2013-v1_10000_file_index.txt")
 
 process.source = cms.Source(
     "PoolSource", fileNames=cms.untracked.vstring(*files))
@@ -28,7 +28,7 @@ process.source.skipEvents = cms.untracked.uint32(0)
 
 process.TFileService = cms.Service ('TFileService',
     fileName = cms.string (
-    'TagAndProbe.root'
+    'TagAndProbeSingleMu2.root'
     )
 )
   
@@ -38,13 +38,13 @@ process.tagandprobe = cms.EDAnalyzer('TagAndProbe2019',
 	# Trigger
 	TriggerResultsTag = cms.untracked.InputTag("TriggerResults", "", "HLT"),
 	TriggerEventTag = cms.untracked.InputTag("hltTriggerSummaryAOD", "", "HLT"),
-	PathName = cms.untracked.vstring(["HLT_Dimuon10_Jpsi_Barrel_v"]),
+	PathName = cms.untracked.vstring(["HLT_IsoMu24_eta2p1"]),
 	# RECO Labels
 	primaryVertexProducer = cms.InputTag("offlinePrimaryVertices"),
 	recoMuonsLabel = cms.InputTag("muons"), 
 	# RECO Configs
-	minResonanceMass = cms.double(60.0),# in GeV
-	maxResonanceMass = cms.double(110.0)# in GeV 
+	minResonanceMass = cms.double(70.),# in GeV
+	maxResonanceMass = cms.double(120.)# in GeV 
 )
 
 
