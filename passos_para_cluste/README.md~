@@ -11,19 +11,19 @@ Estando conectado a rede T2_BR_UERJ ou conectado a internet diretamente da sala 
 
 Primeiro verificar a existência do diretório abaixo.
 
-'$ ls -l ~/.condor/tokens.d'
+`$ ls -l ~/.condor/tokens.d`
 
 Caso ele não exista, criar com os comandos abaixo.
 
-'$ cd ~'
-'$ mkdir .condor'
-'$ cd .condor'
-'$ mkdir tokens.d'
+`$ cd ~`
+`$ mkdir .condor`
+`$ cd .condor`
+`$ mkdir tokens.d`
 
 É nescessario requisitar um Token valido para a equipe da T2_BR_UERJ. Tendo o Token em mãos ele feve ser colocado colocado em um arquivo chamado TOKEN, logo faça:
 
-'$ cd ~/.condor/tokens.d'
-'& vim TOKEN'
+`$ cd ~/.condor/tokens.d`
+`& vim TOKEN`
 
 Basta colar o seu Token no arquivo e salva-lo.
 
@@ -31,9 +31,9 @@ Basta colar o seu Token no arquivo e salva-lo.
 
 Este comando ira criar um diretório chamado CMSSW_5_3_32 em que estará configurada a versão 5_3_32 do CMSSW.
 
-'& cmsrel CMSSW_5_3_32'
+`& cmsrel CMSSW_5_3_32`
 Conferindo se o ambiente foi instalado corretamente:
-'&  ls -lah CMSSW_5_3_32/'
+`&  ls -lah CMSSW_5_3_32/`
 
 - **Baixando os arquivos do git**
 Pronto agora vamos baixar os arquivos que vamos rodar de um github, para isso vá até o diretório:
@@ -47,68 +47,15 @@ Pronto agora vamos baixar os arquivos que vamos rodar de um github, para isso v�
 
 Vá para o diretório:
 
-'$ cd Secao_de_choque_Z0/Eficiencia-TagAndProbe'
-
-
-`$ git clone git@github.com:Miguellopescruzrodrigues/Secao_de_choque_Z0.git`
-
-Vá para este diretório que você copiou do Git e compile o código:
-
 `$ cd Secao_de_choque_Z0/Eficiencia-TagAndProbe`
 
+Não se esqueça de configurar o ambiente e fazer um executavel do programa fazendo:
+
+`$ cmsenv`
 `$ scram b`
 
-Depois disso já é possível executar o código.
+Agora podemos rodar o nosso código.
 
-`$ cmsRun src/TagAndProbe2019.cc`
+`$ cmsRun configs/TagAndProbe_Data.py`
 
-Aguarde e você verá um novo arquivo .root, chamado TagAndProbe.root. Você pode abrir este arquivo e ver seu conteúdo:
-
-`$ root -l TagAndProbe_Z0_Data.root`
-
-`$ new TBrownser`
-
-Usou-se a ressonância do **Z0** neste exemplo para criar um arquivo .root com o mesmo conteúdo do método CMSSW **TagAndProbe**. Se você quiser estudar outra ressonância, basta abrir o arquivo de configuração (TagAndProbe_Model_Trigger.py) e modificar a faixa de massa na linha 46 e 47:
-
-	minResonanceMass = cms.double(70.),# in GeV
-	maxResonanceMass = cms.double(120.)# in GeV
-
-Você pode alterar os arquivos do conjunto de dados na linha 15:
-
-`$ "data/CMS_Run2011A_DoubleMu_AOD_12Oct2013-v1_10000_file_index.txt"`
-	
-e os triggers na linha 41:
-
-	PathName = cms.untracked.vstring(["HLT_IsoMu24_eta2p1"]),
-
-
-
-Já em posse de uma Ntuple contendo os as informações necessárias para calcular a eficiência de identificação do múon, mova seus dados e dirija-se para:
-`$ mv TagAndProbe_Z0_Data efficiency_tools/fitting/tests`
-`$ cd efficiency_tools/fitting/tests `
-
-Onde se encontra um programa chamado **simplify_data.cpp**. Esse programa muda a organização do seu arquivo .root de modo que ele possa ser aplicado no código para calcular a eficiência 
-
-`$ root -l simplify_data.cpp `
-
-Com seu novo arquivo **Eficiencia_Z0_Data.root**, basta move-lo para a pasta DATA que se encontra o diretório anterior `$ cd ..`onde se está o **efficiency.cpp**(Código que realiza o calculo da eficiência).
-
-`$ root -l efficiency.cpp `
-
-É possível que ocorra algum problema na com os plots das eficiências caso a sua versão do root não esteja atualizada.
-
-<div align="center">
-<img src="https://user-images.githubusercontent.com/43889863/161596074-eb3ce7ae-e55c-4aa1-bef5-0635c2a91525.png" width="700px" />
-</div>
-
-<div align="center">
-<img src="https://user-images.githubusercontent.com/43889863/161597071-2eef1120-9ad6-4181-aed6-6b7fa2f08cb2.png" width="700px" />
-</div>
-
-<div align="center">
-<img src="https://user-images.githubusercontent.com/43889863/161598534-2045b388-98b5-4bd6-974f-a27e364983ac.png" width="700px" />
-</div>
-
-<div align="center">
-<img src="https://user-images.githubusercontent.com/43889863/161597602-8a261f5f-89e2-4d6e-9d33-8d7972795e64.png" width="700px" />
-</div>
+pronto, espero que tudo corra bem. =)
