@@ -2,7 +2,7 @@ using namespace RooFit;
 using namespace std;
 
 //We start by declaring the nature of our dataset. (Is the data real or simulated?)
-const char* output_folder_name = "Z0_Run";
+const char* output_folder_name = "Z0_Run_10001_Mudado";
 
 //Header of this function
 double _mmin = 60;
@@ -20,7 +20,7 @@ double* doFit(string condition, string MuonId, const char* savePath = NULL) // R
 	else if (MuonId == "standaloneMuon") MuonId_str = "PassingProbeStandAloneMuon";
 	else if (MuonId == "globalMuon")     MuonId_str = "PassingProbeGlobalMuon";
 	
-	TFile *file0       = TFile::Open("DATA/TagAndProbeSingleMu200Mil.root");
+	TFile *file0       = TFile::Open("DATA/TPSingleM_File10001.root");
 	TTree *DataTree    = (TTree*)file0->Get(("tagandprobe"));
 	
 	RooCategory MuonId_var(MuonId_str.c_str(), MuonId_str.c_str());
@@ -60,8 +60,8 @@ double* doFit(string condition, string MuonId, const char* savePath = NULL) // R
 	RooRealVar alpha("alpha", "alpha", 0.7);
 	RooRealVar n("n", "n", 3.0);
 	// BACKGROUND VARIABLES
-    	RooRealVar a0("a0", "a0", 0, -10, 10);
-    	RooRealVar a1("a1", "a1", 0, -10, 10);
+    	RooRealVar a0("a0", "a0", 0, -50, 50);
+    	RooRealVar a1("a1", "a1", 0, -25, 25);
 	//FIT FUNCTIONS
 	RooVoigtian voitgtian("VT","VT",InvariantMass,mean,width,sigma);
 	RooPolynomial background("BG", "BG", InvariantMass, RooArgList(a0,a1));
@@ -186,7 +186,7 @@ double* doFit(string condition, string MuonId, const char* savePath = NULL) // R
 	c_all->cd();
 	frame->Draw("");
 	//CREATING LEGEND
-	TLegend *leg = new TLegend(0.6,0.6,0.9,0.9);
+	TLegend *leg = new TLegend(0.3,0.6,0.1,0.9);
 	leg->AddEntry(blue,"Total Fit","l");
 	leg->AddEntry(green,"Signal","l");
 	leg->AddEntry(orange,"Voitgtian","l");

@@ -23,6 +23,5 @@ TH1D* make_TH1D(string name, double** values, int index, double* bins, int nbins
 		xperiment->cd();
 		hist->Draw();
 	}
-			cout << "Teste" << endl << endl<< endl<< endl<< endl<< endl<< endl;
 	return hist;
 }
