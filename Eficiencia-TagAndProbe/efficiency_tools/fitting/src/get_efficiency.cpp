@@ -5,8 +5,8 @@ TEfficiency* get_efficiency(TH1D* all, TH1D* pass, string quantity, string MuonI
 	TH1D* pass_copy = (TH1D*)pass->Clone();
 	TH1D* all_copy  = (TH1D*)all ->Clone();
 
-	pass_copy->GetYaxis()->SetTitle("Efficiency");
-	all_copy ->GetYaxis()->SetTitle("Efficiency");
+	pass_copy->GetYaxis()->SetTitle("Eficiencia");
+	all_copy ->GetYaxis()->SetTitle("Eficiencia");
 	
 	TEfficiency* pEff = new TEfficiency();
 	pEff->SetPassedHistogram(*pass_copy, "f");

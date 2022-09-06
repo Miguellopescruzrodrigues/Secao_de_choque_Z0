@@ -5,7 +5,7 @@ TH1D* make_TH1D(string name, double** values, int index, double* bins, int nbins
    
 	TH1D* hist = new TH1D(name.c_str(), name.c_str(), nbins, bins);
 
-	hist->GetYaxis()->SetTitle("Events");
+	hist->GetYaxis()->SetTitle("Eventos");
 	if      (quantity == "Pt" ) hist->GetXaxis()->SetTitle("p_{T} [GeV/c]");
 	else if (quantity == "Eta") hist->GetXaxis()->SetTitle("#eta");
 	else if (quantity == "Phi") hist->GetXaxis()->SetTitle("rad");

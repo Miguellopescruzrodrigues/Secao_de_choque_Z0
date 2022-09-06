@@ -63,21 +63,22 @@
 
 
 
+
 //Which Muon Id do you want to study?
-//string MuonId   = "trackerMuon";
+string MuonId   = "trackerMuon";
 //string MuonId   = "standaloneMuon";
-string MuonId   = "globalMuon";
+//string MuonId   = "globalMuon";
 
 //Which quantity do you want to use?
-string quantity = "Pt";     double bins[] =  {10., 15., 20., 25., 30., 35., 40., 45., 50.0, 65.0};
+string quantity = "Pt";     double bins[] =  {15., 20., 25., 30., 35., 40., 45., 50.0, 65.0};
 //string quantity = "Eta";    double bins[] =  {-2.0, -1.5, -1.0, -0.5, 0., 0.5, 1.0, 1.5, 2.0};
 //string quantity = "Phi";    double bins[] = {-3.0, -2.5, -2.0, -1.0, -0.5, -0, 0.5, 1.0, 1.5, 2.0, 2.5, 3.0};
 
 void efficiency()
 {
 	//Path where is going to save results png for every bin 
-	const char* path_bins_fit_folder = "results/bins_fit/";
-	create_folder(path_bins_fit_folder, true);
+	const char* path_bins_fit_folder = "results/bins_fit/globalMuon/";
+	create_folder(path_bins_fit_folder);
 
 	// Loop for every bin and fit it
 	int nbins = sizeof(bins)/sizeof(*bins) - 1;
@@ -103,8 +104,8 @@ void efficiency()
 	//Create histograms
 	generatedFile->mkdir("histograms/");
 	generatedFile->   cd("histograms/");
-	TH1D *yield_all  = make_TH1D("ALL" , yields_n_errs, 0, bins, nbins, quantity);
-	TH1D *yield_pass = make_TH1D("PASS", yields_n_errs, 1, bins, nbins, quantity);
+	TH1D *yield_all  = make_TH1D("Todos" , yields_n_errs, 0, bins, nbins, quantity);
+	TH1D *yield_pass = make_TH1D("Passaram", yields_n_errs, 1, bins, nbins, quantity);
 	
 	//Create efficiencies
 	generatedFile->   cd("/");
@@ -122,31 +123,4 @@ void efficiency()
 	cout << "\n------------------------\n";
 	cout << "Output: " << file_path;
 	cout << "\n------------------------\n";
-
-/*
-	//criando histograma comparativo
-	TFile *f1 = new TFile("results/efficiencies/Z0_Run_10000_1-500_fit_bg_mudado/Pt_globalMuon.root");
-	TFile *f2 = new TFile("results/efficiencies/Z0_Run_10000_1-500/Pt_globalMuon.root");
-
-
-	TEfficiency* Eff1 =  (TEfficiency*)f1->Get("globalMuon_Pt_Efficiency");
-	Eff1->SetLineColor(kBlue);
-	Eff1->SetMarkerColor(kBlue);
-	Eff1->SetTitle("Eficiencia Eta TrackerMuon 130k diferentes parametros");
-
-	TEfficiency* Eff2 =  (TEfficiency*)f2->Get("globalMuon_Pt_Efficiency");
-	Eff2->SetLineColor(kRed);
-	Eff2->SetMarkerColor(kRed);
-
-	TEfficiency *blue = new TEfficiency("h5","Ex",1,-10,10);
-	TEfficiency *red = new TEfficiency("h5","Ex",1,-10,10);
-	blue->SetLineColor(kBlue);
-	red->SetLineColor(kRed);
-
-	TCanvas *c1 = new TCanvas("c1","", 200,10,600,480); Eff2->Draw(); Eff1->Draw("same"); c1->SaveAs("GlobalMuonPt.png");
-
-    TLegend *leg = new TLegend(0.3,0.3,0.1,0.1);
-    leg->AddEntry(blue,"Novos","l");
-    leg->AddEntry(red,"Referencia","l");
-    leg->Draw();*/
 }
