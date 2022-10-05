@@ -72,12 +72,20 @@ string MuonId   = "trackerMuon";
 //Which quantity do you want to use?
 string quantity = "Pt";     double bins[] =  {15., 20., 25., 30., 35., 40., 45., 50.0, 65.0};
 //string quantity = "Eta";    double bins[] =  {-2.0, -1.5, -1.0, -0.5, 0., 0.5, 1.0, 1.5, 2.0};
-//string quantity = "Phi";    double bins[] = {-3.0, -2.5, -2.0, -1.0, -0.5, -0, 0.5, 1.0, 1.5, 2.0, 2.5, 3.0};
+//string quantity = "Phi";    double bins[] = {-3.0, -2.5, -2.0, -1.5, -1.0, -0.5, -0, 0.5, 1.0, 1.5, 2.0, 2.5, 3.0};
 
 void efficiency()
 {
-	//Path where is going to save results png for every bin 
-	const char* path_bins_fit_folder = "results/bins_fit/globalMuon/";
+	//Path where is/* going to save results png for every bin 
+    char path_bins_fit_folder[512];
+    //string savediretorio = string("results/bins_fit/") + quantity + 
+    strcpy(path_bins_fit_folder,"results/bins_fit/");
+    strcat(path_bins_fit_folder,MuonId.c_str());
+    strcat(path_bins_fit_folder,"/");
+    strcat(path_bins_fit_folder,quantity.c_str());
+    strcat(path_bins_fit_folder,"/");
+
+	//const char* path_bins_fit_folder = str;
 	create_folder(path_bins_fit_folder);
 
 	// Loop for every bin and fit it

@@ -1,0 +1,1632 @@
+
+Processing efficiency.cpp...
+
+[1mRooFit v3.60 -- Developed by Wouter Verkerke and David Kirkby[0m 
+                Copyright (C) 2000-2013 NIKHEF, University of California & Stanford University
+                All rights reserved, please read http://roofit.sourceforge.net/license.txt
+
+"results/bins_fit/globalMuon/" directory OK
+[#1] INFO:InputArguments -- The formula PPTM_cond claims to use the variables (ProbeMuon_Pt,ProbeMuon_Eta,ProbeMuon_Phi) but only (ProbeMuon_Pt) seem to be in use.
+  inputs:         ProbeMuon_Pt>=15.000000 && ProbeMuon_Pt< 20.000000
+[#1] INFO:DataHandling -- RooAbsCategory::attachToTree(PassingProbeTrackingMuon) TTree branch PassingProbeTrackingMuon will be interpreted as category index
+[#1] INFO:DataHandling -- RooTreeDataStore::loadValues(DATA) Skipping event #1 because ProbeMuon_Pt cannot accommodate the value 8.94856
+[#1] INFO:DataHandling -- RooTreeDataStore::loadValues(DATA) Skipping event #4 because InvariantMass cannot accommodate the value 60.6086
+[#1] INFO:DataHandling -- RooTreeDataStore::loadValues(DATA) Skipping event #7 because InvariantMass cannot accommodate the value 68.1354
+[#1] INFO:DataHandling -- RooTreeDataStore::loadValues(DATA) Skipping event #9 because InvariantMass cannot accommodate the value 64.0556
+[#1] INFO:DataHandling -- RooTreeDataStore::loadValues(DATA) Skipping ...
+[#0] WARNING:DataHandling -- RooTreeDataStore::loadValues(DATA) Ignored 71424 out-of-range events
+[#1] INFO:InputArguments -- RooDataHist::importDHistSet(combData) defining state "ALL" in index category sample
+[#1] INFO:Minization -- p.d.f. provides expected number of events, including extended term in likelihood.
+[#1] INFO:Minization -- RooMinimizer::optimizeConst: activating const optimization
+RooAbsTestStatistic::initSimMode: creating slave calculator #0 for state ALL (100 dataset entries)
+RooAbsTestStatistic::initSimMode: creating slave calculator #1 for state PASSING (100 dataset entries)
+[#1] INFO:Fitting -- RooAbsTestStatistic::initSimMode: created 2 slave calculators.
+[#1] INFO:Minization --  The following expressions will be evaluated in cache-and-track mode: (CBS,BW,BG)
+[#1] INFO:Minization --  The following expressions will be evaluated in cache-and-track mode: (CBS,BW,BG)
+ **********
+ **    1 **SET PRINT           1
+ **********
+ **********
+ **    2 **SET NOGRAD
+ **********
+ PARAMETER DEFINITIONS:
+    NO.   NAME         VALUE      STEP SIZE      LIMITS
+     1 a            0.00000e+00  2.00000e-01   -1.00000e+00  1.00000e+00
+     2 alpha        3.30000e+00  5.00000e-01    0.00000e+00  5.00000e+00
+     3 mean         9.11976e+01  2.00000e+00    8.00000e+01  1.00000e+02
+     4 n            5.10000e+00  1.00000e+00    0.00000e+00  1.00000e+01
+     5 n_back       1.00000e+04  1.88380e+03    0.00000e+00  1.88380e+04
+     6 n_back_pass   1.00000e+04  1.82540e+03    0.00000e+00  1.82540e+04
+     7 n_signal_total   1.88380e+04  1.88380e+03    0.00000e+00  1.88380e+04
+ MINUIT WARNING IN PARAM DEF
+ ============== STARTING VALUE IS AT LIMIT.
+ MINUIT WARNING IN PARAMETR
+ ============== VARIABLE7 IS AT ITS UPPER ALLOWED LIMIT.
+ MINUIT WARNING IN PARAMETR
+ ============== VARIABLE7 BROUGHT BACK INSIDE LIMITS.
+     8 n_signal_total_pass   1.82540e+04  1.82540e+03    0.00000e+00  1.82540e+04
+ MINUIT WARNING IN PARAM DEF
+ ============== STARTING VALUE IS AT LIMIT.
+ MINUIT WARNING IN PARAMETR
+ ============== VARIABLE8 IS AT ITS UPPER ALLOWED LIMIT.
+ MINUIT WARNING IN PARAMETR
+ ============== VARIABLE8 BROUGHT BACK INSIDE LIMITS.
+     9 sigma        4.12000e+00  2.01000e+00    1.00000e-01  1.00000e+02
+    10 sigma_cb     2.00000e+00  5.00000e-01    1.00000e+00  4.00000e+01
+ **********
+ **    3 **SET ERR         0.5
+ **********
+ **********
+ **    4 **SET PRINT           1
+ **********
+ **********
+ **    5 **SET STR           1
+ **********
+ NOW USING STRATEGY  1: TRY TO BALANCE SPEED AGAINST RELIABILITY
+ **********
+ **    6 **MIGRAD        5000           1
+ **********
+ FIRST CALL TO USER FUNCTION AT NEW START POINT, WITH IFLAG=4.
+ MINUIT WARNING IN MIGrad    
+ ============== VARIABLE7 IS AT ITS UPPER ALLOWED LIMIT.
+ MINUIT WARNING IN MIGrad    
+ ============== VARIABLE8 IS AT ITS UPPER ALLOWED LIMIT.
+ START MIGRAD MINIMIZATION.  STRATEGY  1.  CONVERGENCE WHEN EDM .LT. 1.00e-03
+ FCN=-184735 FROM MIGRAD    STATUS=INITIATE      138 CALLS         139 TOTAL
+                     EDM= unknown      STRATEGY= 1      NO ERROR MATRIX       
+  EXT PARAMETER               CURRENT GUESS       STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  a            0.00000e+00   2.00000e-01   0.00000e+00   5.59645e+04
+   2  alpha        7.94772e-01   5.00000e-01   0.00000e+00  -1.10743e+03
+   3  mean         9.11976e+01   2.00000e+00   0.00000e+00   1.60694e+04
+   4  n            5.10000e+00   1.00000e+00   0.00000e+00  -1.70064e+02
+   5  n_back       1.00000e+04   1.88380e+03   0.00000e+00   3.19419e+03
+   6  n_back_pass   1.00000e+04   1.82540e+03   0.00000e+00   3.40171e+03
+   7  n_signal_total   1.22644e+04   1.88380e+03   0.00000e+00   2.09528e+01
+   8  n_signal_total_pass   1.21274e+04   1.82540e+03  -1.23388e+00   9.17058e+01
+   9  sigma        4.12000e+00   2.01000e+00   0.00000e+00   6.42487e+03
+  10  sigma_cb     2.00000e+00   5.00000e-01   0.00000e+00   4.82569e+03
+                               ERR DEF= 0.5
+ MIGRAD MINIMIZATION HAS CONVERGED.
+ FCN=-189462 FROM MIGRAD    STATUS=CONVERGED     753 CALLS         754 TOTAL
+                     EDM=4.14577e-05    STRATEGY= 1  ERROR MATRIX UNCERTAINTY   2.5 per cent
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  a           -8.21810e-02   6.53746e-03   2.50059e-05   6.17688e-01
+   2  alpha        1.12262e+00   5.38006e-02  -2.37725e-04   1.77729e-01
+   3  mean         9.05997e+01   1.93666e-02  -1.48583e-05  -1.54735e+00
+   4  n            1.02730e+00   1.92206e-01   6.80255e-04   1.23258e-01
+   5  n_back       2.05551e+03   2.42760e+02   2.82751e-04  -2.31805e-01
+   6  n_back_pass   1.68560e+03   2.31508e+02   5.41595e-04   2.28826e-03
+   7  n_signal_total   1.67817e+04   2.53520e+02  -3.38796e-04  -3.12199e-01
+   8  n_signal_total_pass   1.65691e+04   2.70273e+02  -7.10550e-04   1.61314e-01
+   9  sigma        4.18677e+00   2.32796e-01  -9.55292e-05  -1.11814e+00
+  10  sigma_cb     2.29486e+00   9.04579e-02   6.01383e-05  -1.12399e+00
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  25    NPAR= 10    ERR DEF=0.5
+  4.274e-05 -1.279e-04 -2.216e-05  4.330e-04  1.027e+00  9.166e-01 -9.431e-01 -1.029e+00 -1.228e-03  4.145e-04 
+ -1.279e-04  2.895e-03 -1.497e-04 -9.091e-03 -8.340e+00 -8.290e+00  8.080e+00  9.369e+00  6.695e-03 -1.887e-03 
+ -2.216e-05 -1.497e-04  3.751e-04  1.375e-04 -4.294e-01 -3.295e-01  3.339e-01  4.458e-01  9.526e-04 -6.074e-04 
+  4.330e-04 -9.091e-03  1.375e-04  3.699e-02  3.890e+01  3.808e+01 -3.801e+01 -4.134e+01 -2.191e-02  6.542e-03 
+  1.027e+00 -8.340e+00 -4.294e-01  3.890e+01  5.897e+04  5.073e+04 -5.522e+04 -5.497e+04 -3.757e+01  1.198e+01 
+  9.166e-01 -8.290e+00 -3.295e-01  3.808e+01  5.073e+04  5.363e+04 -4.950e+04 -5.628e+04 -3.523e+01  1.107e+01 
+ -9.431e-01  8.080e+00  3.339e-01 -3.801e+01 -5.522e+04 -4.950e+04  6.431e+04  5.642e+04  3.623e+01 -1.205e+01 
+ -1.029e+00  9.369e+00  4.458e-01 -4.134e+01 -5.497e+04 -5.628e+04  5.642e+04  7.311e+04  3.864e+01 -1.205e+01 
+ -1.228e-03  6.695e-03  9.526e-04 -2.191e-02 -3.757e+01 -3.523e+01  3.623e+01  3.864e+01  5.420e-02 -1.920e-02 
+  4.145e-04 -1.887e-03 -6.074e-04  6.542e-03  1.198e+01  1.107e+01 -1.205e+01 -1.205e+01 -1.920e-02  8.183e-03 
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3      4      5      6      7      8      9     10
+        1  0.90018   1.000 -0.364 -0.175  0.344  0.647  0.605 -0.569 -0.582 -0.807  0.701
+        2  0.96086  -0.364  1.000 -0.144 -0.878 -0.638 -0.665  0.592  0.644  0.534 -0.388
+        3  0.51894  -0.175 -0.144  1.000  0.037 -0.091 -0.073  0.068  0.085  0.211 -0.347
+        4  0.98539   0.344 -0.878  0.037  1.000  0.833  0.855 -0.779 -0.795 -0.489  0.376
+        5  0.96232   0.647 -0.638 -0.091  0.833  1.000  0.902 -0.897 -0.837 -0.665  0.546
+        6  0.96076   0.605 -0.665 -0.073  0.855  0.902  1.000 -0.843 -0.899 -0.653  0.529
+        7  0.91078  -0.569  0.592  0.068 -0.779 -0.897 -0.843  1.000  0.823  0.614 -0.525
+        8  0.91112  -0.582  0.644  0.085 -0.795 -0.837 -0.899  0.823  1.000  0.614 -0.492
+        9  0.96329  -0.807  0.534  0.211 -0.489 -0.665 -0.653  0.614  0.614  1.000 -0.912
+       10  0.93694   0.701 -0.388 -0.347  0.376  0.546  0.529 -0.525 -0.492 -0.912  1.000
+ **********
+ **    7 **SET ERR         0.5
+ **********
+ **********
+ **    8 **SET PRINT           1
+ **********
+ **********
+ **    9 **HESSE        5000
+ **********
+ COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=-189462 FROM HESSE     STATUS=OK            102 CALLS         856 TOTAL
+                     EDM=0.000105953    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                INTERNAL      INTERNAL  
+  NO.   NAME      VALUE            ERROR       STEP SIZE       VALUE   
+   1  a           -8.21810e-02   6.73781e-03   9.67396e-04  -8.22738e-02
+   2  alpha        1.12262e+00   5.54135e-02   2.54524e-03  -5.83505e-01
+   3  mean         9.05997e+01   1.97617e-02   5.10500e-04   6.00068e-02
+   4  n            1.02730e+00   1.71798e-01   3.52563e-03  -9.18249e-01
+   5  n_back       2.05551e+03   2.29138e+02   3.79068e-03  -8.97500e-01
+   6  n_back_pass   1.68560e+03   2.10223e+02   3.97529e-03  -9.53276e-01
+   7  n_signal_total   1.67817e+04   2.58220e+02   6.90009e-03   8.97366e-01
+   8  n_signal_total_pass   1.65691e+04   2.42008e+02   7.58953e-03   9.53414e-01
+   9  sigma        4.18677e+00   2.27174e-01   1.01351e-03  -1.16347e+00
+  10  sigma_cb     2.29486e+00   8.90944e-02   1.47682e-03  -1.20432e+00
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  25    NPAR= 10    ERR DEF=0.5
+  4.540e-05 -8.927e-05 -2.661e-05  3.020e-04  9.887e-01  8.289e-01 -9.823e-01 -8.230e-01 -1.144e-03  3.698e-04 
+ -8.927e-05  3.071e-03 -2.046e-04 -7.916e-03 -6.386e+00 -5.993e+00  6.354e+00  5.959e+00  6.218e-03 -1.764e-03 
+ -2.661e-05 -2.046e-04  3.905e-04  1.578e-04 -5.656e-01 -4.668e-01  5.619e-01  4.634e-01  8.855e-04 -5.872e-04 
+  3.020e-04 -7.916e-03  1.578e-04  2.955e-02  3.028e+01  2.871e+01 -3.013e+01 -2.855e+01 -1.707e-02  5.115e-03 
+  9.887e-01 -6.386e+00 -5.656e-01  3.028e+01  5.253e+04  4.209e+04 -5.020e+04 -4.184e+04 -3.288e+01  1.036e+01 
+  8.289e-01 -5.993e+00 -4.668e-01  2.871e+01  4.209e+04  4.422e+04 -4.187e+04 -4.227e+04 -2.845e+01  8.939e+00 
+ -9.823e-01  6.354e+00  5.619e-01 -3.013e+01 -5.020e+04 -4.187e+04  6.672e+04  4.161e+04  3.268e+01 -1.030e+01 
+ -8.230e-01  5.959e+00  4.634e-01 -2.855e+01 -4.184e+04 -4.227e+04  4.161e+04  5.861e+04  2.826e+01 -8.879e+00 
+ -1.144e-03  6.218e-03  8.855e-04 -1.707e-02 -3.288e+01 -2.845e+01  3.268e+01  2.826e+01  5.161e-02 -1.818e-02 
+  3.698e-04 -1.764e-03 -5.872e-04  5.115e-03  1.036e+01  8.939e+00 -1.030e+01 -8.879e+00 -1.818e-02  7.938e-03 
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3      4      5      6      7      8      9     10
+        1  0.87976   1.000 -0.239 -0.200  0.261  0.640  0.585 -0.564 -0.505 -0.747  0.616
+        2  0.94780  -0.239  1.000 -0.187 -0.831 -0.503 -0.514  0.444  0.444  0.494 -0.357
+        3  0.51390  -0.200 -0.187  1.000  0.046 -0.125 -0.112  0.110  0.097  0.197 -0.333
+        4  0.97822   0.261 -0.831  0.046  1.000  0.769  0.794 -0.679 -0.686 -0.437  0.334
+        5  0.94637   0.640 -0.503 -0.125  0.769  1.000  0.873 -0.848 -0.754 -0.631  0.508
+        6  0.94321   0.585 -0.514 -0.112  0.794  0.873  1.000 -0.771 -0.830 -0.596  0.477
+        7  0.85304  -0.564  0.444  0.110 -0.679 -0.848 -0.771  1.000  0.665  0.557 -0.448
+        8  0.83490  -0.505  0.444  0.097 -0.686 -0.754 -0.830  0.665  1.000  0.514 -0.412
+        9  0.95591  -0.747  0.494  0.197 -0.437 -0.631 -0.596  0.557  0.514  1.000 -0.898
+       10  0.92284   0.616 -0.357 -0.333  0.334  0.508  0.477 -0.448 -0.412 -0.898  1.000
+[#1] INFO:Minization -- RooMinimizer::optimizeConst: deactivating const optimization
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model) directly selected PDF components: (signal)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model) indirectly selected PDF components: (CBS,BW)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model) directly selected PDF components: (BG)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model) indirectly selected PDF components: ()
+[#0] ERROR:Plotting -- RooAbsPdf::plotOn(model) ERROR: component selection expression 'VT' does not select any components of p.d.f.
+[#0] ERROR:Plotting -- RooAbsPdf::plotOn(model) ERROR: component selection expression 'VT2' does not select any components of p.d.f.
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model) directly selected PDF components: (CBS)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model) indirectly selected PDF components: (signal)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model) directly selected PDF components: (BW)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model) indirectly selected PDF components: (signal)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_pass) directly selected PDF components: (signal)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_pass) indirectly selected PDF components: (CBS,BW)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_pass) directly selected PDF components: (BG)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_pass) indirectly selected PDF components: ()
+[#0] ERROR:Plotting -- RooAbsPdf::plotOn(model_pass) ERROR: component selection expression 'VT' does not select any components of p.d.f.
+[#0] ERROR:Plotting -- RooAbsPdf::plotOn(model_pass) ERROR: component selection expression 'VT2' does not select any components of p.d.f.
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_pass) directly selected PDF components: (CBS)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_pass) indirectly selected PDF components: (signal)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_pass) directly selected PDF components: (BW)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_pass) indirectly selected PDF components: (signal)
+integralbackground = 0.0371827
+###################################################################################################################################################
+background = 0.000613525
+###################################################################################################################################################
+[#1] INFO:InputArguments -- The formula PPTM_cond claims to use the variables (ProbeMuon_Pt,ProbeMuon_Eta,ProbeMuon_Phi) but only (ProbeMuon_Pt) seem to be in use.
+  inputs:         ProbeMuon_Pt>=20.000000 && ProbeMuon_Pt< 25.000000
+[#1] INFO:DataHandling -- RooAbsCategory::attachToTree(PassingProbeTrackingMuon) TTree branch PassingProbeTrackingMuon will be interpreted as category index
+[#1] INFO:DataHandling -- RooTreeDataStore::loadValues(DATA) Skipping event #1 because ProbeMuon_Pt cannot accommodate the value 8.94856
+[#1] INFO:DataHandling -- RooTreeDataStore::loadValues(DATA) Skipping event #4 because InvariantMass cannot accommodate the value 60.6086
+[#1] INFO:DataHandling -- RooTreeDataStore::loadValues(DATA) Skipping event #7 because InvariantMass cannot accommodate the value 68.1354
+[#1] INFO:DataHandling -- RooTreeDataStore::loadValues(DATA) Skipping event #9 because InvariantMass cannot accommodate the value 64.0556
+[#1] INFO:DataHandling -- RooTreeDataStore::loadValues(DATA) Skipping ...
+[#0] WARNING:DataHandling -- RooTreeDataStore::loadValues(DATA) Ignored 71424 out-of-range events
+[#1] INFO:InputArguments -- RooDataHist::importDHistSet(combData) defining state "ALL" in index category sample
+[#1] INFO:Minization -- p.d.f. provides expected number of events, including extended term in likelihood.
+[#1] INFO:Minization -- RooMinimizer::optimizeConst: activating const optimization
+RooAbsTestStatistic::initSimMode: creating slave calculator #0 for state ALL (100 dataset entries)
+RooAbsTestStatistic::initSimMode: creating slave calculator #1 for state PASSING (100 dataset entries)
+[#1] INFO:Fitting -- RooAbsTestStatistic::initSimMode: created 2 slave calculators.
+[#1] INFO:Minization --  The following expressions will be evaluated in cache-and-track mode: (CBS,BW,BG)
+[#1] INFO:Minization --  The following expressions will be evaluated in cache-and-track mode: (CBS,BW,BG)
+ **********
+ **   10 **SET PRINT           1
+ **********
+ **********
+ **   11 **SET NOGRAD
+ **********
+ PARAMETER DEFINITIONS:
+    NO.   NAME         VALUE      STEP SIZE      LIMITS
+     1 a            0.00000e+00  2.00000e-01   -1.00000e+00  1.00000e+00
+     2 alpha        3.30000e+00  5.00000e-01    0.00000e+00  5.00000e+00
+     3 mean         9.11976e+01  2.00000e+00    8.00000e+01  1.00000e+02
+     4 n            5.10000e+00  1.00000e+00    0.00000e+00  1.00000e+01
+     5 n_back       1.00000e+04  4.09040e+03    0.00000e+00  4.09040e+04
+     6 n_back_pass   1.00000e+04  4.02240e+03    0.00000e+00  4.02240e+04
+     7 n_signal_total   4.09040e+04  4.09040e+03    0.00000e+00  4.09040e+04
+ MINUIT WARNING IN PARAM DEF
+ ============== STARTING VALUE IS AT LIMIT.
+ MINUIT WARNING IN PARAMETR
+ ============== VARIABLE7 IS AT ITS UPPER ALLOWED LIMIT.
+ MINUIT WARNING IN PARAMETR
+ ============== VARIABLE7 BROUGHT BACK INSIDE LIMITS.
+     8 n_signal_total_pass   4.02240e+04  4.02240e+03    0.00000e+00  4.02240e+04
+ MINUIT WARNING IN PARAM DEF
+ ============== STARTING VALUE IS AT LIMIT.
+ MINUIT WARNING IN PARAMETR
+ ============== VARIABLE8 IS AT ITS UPPER ALLOWED LIMIT.
+ MINUIT WARNING IN PARAMETR
+ ============== VARIABLE8 BROUGHT BACK INSIDE LIMITS.
+     9 sigma        4.12000e+00  2.01000e+00    1.00000e-01  1.00000e+02
+    10 sigma_cb     2.00000e+00  5.00000e-01    1.00000e+00  4.00000e+01
+ **********
+ **   12 **SET ERR         0.5
+ **********
+ **********
+ **   13 **SET PRINT           1
+ **********
+ **********
+ **   14 **SET STR           1
+ **********
+ NOW USING STRATEGY  1: TRY TO BALANCE SPEED AGAINST RELIABILITY
+ **********
+ **   15 **MIGRAD        5000           1
+ **********
+ FIRST CALL TO USER FUNCTION AT NEW START POINT, WITH IFLAG=4.
+ MINUIT WARNING IN MIGrad    
+ ============== VARIABLE7 IS AT ITS UPPER ALLOWED LIMIT.
+ MINUIT WARNING IN MIGrad    
+ ============== VARIABLE8 IS AT ITS UPPER ALLOWED LIMIT.
+ START MIGRAD MINIMIZATION.  STRATEGY  1.  CONVERGENCE WHEN EDM .LT. 1.00e-03
+ FCN=-477996 FROM MIGRAD    STATUS=INITIATE      171 CALLS         172 TOTAL
+                     EDM= unknown      STRATEGY= 1      NO ERROR MATRIX       
+  EXT PARAMETER               CURRENT GUESS       STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  a            0.00000e+00   2.00000e-01   0.00000e+00   6.89544e+04
+   2  alpha        7.10782e-01   5.00000e-01   0.00000e+00  -1.08930e+03
+   3  mean         9.11976e+01   2.00000e+00   0.00000e+00   3.62923e+04
+   4  n            2.22160e+00   1.00000e+00   0.00000e+00  -5.44206e+02
+   5  n_back       1.00000e+04   4.09040e+03   0.00000e+00   4.19433e+03
+   6  n_back_pass   1.00000e+04   4.02240e+03   0.00000e+00   4.53091e+03
+   7  n_signal_total   3.32630e+04   4.09040e+03   0.00000e+00  -1.30503e+01
+   8  n_signal_total_pass   3.28568e+04   4.02240e+03  -8.82525e-01   1.24788e+01
+   9  sigma        4.12000e+00   2.01000e+00   0.00000e+00   1.25037e+04
+  10  sigma_cb     2.00000e+00   5.00000e-01   0.00000e+00   7.67722e+03
+                               ERR DEF= 0.5
+ MIGRAD FAILS TO FIND IMPROVEMENT
+ MIGRAD MINIMIZATION HAS CONVERGED.
+ FCN=-482439 FROM MIGRAD    STATUS=CONVERGED     766 CALLS         767 TOTAL
+                     EDM=0.000514524    STRATEGY= 1  ERROR MATRIX UNCERTAINTY   4.2 per cent
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  a           -1.12369e-01   1.40380e-02  -0.00000e+00   2.35524e+00
+   2  alpha        1.14672e+00   3.26391e-02   0.00000e+00  -1.63334e+00
+   3  mean         9.06408e+01   1.19267e-02  -0.00000e+00  -9.30712e-01
+   4  n            7.31951e-01   7.68612e-02  -0.00000e+00  -9.09198e-01
+   5  n_back       1.92296e+03   3.68072e+02  -0.00000e+00   2.79584e-01
+   6  n_back_pass   1.63105e+03   3.34174e+02  -0.00000e+00  -2.70468e-01
+   7  n_signal_total   3.89812e+04   4.18849e+02   0.00000e+00  -2.29486e-01
+   8  n_signal_total_pass   3.85939e+04   3.89102e+02   0.00000e+00  -6.26533e-02
+   9  sigma        4.03324e+00   8.94343e-02   0.00000e+00   4.05244e+00
+  10  sigma_cb     2.24479e+00   3.95413e-02  -0.00000e+00   2.06830e-01
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  25    NPAR= 10    ERR DEF=0.5
+  1.971e-04 -1.385e-04 -8.418e-06  6.295e-04  4.343e+00  3.821e+00 -4.365e+00 -3.810e+00 -7.485e-04  2.017e-04 
+ -1.385e-04  1.065e-03 -5.993e-05 -2.016e-03 -5.684e+00 -5.337e+00  5.830e+00  5.336e+00  1.524e-03 -5.173e-04 
+ -8.418e-06 -5.993e-05  1.422e-04  3.419e-05 -1.547e-01 -1.299e-01  1.630e-01  7.797e-02  4.500e-05 -1.093e-04 
+  6.295e-04 -2.016e-03  3.419e-05  5.909e-03  2.375e+01  2.191e+01 -2.403e+01 -2.185e+01 -3.240e-03  1.015e-03 
+  4.343e+00 -5.684e+00 -1.547e-01  2.375e+01  1.356e+05  1.144e+05 -1.342e+05 -1.145e+05 -1.719e+01  4.865e+00 
+  3.821e+00 -5.337e+00 -1.299e-01  2.191e+01  1.144e+05  1.117e+05 -1.154e+05 -1.101e+05 -1.517e+01  4.293e+00 
+ -4.365e+00  5.830e+00  1.630e-01 -2.403e+01 -1.342e+05 -1.154e+05  1.756e+05  1.152e+05  1.770e+01 -4.982e+00 
+ -3.810e+00  5.336e+00  7.797e-02 -2.185e+01 -1.145e+05 -1.101e+05  1.152e+05  1.515e+05  1.510e+01 -4.196e+00 
+ -7.485e-04  1.524e-03  4.500e-05 -3.240e-03 -1.719e+01 -1.517e+01  1.770e+01  1.510e+01  7.999e-03 -2.803e-03 
+  2.017e-04 -5.173e-04 -1.093e-04  1.015e-03  4.865e+00  4.293e+00 -4.982e+00 -4.196e+00 -2.803e-03  1.564e-03 
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3      4      5      6      7      8      9     10
+        1  0.92006   1.000 -0.302 -0.050  0.583  0.840  0.814 -0.742 -0.697 -0.596  0.363
+        2  0.94811  -0.302  1.000 -0.154 -0.803 -0.473 -0.489  0.426  0.420  0.522 -0.401
+        3  0.42110  -0.050 -0.154  1.000  0.037 -0.035 -0.033  0.033  0.017  0.042 -0.232
+        4  0.98342   0.583 -0.803  0.037  1.000  0.839  0.853 -0.746 -0.730 -0.471  0.334
+        5  0.97025   0.840 -0.473 -0.035  0.839  1.000  0.930 -0.870 -0.799 -0.522  0.334
+        6  0.96654   0.814 -0.489 -0.033  0.853  0.930  1.000 -0.824 -0.846 -0.508  0.325
+        7  0.87186  -0.742  0.426  0.033 -0.746 -0.870 -0.824  1.000  0.706  0.472 -0.301
+        8  0.84671  -0.697  0.420  0.017 -0.730 -0.799 -0.846  0.706  1.000  0.434 -0.273
+        9  0.89421  -0.596  0.522  0.042 -0.471 -0.522 -0.508  0.472  0.434  1.000 -0.793
+       10  0.83027   0.363 -0.401 -0.232  0.334  0.334  0.325 -0.301 -0.273 -0.793  1.000
+ **********
+ **   16 **SET ERR         0.5
+ **********
+ **********
+ **   17 **SET PRINT           1
+ **********
+ **********
+ **   18 **HESSE        5000
+ **********
+ COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=-482439 FROM HESSE     STATUS=OK            102 CALLS         869 TOTAL
+                     EDM=0.000593865    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                INTERNAL      INTERNAL  
+  NO.   NAME      VALUE            ERROR       STEP SIZE       VALUE   
+   1  a           -1.12369e-01   1.32199e-02   2.65606e-03  -1.12607e-01
+   2  alpha        1.14672e+00   3.13720e-02   2.35010e-03  -5.71995e-01
+   3  mean         9.06408e+01   1.19545e-02   5.20538e-04   6.41232e-02
+   4  n            7.31951e-01   7.05814e-02   2.58676e-03  -1.02288e+00
+   5  n_back       1.92296e+03   3.32778e+02   4.91028e-03  -1.13368e+00
+   6  n_back_pass   1.63105e+03   3.04095e+02   5.17621e-03  -1.16529e+00
+   7  n_signal_total   3.89812e+04   3.80570e+02   1.12170e-02   1.13371e+00
+   8  n_signal_total_pass   3.85939e+04   3.55954e+02   1.21406e-02   1.16541e+00
+   9  sigma        4.03324e+00   8.93955e-02   9.96165e-04  -1.17130e+00
+  10  sigma_cb     2.24479e+00   3.90440e-02   1.53147e-03  -1.21156e+00
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  25    NPAR= 10    ERR DEF=0.5
+  1.748e-04 -8.903e-05 -1.037e-05  4.601e-04  3.584e+00  3.152e+00 -3.532e+00 -3.102e+00 -6.744e-04  1.813e-04 
+ -8.903e-05  9.843e-04 -6.283e-05 -1.747e-03 -4.241e+00 -3.988e+00  4.186e+00  3.929e+00  1.367e-03 -4.301e-04 
+ -1.037e-05 -6.283e-05  1.429e-04  3.552e-05 -1.919e-01 -1.660e-01  1.891e-01  1.633e-01  6.144e-05 -1.137e-04 
+  4.601e-04 -1.747e-03  3.552e-05  4.983e-03  1.871e+01  1.742e+01 -1.847e+01 -1.716e+01 -2.673e-03  7.876e-04 
+  3.584e+00 -4.241e+00 -1.919e-01  1.871e+01  1.108e+05  9.255e+04 -1.074e+05 -9.113e+04 -1.470e+01  4.048e+00 
+  3.152e+00 -3.988e+00 -1.660e-01  1.742e+01  9.255e+04  9.252e+04 -9.128e+04 -8.951e+04 -1.298e+01  3.584e+00 
+ -3.532e+00  4.186e+00  1.891e-01 -1.847e+01 -1.074e+05 -9.128e+04  1.449e+05  8.988e+04  1.449e+01 -3.991e+00 
+ -3.102e+00  3.929e+00  1.633e-01 -1.716e+01 -9.113e+04 -8.951e+04  8.988e+04  1.268e+05  1.277e+01 -3.527e+00 
+ -6.744e-04  1.367e-03  6.144e-05 -2.673e-03 -1.470e+01 -1.298e+01  1.449e+01  1.277e+01  7.992e-03 -2.768e-03 
+  1.813e-04 -4.301e-04 -1.137e-04  7.876e-04  4.048e+00  3.584e+00 -3.991e+00 -3.527e+00 -2.768e-03  1.524e-03 
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3      4      5      6      7      8      9     10
+        1  0.91228   1.000 -0.215 -0.066  0.493  0.814  0.784 -0.702 -0.659 -0.571  0.351
+        2  0.94447  -0.215  1.000 -0.168 -0.789 -0.406 -0.418  0.350  0.352  0.487 -0.351
+        3  0.42348  -0.066 -0.168  1.000  0.042 -0.048 -0.046  0.042  0.038  0.057 -0.244
+        4  0.97987   0.493 -0.789  0.042  1.000  0.796  0.811 -0.687 -0.683 -0.424  0.286
+        5  0.96397   0.814 -0.406 -0.048  0.796  1.000  0.914 -0.847 -0.769 -0.494  0.311
+        6  0.95962   0.784 -0.418 -0.046  0.811  0.914  1.000 -0.788 -0.826 -0.477  0.302
+        7  0.84892  -0.702  0.350  0.042 -0.687 -0.847 -0.788  1.000  0.663  0.426 -0.268
+        8  0.82778  -0.659  0.352  0.038 -0.683 -0.769 -0.826  0.663  1.000  0.401 -0.254
+        9  0.89229  -0.571  0.487  0.057 -0.424 -0.494 -0.477  0.426  0.401  1.000 -0.793
+       10  0.82837   0.351 -0.351 -0.244  0.286  0.311  0.302 -0.268 -0.254 -0.793  1.000
+[#1] INFO:Minization -- RooMinimizer::optimizeConst: deactivating const optimization
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model) directly selected PDF components: (signal)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model) indirectly selected PDF components: (CBS,BW)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model) directly selected PDF components: (BG)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model) indirectly selected PDF components: ()
+[#0] ERROR:Plotting -- RooAbsPdf::plotOn(model) ERROR: component selection expression 'VT' does not select any components of p.d.f.
+[#0] ERROR:Plotting -- RooAbsPdf::plotOn(model) ERROR: component selection expression 'VT2' does not select any components of p.d.f.
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model) directly selected PDF components: (CBS)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model) indirectly selected PDF components: (signal)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model) directly selected PDF components: (BW)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model) indirectly selected PDF components: (signal)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_pass) directly selected PDF components: (signal)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_pass) indirectly selected PDF components: (CBS,BW)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_pass) directly selected PDF components: (BG)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_pass) indirectly selected PDF components: ()
+[#0] ERROR:Plotting -- RooAbsPdf::plotOn(model_pass) ERROR: component selection expression 'VT' does not select any components of p.d.f.
+[#0] ERROR:Plotting -- RooAbsPdf::plotOn(model_pass) ERROR: component selection expression 'VT2' does not select any components of p.d.f.
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_pass) directly selected PDF components: (CBS)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_pass) indirectly selected PDF components: (signal)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_pass) directly selected PDF components: (BW)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_pass) indirectly selected PDF components: (signal)
+integralbackground = 0.00337591
+###################################################################################################################################################
+background = 4.05406e-05
+###################################################################################################################################################
+[#1] INFO:InputArguments -- The formula PPTM_cond claims to use the variables (ProbeMuon_Pt,ProbeMuon_Eta,ProbeMuon_Phi) but only (ProbeMuon_Pt) seem to be in use.
+  inputs:         ProbeMuon_Pt>=25.000000 && ProbeMuon_Pt< 30.000000
+[#1] INFO:DataHandling -- RooAbsCategory::attachToTree(PassingProbeTrackingMuon) TTree branch PassingProbeTrackingMuon will be interpreted as category index
+[#1] INFO:DataHandling -- RooTreeDataStore::loadValues(DATA) Skipping event #1 because ProbeMuon_Pt cannot accommodate the value 8.94856
+[#1] INFO:DataHandling -- RooTreeDataStore::loadValues(DATA) Skipping event #4 because InvariantMass cannot accommodate the value 60.6086
+[#1] INFO:DataHandling -- RooTreeDataStore::loadValues(DATA) Skipping event #7 because InvariantMass cannot accommodate the value 68.1354
+[#1] INFO:DataHandling -- RooTreeDataStore::loadValues(DATA) Skipping event #9 because InvariantMass cannot accommodate the value 64.0556
+[#1] INFO:DataHandling -- RooTreeDataStore::loadValues(DATA) Skipping ...
+[#0] WARNING:DataHandling -- RooTreeDataStore::loadValues(DATA) Ignored 71424 out-of-range events
+[#1] INFO:InputArguments -- RooDataHist::importDHistSet(combData) defining state "ALL" in index category sample
+[#1] INFO:Minization -- p.d.f. provides expected number of events, including extended term in likelihood.
+[#1] INFO:Minization -- RooMinimizer::optimizeConst: activating const optimization
+RooAbsTestStatistic::initSimMode: creating slave calculator #0 for state ALL (100 dataset entries)
+RooAbsTestStatistic::initSimMode: creating slave calculator #1 for state PASSING (100 dataset entries)
+[#1] INFO:Fitting -- RooAbsTestStatistic::initSimMode: created 2 slave calculators.
+[#1] INFO:Minization --  The following expressions will be evaluated in cache-and-track mode: (CBS,BW,BG)
+[#1] INFO:Minization --  The following expressions will be evaluated in cache-and-track mode: (CBS,BW,BG)
+ **********
+ **   19 **SET PRINT           1
+ **********
+ **********
+ **   20 **SET NOGRAD
+ **********
+ PARAMETER DEFINITIONS:
+    NO.   NAME         VALUE      STEP SIZE      LIMITS
+     1 a            0.00000e+00  2.00000e-01   -1.00000e+00  1.00000e+00
+     2 alpha        3.30000e+00  5.00000e-01    0.00000e+00  5.00000e+00
+     3 mean         9.11976e+01  2.00000e+00    8.00000e+01  1.00000e+02
+     4 n            5.10000e+00  1.00000e+00    0.00000e+00  1.00000e+01
+     5 n_back       1.00000e+04  5.00000e+03    0.00000e+00  7.61550e+04
+     6 n_back_pass   1.00000e+04  5.00000e+03    0.00000e+00  7.52140e+04
+     7 n_signal_total   7.61550e+04  7.61550e+03    0.00000e+00  7.61550e+04
+ MINUIT WARNING IN PARAM DEF
+ ============== STARTING VALUE IS AT LIMIT.
+ MINUIT WARNING IN PARAMETR
+ ============== VARIABLE7 IS AT ITS UPPER ALLOWED LIMIT.
+ MINUIT WARNING IN PARAMETR
+ ============== VARIABLE7 BROUGHT BACK INSIDE LIMITS.
+     8 n_signal_total_pass   7.52140e+04  7.52140e+03    0.00000e+00  7.52140e+04
+ MINUIT WARNING IN PARAM DEF
+ ============== STARTING VALUE IS AT LIMIT.
+ MINUIT WARNING IN PARAMETR
+ ============== VARIABLE8 IS AT ITS UPPER ALLOWED LIMIT.
+ MINUIT WARNING IN PARAMETR
+ ============== VARIABLE8 BROUGHT BACK INSIDE LIMITS.
+     9 sigma        4.12000e+00  2.01000e+00    1.00000e-01  1.00000e+02
+    10 sigma_cb     2.00000e+00  5.00000e-01    1.00000e+00  4.00000e+01
+ **********
+ **   21 **SET ERR         0.5
+ **********
+ **********
+ **   22 **SET PRINT           1
+ **********
+ **********
+ **   23 **SET STR           1
+ **********
+ NOW USING STRATEGY  1: TRY TO BALANCE SPEED AGAINST RELIABILITY
+ **********
+ **   24 **MIGRAD        5000           1
+ **********
+ FIRST CALL TO USER FUNCTION AT NEW START POINT, WITH IFLAG=4.
+ MINUIT WARNING IN MIGrad    
+ ============== VARIABLE7 IS AT ITS UPPER ALLOWED LIMIT.
+ MINUIT WARNING IN MIGrad    
+ ============== VARIABLE8 IS AT ITS UPPER ALLOWED LIMIT.
+ START MIGRAD MINIMIZATION.  STRATEGY  1.  CONVERGENCE WHEN EDM .LT. 1.00e-03
+ FCN=-993964 FROM MIGRAD    STATUS=INITIATE      162 CALLS         163 TOTAL
+                     EDM= unknown      STRATEGY= 1      NO ERROR MATRIX       
+  EXT PARAMETER               CURRENT GUESS       STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  a            0.00000e+00   2.00000e-01   0.00000e+00   6.52916e+04
+   2  alpha        5.46980e-01   5.00000e-01   0.00000e+00   1.76796e+03
+   3  mean         9.11976e+01   2.00000e+00   0.00000e+00   5.90545e+04
+   4  n            2.57254e+00   1.00000e+00   0.00000e+00  -3.07487e+02
+   5  n_back       1.00000e+04   5.00000e+03   0.00000e+00   4.54393e+03
+   6  n_back_pass   1.00000e+04   5.00000e+03   0.00000e+00   5.24766e+03
+   7  n_signal_total   6.63607e+04   7.61550e+03   0.00000e+00  -5.99968e+02
+   8  n_signal_total_pass   6.72729e+04   7.52140e+03  -6.59923e-01   1.03147e+00
+   9  sigma        4.12000e+00   2.01000e+00   0.00000e+00   2.34373e+04
+  10  sigma_cb     2.00000e+00   5.00000e-01   0.00000e+00   1.38936e+04
+                               ERR DEF= 0.5
+ MIGRAD MINIMIZATION HAS CONVERGED.
+ FCN=-998427 FROM MIGRAD    STATUS=CONVERGED     823 CALLS         824 TOTAL
+                     EDM=5.47803e-05    STRATEGY= 1  ERROR MATRIX UNCERTAINTY   3.3 per cent
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  a           -1.17789e-01   1.16559e-02  -6.10876e-06  -3.09586e-01
+   2  alpha        1.00283e+00   2.26007e-02   7.10442e-05   6.03920e-01
+   3  mean         9.06927e+01   8.52870e-03  -4.95413e-06  -4.47695e+00
+   4  n            9.47504e-01   6.60541e-02   1.91060e-04  -1.51941e-01
+   5  n_back       2.55217e+03   4.07043e+02   1.90921e-04   6.27446e-01
+   6  n_back_pass   2.26002e+03   3.70459e+02   1.33804e-04  -3.01087e-01
+   7  n_signal_total   7.36078e+04   4.71935e+02   4.87038e-05   2.72510e-01
+   8  n_signal_total_pass   7.29569e+04   4.41491e+02  -3.43025e-04  -1.53194e-01
+   9  sigma        3.98913e+00   7.05586e-02   2.39384e-05   1.91613e+00
+  10  sigma_cb     2.16264e+00   3.37709e-02  -2.05167e-05   1.87116e-02
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  25    NPAR= 10    ERR DEF=0.5
+  1.359e-04  8.920e-05 -1.037e-05  4.288e-04  3.839e+00  3.443e+00 -3.783e+00 -3.501e+00 -4.399e-04  1.528e-04 
+  8.920e-05  5.108e-04  1.586e-05  1.249e-03  4.978e+00  4.373e+00 -4.620e+00 -4.219e+00 -9.988e-04  3.964e-04 
+ -1.037e-05  1.586e-05  7.274e-05 -3.486e-05 -3.948e-01 -4.054e-01  4.601e-01  4.643e-01  5.646e-05 -7.513e-05 
+  4.288e-04  1.249e-03 -3.486e-05  4.364e-03  2.273e+01  2.061e+01 -2.223e+01 -2.102e+01 -2.506e-03  1.037e-03 
+  3.839e+00  4.978e+00 -3.948e-01  2.273e+01  1.657e+05  1.404e+05 -1.630e+05 -1.445e+05 -1.459e+01  5.514e+00 
+  3.443e+00  4.373e+00 -4.054e-01  2.061e+01  1.404e+05  1.373e+05 -1.391e+05 -1.417e+05 -1.346e+01  5.134e+00 
+ -3.783e+00 -4.620e+00  4.601e-01 -2.223e+01 -1.630e+05 -1.391e+05  2.228e+05  1.267e+05  1.393e+01 -5.190e+00 
+ -3.501e+00 -4.219e+00  4.643e-01 -2.102e+01 -1.445e+05 -1.417e+05  1.267e+05  1.950e+05  1.258e+01 -4.796e+00 
+ -4.399e-04 -9.988e-04  5.646e-05 -2.506e-03 -1.459e+01 -1.346e+01  1.393e+01  1.258e+01  4.979e-03 -2.027e-03 
+  1.528e-04  3.964e-04 -7.513e-05  1.037e-03  5.514e+00  5.134e+00 -5.190e+00 -4.796e+00 -2.027e-03  1.140e-03 
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3      4      5      6      7      8      9     10
+        1  0.89987   1.000  0.339 -0.104  0.557  0.809  0.797 -0.688 -0.680 -0.535  0.388
+        2  0.95484   0.339  1.000  0.082  0.837  0.541  0.522 -0.433 -0.423 -0.626  0.519
+        3  0.45354  -0.104  0.082  1.000 -0.062 -0.114 -0.128  0.114  0.123  0.094 -0.261
+        4  0.98285   0.557  0.837 -0.062  1.000  0.845  0.842 -0.713 -0.721 -0.538  0.465
+        5  0.96663   0.809  0.541 -0.114  0.845  1.000  0.931 -0.848 -0.804 -0.508  0.401
+        6  0.97013   0.797  0.522 -0.128  0.842  0.931  1.000 -0.796 -0.866 -0.515  0.410
+        7  0.86516  -0.688 -0.433  0.114 -0.713 -0.848 -0.796  1.000  0.608  0.418 -0.326
+        8  0.88097  -0.680 -0.423  0.123 -0.721 -0.804 -0.866  0.608  1.000  0.404 -0.322
+        9  0.91652  -0.535 -0.626  0.094 -0.538 -0.508 -0.515  0.418  0.404  1.000 -0.851
+       10  0.87893   0.388  0.519 -0.261  0.465  0.401  0.410 -0.326 -0.322 -0.851  1.000
+ **********
+ **   25 **SET ERR         0.5
+ **********
+ **********
+ **   26 **SET PRINT           1
+ **********
+ **********
+ **   27 **HESSE        5000
+ **********
+ COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=-998427 FROM HESSE     STATUS=OK            102 CALLS         926 TOTAL
+                     EDM=0.00536032    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                INTERNAL      INTERNAL  
+  NO.   NAME      VALUE            ERROR       STEP SIZE       VALUE   
+   1  a           -1.17789e-01   1.24860e-02   3.57390e-03  -1.18063e-01
+   2  alpha        1.00283e+00   2.27136e-02   2.45478e-03  -2.49951e+00
+   3  mean         9.06927e+01   8.60714e-03   5.36051e-04   6.93273e-02
+   4  n            9.47504e-01   6.54382e-02   2.95156e-03  -9.45004e-01
+   5  n_back       2.55217e+03   4.13664e+02   5.56919e-03  -1.20259e+00
+   6  n_back_pass   2.26002e+03   3.88212e+02   5.80727e-03  -1.22235e+00
+   7  n_signal_total   7.36078e+04   4.85857e+02   1.38612e-02   1.20295e+00
+   8  n_signal_total_pass   7.29569e+04   4.64063e+02   1.47288e-02   1.22258e+00
+   9  sigma        3.98913e+00   7.10039e-02   1.03292e-03  -1.17357e+00
+  10  sigma_cb     2.16264e+00   3.38769e-02   1.68817e-03  -1.22374e+00
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  25    NPAR= 10    ERR DEF=0.5
+  1.559e-04  9.067e-05 -7.813e-06  4.638e-04  4.265e+00  3.910e+00 -4.183e+00 -3.826e+00 -4.685e-04  1.585e-04 
+  9.067e-05  5.159e-04  1.821e-05  1.217e-03  4.611e+00  4.380e+00 -4.527e+00 -4.291e+00 -9.937e-04  4.022e-04 
+ -7.813e-06  1.821e-05  7.408e-05 -1.636e-05 -2.720e-01 -2.534e-01  2.669e-01  2.481e-01  5.139e-05 -7.302e-05 
+  4.638e-04  1.217e-03 -1.636e-05  4.283e-03  2.248e+01  2.129e+01 -2.207e+01 -2.086e+01 -2.407e-03  9.984e-04 
+  4.265e+00  4.611e+00 -2.720e-01  2.248e+01  1.712e+05  1.472e+05 -1.655e+05 -1.442e+05 -1.429e+01  5.279e+00 
+  3.910e+00  4.380e+00 -2.534e-01  2.129e+01  1.472e+05  1.508e+05 -1.445e+05 -1.454e+05 -1.319e+01  4.903e+00 
+ -4.183e+00 -4.527e+00  2.669e-01 -2.207e+01 -1.655e+05 -1.445e+05  2.362e+05  1.415e+05  1.402e+01 -5.179e+00 
+ -3.826e+00 -4.291e+00  2.481e-01 -2.086e+01 -1.442e+05 -1.454e+05  1.415e+05  2.154e+05  1.291e+01 -4.799e+00 
+ -4.685e-04 -9.937e-04  5.139e-05 -2.407e-03 -1.429e+01 -1.319e+01  1.402e+01  1.291e+01  5.042e-03 -2.044e-03 
+  1.585e-04  4.022e-04 -7.302e-05  9.984e-04  5.279e+00  4.903e+00 -5.179e+00 -4.799e+00 -2.044e-03  1.148e-03 
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3      4      5      6      7      8      9     10
+        1  0.91137   1.000  0.320 -0.073  0.568  0.826  0.807 -0.689 -0.660 -0.528  0.375
+        2  0.94956   0.320  1.000  0.093  0.819  0.491  0.497 -0.410 -0.407 -0.616  0.523
+        3  0.43498  -0.073  0.093  1.000 -0.029 -0.076 -0.076  0.064  0.062  0.084 -0.250
+        4  0.98149   0.568  0.819 -0.029  1.000  0.830  0.838 -0.694 -0.687 -0.518  0.450
+        5  0.96363   0.826  0.491 -0.076  0.830  1.000  0.917 -0.823 -0.751 -0.486  0.377
+        6  0.96051   0.807  0.497 -0.076  0.838  0.917  1.000 -0.766 -0.807 -0.479  0.373
+        7  0.82420  -0.689 -0.410  0.064 -0.694 -0.823 -0.766  1.000  0.627  0.406 -0.315
+        8  0.80784  -0.660 -0.407  0.062 -0.687 -0.751 -0.807  0.627  1.000  0.392 -0.305
+        9  0.91323  -0.528 -0.616  0.084 -0.518 -0.486 -0.479  0.406  0.392  1.000 -0.850
+       10  0.87786   0.375  0.523 -0.250  0.450  0.377  0.373 -0.315 -0.305 -0.850  1.000
+[#1] INFO:Minization -- RooMinimizer::optimizeConst: deactivating const optimization
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model) directly selected PDF components: (signal)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model) indirectly selected PDF components: (CBS,BW)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model) directly selected PDF components: (BG)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model) indirectly selected PDF components: ()
+[#0] ERROR:Plotting -- RooAbsPdf::plotOn(model) ERROR: component selection expression 'VT' does not select any components of p.d.f.
+[#0] ERROR:Plotting -- RooAbsPdf::plotOn(model) ERROR: component selection expression 'VT2' does not select any components of p.d.f.
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model) directly selected PDF components: (CBS)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model) indirectly selected PDF components: (signal)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model) directly selected PDF components: (BW)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model) indirectly selected PDF components: (signal)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_pass) directly selected PDF components: (signal)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_pass) indirectly selected PDF components: (CBS,BW)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_pass) directly selected PDF components: (BG)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_pass) indirectly selected PDF components: ()
+[#0] ERROR:Plotting -- RooAbsPdf::plotOn(model_pass) ERROR: component selection expression 'VT' does not select any components of p.d.f.
+[#0] ERROR:Plotting -- RooAbsPdf::plotOn(model_pass) ERROR: component selection expression 'VT2' does not select any components of p.d.f.
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_pass) directly selected PDF components: (CBS)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_pass) indirectly selected PDF components: (signal)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_pass) directly selected PDF components: (BW)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_pass) indirectly selected PDF components: (signal)
+integralbackground = 0.00220861
+###################################################################################################################################################
+background = 2.48911e-05
+###################################################################################################################################################
+[#1] INFO:InputArguments -- The formula PPTM_cond claims to use the variables (ProbeMuon_Pt,ProbeMuon_Eta,ProbeMuon_Phi) but only (ProbeMuon_Pt) seem to be in use.
+  inputs:         ProbeMuon_Pt>=30.000000 && ProbeMuon_Pt< 35.000000
+[#1] INFO:DataHandling -- RooAbsCategory::attachToTree(PassingProbeTrackingMuon) TTree branch PassingProbeTrackingMuon will be interpreted as category index
+[#1] INFO:DataHandling -- RooTreeDataStore::loadValues(DATA) Skipping event #1 because ProbeMuon_Pt cannot accommodate the value 8.94856
+[#1] INFO:DataHandling -- RooTreeDataStore::loadValues(DATA) Skipping event #4 because InvariantMass cannot accommodate the value 60.6086
+[#1] INFO:DataHandling -- RooTreeDataStore::loadValues(DATA) Skipping event #7 because InvariantMass cannot accommodate the value 68.1354
+[#1] INFO:DataHandling -- RooTreeDataStore::loadValues(DATA) Skipping event #9 because InvariantMass cannot accommodate the value 64.0556
+[#1] INFO:DataHandling -- RooTreeDataStore::loadValues(DATA) Skipping ...
+[#0] WARNING:DataHandling -- RooTreeDataStore::loadValues(DATA) Ignored 71424 out-of-range events
+[#1] INFO:InputArguments -- RooDataHist::importDHistSet(combData) defining state "ALL" in index category sample
+[#1] INFO:Minization -- p.d.f. provides expected number of events, including extended term in likelihood.
+[#1] INFO:Minization -- RooMinimizer::optimizeConst: activating const optimization
+RooAbsTestStatistic::initSimMode: creating slave calculator #0 for state ALL (100 dataset entries)
+RooAbsTestStatistic::initSimMode: creating slave calculator #1 for state PASSING (100 dataset entries)
+[#1] INFO:Fitting -- RooAbsTestStatistic::initSimMode: created 2 slave calculators.
+[#1] INFO:Minization --  The following expressions will be evaluated in cache-and-track mode: (CBS,BW,BG)
+[#1] INFO:Minization --  The following expressions will be evaluated in cache-and-track mode: (CBS,BW,BG)
+ **********
+ **   28 **SET PRINT           1
+ **********
+ **********
+ **   29 **SET NOGRAD
+ **********
+ PARAMETER DEFINITIONS:
+    NO.   NAME         VALUE      STEP SIZE      LIMITS
+     1 a            0.00000e+00  2.00000e-01   -1.00000e+00  1.00000e+00
+     2 alpha        3.30000e+00  5.00000e-01    0.00000e+00  5.00000e+00
+     3 mean         9.11976e+01  2.00000e+00    8.00000e+01  1.00000e+02
+     4 n            5.10000e+00  1.00000e+00    0.00000e+00  1.00000e+01
+     5 n_back       1.00000e+04  5.00000e+03    0.00000e+00  1.02269e+05
+     6 n_back_pass   1.00000e+04  5.00000e+03    0.00000e+00  1.01077e+05
+     7 n_signal_total   8.00000e+04  1.02269e+04    0.00000e+00  1.02269e+05
+     8 n_signal_total_pass   8.00000e+04  1.01077e+04    0.00000e+00  1.01077e+05
+     9 sigma        4.12000e+00  2.01000e+00    1.00000e-01  1.00000e+02
+    10 sigma_cb     2.00000e+00  5.00000e-01    1.00000e+00  4.00000e+01
+ **********
+ **   30 **SET ERR         0.5
+ **********
+ **********
+ **   31 **SET PRINT           1
+ **********
+ **********
+ **   32 **SET STR           1
+ **********
+ NOW USING STRATEGY  1: TRY TO BALANCE SPEED AGAINST RELIABILITY
+ **********
+ **   33 **MIGRAD        5000           1
+ **********
+ FIRST CALL TO USER FUNCTION AT NEW START POINT, WITH IFLAG=4.
+ START MIGRAD MINIMIZATION.  STRATEGY  1.  CONVERGENCE WHEN EDM .LT. 1.00e-03
+ FCN=-1.40224e+06 FROM MIGRAD    STATUS=INITIATE       79 CALLS          80 TOTAL
+                     EDM= unknown      STRATEGY= 1      NO ERROR MATRIX       
+  EXT PARAMETER               CURRENT GUESS       STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  a            0.00000e+00   2.00000e-01   0.00000e+00   7.64723e+04
+   2  alpha        5.50347e-01   5.00000e-01  -2.57288e+00  -4.61424e+03
+   3  mean         9.11976e+01   2.00000e+00   0.00000e+00   8.46977e+04
+   4  n            5.10000e+00   1.00000e+00   0.00000e+00   3.27001e+02
+   5  n_back       1.00000e+04   5.00000e+03   0.00000e+00   8.67361e+02
+   6  n_back_pass   1.00000e+04   5.00000e+03   0.00000e+00   1.54326e+03
+   7  n_signal_total   8.00000e+04   1.02269e+04   0.00000e+00  -6.62406e+03
+   8  n_signal_total_pass   8.00000e+04   1.01077e+04   0.00000e+00  -5.94843e+03
+   9  sigma        4.12000e+00   2.01000e+00   0.00000e+00   2.30869e+04
+  10  sigma_cb     2.00000e+00   5.00000e-01   0.00000e+00   1.37163e+04
+                               ERR DEF= 0.5
+ MIGRAD FAILS TO FIND IMPROVEMENT
+ MIGRAD MINIMIZATION HAS CONVERGED.
+ MIGRAD WILL VERIFY CONVERGENCE AND ERROR MATRIX.
+ EIGENVALUES OF SECOND-DERIVATIVE MATRIX:
+        -5.2154e+02  4.4823e-02  1.5211e-01  6.7358e-01  8.7946e-01  1.0000e+00  1.1205e+00  1.6467e+00  2.4828e+00  5.2354e+02
+ MINUIT WARNING IN HESSE   
+ ============== MATRIX FORCED POS-DEF BY ADDING 522.060727 TO DIAGONAL.
+ FCN=-1.40863e+06 FROM MIGRAD    STATUS=CONVERGED    1089 CALLS        1090 TOTAL
+                     EDM=4.95474e-05    STRATEGY= 1      ERR MATRIX NOT POS-DEF
+  EXT PARAMETER                APPROXIMATE        STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  a           -1.00461e-01   1.10780e+00   5.00000e-01  -3.32866e-04
+   2  alpha        9.13702e-01   2.51146e-04   2.43618e-03   1.48262e-01
+   3  mean         9.07167e+01   2.93379e-04   5.51380e-04  -2.63868e+00
+   4  n            1.01265e+00   4.45470e-04   2.76611e-03   7.14296e-01
+   5  n_back       7.73489e-03   1.17935e+02   5.59848e-02** at limit **
+   6  n_back_pass   4.65587e-04   1.75156e+00   2.93658e-02** at limit **
+   7  n_signal_total   1.02269e+05   6.40217e-01   1.09254e-01  -3.58531e-04
+   8  n_signal_total_pass   1.01075e+05   2.96444e+00   8.56025e-02   1.20808e-02
+   9  sigma        4.03354e+00   1.06940e-03   1.03192e-03   2.61943e+00
+  10  sigma_cb     2.12556e+00   6.29520e-04   1.80755e-03   5.54477e-01
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  25    NPAR= 10    ERR DEF=0.5
+  1.510e+02  5.903e-05 -7.812e-06 -1.263e-04 -2.345e+01 -6.893e-01 -5.611e-02 -3.563e-02  8.151e-05  3.296e-05 
+  5.903e-05  6.307e-08  3.769e-11  1.482e-10 -9.187e-06 -2.701e-07 -2.198e-08 -1.396e-08 -2.017e-10 -6.282e-11 
+ -7.812e-06  3.769e-11  8.607e-08 -2.964e-11  1.216e-06  3.574e-08  2.909e-09  1.847e-09 -7.061e-11 -1.466e-10 
+ -1.263e-04  1.482e-10 -2.964e-11  1.984e-07  1.965e-05  5.776e-07  4.702e-08  2.986e-08  2.223e-10  7.913e-11 
+ -2.345e+01 -9.187e-06  1.216e-06  1.965e-05  3.650e+00  1.071e-01  8.734e-03  5.535e-03 -1.269e-05 -5.129e-06 
+ -6.893e-01 -2.701e-07  3.574e-08  5.776e-07  1.071e-01  3.262e-03  2.562e-04  1.686e-04 -3.729e-07 -1.508e-07 
+ -5.611e-02 -2.198e-08  2.909e-09  4.702e-08  8.734e-03  2.562e-04  1.209e-01  1.324e-05 -3.035e-08 -1.227e-08 
+ -3.563e-02 -1.396e-08  1.847e-09  2.986e-08  5.535e-03  1.686e-04  1.324e-05  8.788e+00 -1.928e-08 -7.794e-09 
+  8.151e-05 -2.017e-10 -7.061e-11  2.223e-10 -1.269e-05 -3.729e-07 -3.035e-08 -1.928e-08  1.144e-06 -9.975e-10 
+  3.296e-05 -6.282e-11 -1.466e-10  7.913e-11 -5.129e-06 -1.508e-07 -1.227e-08 -7.794e-09 -9.975e-10  3.963e-07 
+ERR MATRIX NOT POS-DEF
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3      4      5      6      7      8      9     10
+        1  0.99900   1.000  0.019 -0.002 -0.023 -0.999 -0.982 -0.013 -0.001  0.006  0.004
+        2  0.01926   0.019  1.000  0.001  0.001 -0.019 -0.019 -0.000 -0.000 -0.001 -0.000
+        3  0.00240  -0.002  0.001  1.000 -0.000  0.002  0.002  0.000  0.000 -0.000 -0.001
+        4  0.02317  -0.023  0.001 -0.000  1.000  0.023  0.023  0.000  0.000  0.000  0.000
+        5  0.99894  -0.999 -0.019  0.002  0.023  1.000  0.981  0.013  0.001 -0.006 -0.004
+        6  0.98222  -0.982 -0.019  0.002  0.023  0.981  1.000  0.013  0.001 -0.006 -0.004
+        7  0.01315  -0.013 -0.000  0.000  0.000  0.013  0.013  1.000  0.000 -0.000 -0.000
+        8  0.00100  -0.001 -0.000  0.000  0.000  0.001  0.001  0.000  1.000 -0.000 -0.000
+        9  0.00648   0.006 -0.001 -0.000  0.000 -0.006 -0.006 -0.000 -0.000  1.000 -0.001
+       10  0.00463   0.004 -0.000 -0.001  0.000 -0.004 -0.004 -0.000 -0.000 -0.001  1.000
+ ERR MATRIX NOT POS-DEF
+ **********
+ **   34 **HESSE        5000
+ **********
+ EIGENVALUES OF SECOND-DERIVATIVE MATRIX:
+        -2.7314e+03  4.1867e-02  1.5051e-01  6.5452e-01  6.7287e-01  1.0000e+00  1.3451e+00  1.6498e+00  2.4853e+00  2.7334e+03
+ MINUIT WARNING IN HESSE   
+ ============== MATRIX FORCED POS-DEF BY ADDING 2734.175934 TO DIAGONAL.
+ FCN=-1.40863e+06 FROM HESSE     STATUS=NOT POSDEF    120 CALLS        1210 TOTAL
+                     EDM=5.23426e-06    STRATEGY= 1      ERR MATRIX NOT POS-DEF
+  EXT PARAMETER                APPROXIMATE     INTERNAL      INTERNAL  
+  NO.   NAME      VALUE            ERROR       STEP SIZE       VALUE   
+   1  a           -1.00461e-01   1.40099e+00   5.00000e-01  -1.00631e-01
+   2  alpha        9.13702e-01   1.09807e-04   9.74473e-05  -2.45421e+00
+   3  mean         9.07167e+01   1.28295e-04   1.10276e-04   7.17328e-02
+   4  n            1.01265e+00   1.94757e-04   1.10645e-04  -9.23090e-01
+   5  n_back       7.73489e-03   3.90771e-01   4.44010e-01  -1.57025e+00
+                                 WARNING -   - ABOVE PARAMETER IS AT LIMIT.
+   6  n_back_pass   4.65587e-04   3.33790e-01   4.19232e-01  -1.57066e+00
+                                 WARNING -   - ABOVE PARAMETER IS AT LIMIT.
+   7  n_signal_total   1.02269e+05   3.72743e-02   4.45756e-01   1.56944e+00
+   8  n_signal_total_pass   1.01075e+05   2.29664e-01   5.00000e-01   1.58025e+00
+   9  sigma        4.03354e+00   4.67645e-04   4.12767e-05  -1.17128e+00
+  10  sigma_cb     2.12556e+00   2.75288e-04   7.23019e-05  -1.22937e+00
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  25    NPAR= 10    ERR DEF=0.5
+  2.892e+01  2.752e-06 -3.893e-07 -5.621e-06 -5.902e-01 -1.338e-01 -4.150e-04 -2.368e-03  4.321e-06  1.656e-06 
+  2.752e-06  1.206e-08  1.463e-12  6.714e-12 -5.628e-08 -1.276e-08 -3.957e-11 -2.258e-10 -8.151e-12 -2.648e-12 
+ -3.893e-07  1.463e-12  1.646e-08 -1.249e-12  7.961e-09  1.805e-09  5.598e-12  3.194e-11 -2.525e-12 -5.340e-12 
+ -5.621e-06  6.714e-12 -1.249e-12  3.793e-08  1.149e-07  2.606e-08  8.082e-11  4.612e-10  9.806e-12  3.559e-12 
+ -5.902e-01 -5.628e-08  7.961e-09  1.149e-07  1.209e-02  2.730e-03  8.501e-06  4.833e-05 -8.837e-08 -3.386e-08 
+ -1.338e-01 -1.276e-08  1.805e-09  2.606e-08  2.730e-03  6.216e-04  1.920e-06  1.100e-05 -2.003e-08 -7.677e-09 
+ -4.150e-04 -3.957e-11  5.598e-12  8.082e-11  8.501e-06  1.920e-06  1.389e-03  3.398e-08 -6.214e-11 -2.381e-11 
+ -2.368e-03 -2.258e-10  3.194e-11  4.612e-10  4.833e-05  1.100e-05  3.398e-08  5.275e-02 -3.546e-10 -1.359e-10 
+  4.321e-06 -8.151e-12 -2.525e-12  9.806e-12 -8.837e-08 -2.003e-08 -6.214e-11 -3.546e-10  2.187e-07 -3.696e-11 
+  1.656e-06 -2.648e-12 -5.340e-12  3.559e-12 -3.386e-08 -7.677e-09 -2.381e-11 -1.359e-10 -3.696e-11  7.578e-08 
+ERR MATRIX NOT POS-DEF
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3      4      5      6      7      8      9     10
+        1  0.99900   1.000  0.005 -0.001 -0.005 -0.998 -0.998 -0.002 -0.002  0.002  0.001
+        2  0.00468   0.005  1.000  0.000  0.000 -0.005 -0.005 -0.000 -0.000 -0.000 -0.000
+        3  0.00060  -0.001  0.000  1.000 -0.000  0.001  0.001  0.000  0.000 -0.000 -0.000
+        4  0.00538  -0.005  0.000 -0.000  1.000  0.005  0.005  0.000  0.000  0.000  0.000
+        5  0.99814  -0.998 -0.005  0.001  0.005  1.000  0.996  0.002  0.002 -0.002 -0.001
+        6  0.99785  -0.998 -0.005  0.001  0.005  0.996  1.000  0.002  0.002 -0.002 -0.001
+        7  0.00207  -0.002 -0.000  0.000  0.000  0.002  0.002  1.000  0.000 -0.000 -0.000
+        8  0.00192  -0.002 -0.000  0.000  0.000  0.002  0.002  0.000  1.000 -0.000 -0.000
+        9  0.00176   0.002 -0.000 -0.000  0.000 -0.002 -0.002 -0.000 -0.000  1.000 -0.000
+       10  0.00117   0.001 -0.000 -0.000  0.000 -0.001 -0.001 -0.000 -0.000 -0.000  1.000
+ ERR MATRIX NOT POS-DEF
+ **********
+ **   35 **SET ERR         0.5
+ **********
+ **********
+ **   36 **SET PRINT           1
+ **********
+ **********
+ **   37 **HESSE        5000
+ **********
+ EIGENVALUES OF SECOND-DERIVATIVE MATRIX:
+        -2.7314e+03  4.1744e-02  1.5040e-01  6.5323e-01  6.7261e-01  1.0000e+00  1.3464e+00  1.6502e+00  2.4854e+00  2.7334e+03
+ MINUIT WARNING IN HESSE   
+ ============== MATRIX FORCED POS-DEF BY ADDING 2734.175934 TO DIAGONAL.
+ FCN=-1.40863e+06 FROM HESSE     STATUS=NOT POSDEF    122 CALLS        1332 TOTAL
+                     EDM=5.23426e-06    STRATEGY= 1      ERR MATRIX NOT POS-DEF
+  EXT PARAMETER                APPROXIMATE     INTERNAL      INTERNAL  
+  NO.   NAME      VALUE            ERROR       STEP SIZE       VALUE   
+   1  a           -1.00461e-01   1.40099e+00   5.00000e-01  -1.00631e-01
+   2  alpha        9.13702e-01   1.09807e-04   1.94895e-05  -2.45421e+00
+   3  mean         9.07167e+01   1.28295e-04   2.20552e-05   7.17328e-02
+   4  n            1.01265e+00   1.94756e-04   2.21289e-05  -9.23090e-01
+   5  n_back       7.73489e-03   3.90771e-01   4.44010e-01  -1.57025e+00
+                                 WARNING -   - ABOVE PARAMETER IS AT LIMIT.
+   6  n_back_pass   4.65587e-04   3.33790e-01   4.19232e-01  -1.57066e+00
+                                 WARNING -   - ABOVE PARAMETER IS AT LIMIT.
+   7  n_signal_total   1.02269e+05   3.32298e-02   5.00000e-01   1.56944e+00
+   8  n_signal_total_pass   1.01075e+05   2.29664e-01   5.00000e-01   1.58025e+00
+   9  sigma        4.03354e+00   4.67647e-04   8.25535e-06  -1.17128e+00
+  10  sigma_cb     2.12556e+00   2.75287e-04   1.44604e-05  -1.22937e+00
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  25    NPAR= 10    ERR DEF=0.5
+  2.892e+01  2.752e-06 -3.892e-07 -5.620e-06 -5.902e-01 -1.338e-01 -3.730e-04 -2.368e-03  4.322e-06  1.656e-06 
+  2.752e-06  1.206e-08  1.464e-12  6.715e-12 -5.628e-08 -1.276e-08 -3.557e-11 -2.258e-10 -8.151e-12 -2.649e-12 
+ -3.892e-07  1.464e-12  1.646e-08 -1.248e-12  7.960e-09  1.804e-09  5.030e-12  3.194e-11 -2.530e-12 -5.344e-12 
+ -5.620e-06  6.715e-12 -1.248e-12  3.793e-08  1.149e-07  2.605e-08  7.263e-11  4.612e-10  9.805e-12  3.558e-12 
+ -5.902e-01 -5.628e-08  7.960e-09  1.149e-07  1.209e-02  2.730e-03  7.640e-06  4.833e-05 -8.838e-08 -3.386e-08 
+ -1.338e-01 -1.276e-08  1.804e-09  2.605e-08  2.730e-03  6.216e-04  1.725e-06  1.100e-05 -2.003e-08 -7.677e-09 
+ -3.730e-04 -3.557e-11  5.030e-12  7.263e-11  7.640e-06  1.725e-06  1.104e-03  3.054e-08 -5.585e-11 -2.140e-11 
+ -2.368e-03 -2.258e-10  3.194e-11  4.612e-10  4.833e-05  1.100e-05  3.054e-08  5.275e-02 -3.546e-10 -1.359e-10 
+  4.322e-06 -8.151e-12 -2.530e-12  9.805e-12 -8.838e-08 -2.003e-08 -5.585e-11 -3.546e-10  2.187e-07 -3.696e-11 
+  1.656e-06 -2.649e-12 -5.344e-12  3.558e-12 -3.386e-08 -7.677e-09 -2.140e-11 -1.359e-10 -3.696e-11  7.578e-08 
+ERR MATRIX NOT POS-DEF
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3      4      5      6      7      8      9     10
+        1  0.99900   1.000  0.005 -0.001 -0.005 -0.998 -0.998 -0.002 -0.002  0.002  0.001
+        2  0.00468   0.005  1.000  0.000  0.000 -0.005 -0.005 -0.000 -0.000 -0.000 -0.000
+        3  0.00060  -0.001  0.000  1.000 -0.000  0.001  0.001  0.000  0.000 -0.000 -0.000
+        4  0.00538  -0.005  0.000 -0.000  1.000  0.005  0.005  0.000  0.000  0.000  0.000
+        5  0.99814  -0.998 -0.005  0.001  0.005  1.000  0.996  0.002  0.002 -0.002 -0.001
+        6  0.99785  -0.998 -0.005  0.001  0.005  0.996  1.000  0.002  0.002 -0.002 -0.001
+        7  0.00209  -0.002 -0.000  0.000  0.000  0.002  0.002  1.000  0.000 -0.000 -0.000
+        8  0.00192  -0.002 -0.000  0.000  0.000  0.002  0.002  0.000  1.000 -0.000 -0.000
+        9  0.00176   0.002 -0.000 -0.000  0.000 -0.002 -0.002 -0.000 -0.000  1.000 -0.000
+       10  0.00117   0.001 -0.000 -0.000  0.000 -0.001 -0.001 -0.000 -0.000 -0.000  1.000
+ ERR MATRIX NOT POS-DEF
+[#1] INFO:Minization -- RooMinimizer::optimizeConst: deactivating const optimization
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model) directly selected PDF components: (signal)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model) indirectly selected PDF components: (CBS,BW)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model) directly selected PDF components: (BG)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model) indirectly selected PDF components: ()
+[#0] ERROR:Plotting -- RooAbsPdf::plotOn(model) ERROR: component selection expression 'VT' does not select any components of p.d.f.
+[#0] ERROR:Plotting -- RooAbsPdf::plotOn(model) ERROR: component selection expression 'VT2' does not select any components of p.d.f.
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model) directly selected PDF components: (CBS)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model) indirectly selected PDF components: (signal)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model) directly selected PDF components: (BW)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model) indirectly selected PDF components: (signal)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_pass) directly selected PDF components: (signal)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_pass) indirectly selected PDF components: (CBS,BW)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_pass) directly selected PDF components: (BG)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_pass) indirectly selected PDF components: ()
+[#0] ERROR:Plotting -- RooAbsPdf::plotOn(model_pass) ERROR: component selection expression 'VT' does not select any components of p.d.f.
+[#0] ERROR:Plotting -- RooAbsPdf::plotOn(model_pass) ERROR: component selection expression 'VT2' does not select any components of p.d.f.
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_pass) directly selected PDF components: (CBS)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_pass) indirectly selected PDF components: (signal)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_pass) directly selected PDF components: (BW)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_pass) indirectly selected PDF components: (signal)
+integralbackground = 0.00863061
+###################################################################################################################################################
+background = 0.000118393
+###################################################################################################################################################
+[#1] INFO:InputArguments -- The formula PPTM_cond claims to use the variables (ProbeMuon_Pt,ProbeMuon_Eta,ProbeMuon_Phi) but only (ProbeMuon_Pt) seem to be in use.
+  inputs:         ProbeMuon_Pt>=35.000000 && ProbeMuon_Pt< 40.000000
+[#1] INFO:DataHandling -- RooAbsCategory::attachToTree(PassingProbeTrackingMuon) TTree branch PassingProbeTrackingMuon will be interpreted as category index
+[#1] INFO:DataHandling -- RooTreeDataStore::loadValues(DATA) Skipping event #1 because ProbeMuon_Pt cannot accommodate the value 8.94856
+[#1] INFO:DataHandling -- RooTreeDataStore::loadValues(DATA) Skipping event #4 because InvariantMass cannot accommodate the value 60.6086
+[#1] INFO:DataHandling -- RooTreeDataStore::loadValues(DATA) Skipping event #7 because InvariantMass cannot accommodate the value 68.1354
+[#1] INFO:DataHandling -- RooTreeDataStore::loadValues(DATA) Skipping event #9 because InvariantMass cannot accommodate the value 64.0556
+[#1] INFO:DataHandling -- RooTreeDataStore::loadValues(DATA) Skipping ...
+[#0] WARNING:DataHandling -- RooTreeDataStore::loadValues(DATA) Ignored 71424 out-of-range events
+[#1] INFO:InputArguments -- RooDataHist::importDHistSet(combData) defining state "ALL" in index category sample
+[#1] INFO:Minization -- p.d.f. provides expected number of events, including extended term in likelihood.
+[#1] INFO:Minization -- RooMinimizer::optimizeConst: activating const optimization
+RooAbsTestStatistic::initSimMode: creating slave calculator #0 for state ALL (100 dataset entries)
+RooAbsTestStatistic::initSimMode: creating slave calculator #1 for state PASSING (100 dataset entries)
+[#1] INFO:Fitting -- RooAbsTestStatistic::initSimMode: created 2 slave calculators.
+[#1] INFO:Minization --  The following expressions will be evaluated in cache-and-track mode: (CBS,BW,BG)
+[#1] INFO:Minization --  The following expressions will be evaluated in cache-and-track mode: (CBS,BW,BG)
+ **********
+ **   38 **SET PRINT           1
+ **********
+ **********
+ **   39 **SET NOGRAD
+ **********
+ PARAMETER DEFINITIONS:
+    NO.   NAME         VALUE      STEP SIZE      LIMITS
+     1 a            0.00000e+00  2.00000e-01   -1.00000e+00  1.00000e+00
+     2 alpha        3.30000e+00  5.00000e-01    0.00000e+00  5.00000e+00
+     3 mean         9.11976e+01  2.00000e+00    8.00000e+01  1.00000e+02
+     4 n            5.10000e+00  1.00000e+00    0.00000e+00  1.00000e+01
+     5 n_back       1.00000e+04  5.00000e+03    0.00000e+00  1.29374e+05
+     6 n_back_pass   1.00000e+04  5.00000e+03    0.00000e+00  1.28115e+05
+     7 n_signal_total   8.00000e+04  1.29374e+04    0.00000e+00  1.29374e+05
+     8 n_signal_total_pass   8.00000e+04  1.28115e+04    0.00000e+00  1.28115e+05
+     9 sigma        4.12000e+00  2.01000e+00    1.00000e-01  1.00000e+02
+    10 sigma_cb     2.00000e+00  5.00000e-01    1.00000e+00  4.00000e+01
+ **********
+ **   40 **SET ERR         0.5
+ **********
+ **********
+ **   41 **SET PRINT           1
+ **********
+ **********
+ **   42 **SET STR           1
+ **********
+ NOW USING STRATEGY  1: TRY TO BALANCE SPEED AGAINST RELIABILITY
+ **********
+ **   43 **MIGRAD        5000           1
+ **********
+ FIRST CALL TO USER FUNCTION AT NEW START POINT, WITH IFLAG=4.
+ START MIGRAD MINIMIZATION.  STRATEGY  1.  CONVERGENCE WHEN EDM .LT. 1.00e-03
+ FCN=-1.85655e+06 FROM MIGRAD    STATUS=INITIATE       79 CALLS          80 TOTAL
+                     EDM= unknown      STRATEGY= 1      NO ERROR MATRIX       
+  EXT PARAMETER               CURRENT GUESS       STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  a            0.00000e+00   2.00000e-01   0.00000e+00   3.22597e+04
+   2  alpha        7.68440e-01   5.00000e-01  -2.70220e+00  -3.07180e+03
+   3  mean         9.11976e+01   2.00000e+00   0.00000e+00   1.42802e+05
+   4  n            5.10000e+00   1.00000e+00   0.00000e+00  -9.70014e+02
+   5  n_back       1.00000e+04   5.00000e+03   0.00000e+00  -2.17091e+03
+   6  n_back_pass   1.00000e+04   5.00000e+03   0.00000e+00  -1.40083e+03
+   7  n_signal_total   8.00000e+04   1.29374e+04   0.00000e+00  -3.04390e+04
+   8  n_signal_total_pass   8.00000e+04   1.28115e+04   0.00000e+00  -2.92432e+04
+   9  sigma        4.12000e+00   2.01000e+00   0.00000e+00   2.39877e+04
+  10  sigma_cb     2.00000e+00   5.00000e-01   0.00000e+00   1.87462e+04
+                               ERR DEF= 0.5
+ MIGRAD FAILS TO FIND IMPROVEMENT
+ MACHINE ACCURACY LIMITS FURTHER IMPROVEMENT.
+ MIGRAD MINIMIZATION HAS CONVERGED.
+ MIGRAD WILL VERIFY CONVERGENCE AND ERROR MATRIX.
+ EIGENVALUES OF SECOND-DERIVATIVE MATRIX:
+        -9.8530e+00  1.0403e-01  3.9587e-01  9.7893e-01  9.9923e-01  1.0000e+00  1.0008e+00  1.2090e+00  2.3122e+00  1.1853e+01
+ MINUIT WARNING IN HESSE   
+ ============== MATRIX FORCED POS-DEF BY ADDING 9.864853 TO DIAGONAL.
+ FCN=-1.88082e+06 FROM HESSE     STATUS=NOT POSDEF     94 CALLS         553 TOTAL
+                     EDM=0.219674    STRATEGY= 1      ERR MATRIX NOT POS-DEF
+  EXT PARAMETER                APPROXIMATE        STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  a            8.79650e-04   1.42961e+00   5.00000e-01  -3.26494e-02
+   2  alpha        6.49751e-01   9.72823e-04   1.79938e-03   1.78140e+01
+   3  mean         9.07185e+01   1.73372e-03   5.42412e-04  -5.98655e+01
+   4  n            9.99921e+00   3.43323e-03   1.15509e-01   1.17809e+00
+   5  n_back       7.74892e-02   4.02373e+02   1.86584e-02   3.97101e+00
+   6  n_back_pass   4.56715e-02   9.04541e+01   1.58157e-02  -4.27472e+00
+   7  n_signal_total   1.29317e+05   7.05621e+01   7.90052e-02  -1.19190e+00
+   8  n_signal_total_pass   1.28065e+05   6.76219e+01   8.20516e-02  -9.95084e-01
+   9  sigma        3.89516e+00   6.43988e-03   1.04623e-03  -6.39924e-02
+  10  sigma_cb     2.18897e+00   2.75015e-03   1.27319e-03   1.83827e+01
+                               ERR DEF= 0.5
+ MINUIT WARNING IN MIGRAD  
+ ============== Negative diagonal element 7 in Error Matrix
+ MINUIT WARNING IN MIGRAD  
+ ============== 1.00025 added to diagonal of error matrix
+ MIGRAD FAILS TO FIND IMPROVEMENT
+ MIGRAD TERMINATED WITHOUT CONVERGENCE.
+ FCN=-1.88082e+06 FROM MIGRAD    STATUS=FAILED        785 CALLS         786 TOTAL
+                     EDM=3.28845    STRATEGY= 1      ERR MATRIX NOT POS-DEF
+  EXT PARAMETER                APPROXIMATE        STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  a            1.49423e-01   1.50829e+00  -0.00000e+00  -2.41274e-04
+   2  alpha        6.49753e-01   5.88969e-03   0.00000e+00   2.71927e+01
+   3  mean         9.07186e+01   1.13192e-01  -0.00000e+00  -2.52685e+01
+   4  n            9.99968e+00   1.19267e+00  -0.00000e+00   7.73251e-01
+   5  n_back       5.59033e-04   1.32689e+04   0.00000e+00** at limit **
+   6  n_back_pass   2.25513e-03   5.13686e+00   0.00000e+00** at limit **
+   7  n_signal_total   1.29349e+05   2.41428e+03   0.00000e+00  -4.62507e+00
+   8  n_signal_total_pass   1.28109e+05   5.17889e+02   0.00000e+00  -2.69433e+00
+   9  sigma        3.89661e+00   5.09033e-02  -0.00000e+00   5.17304e+01
+  10  sigma_cb     2.18885e+00   3.35665e-02  -0.00000e+00   5.05995e+01
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  25    NPAR= 10    ERR DEF=0.5
+  1.407e+00 -2.410e-04  1.179e-03  9.953e-04 -6.575e-02 -8.419e-03 -5.607e+00  7.984e-01 -8.112e-04  1.297e-03 
+ -2.410e-04  3.469e-05 -1.934e-04 -2.356e-05  1.064e-02  1.396e-04  9.061e-01 -1.090e-01 -1.257e-05 -1.341e-04 
+  1.179e-03 -1.934e-04  1.281e-02  1.697e-04 -6.250e-01 -8.952e-03 -5.443e+01  4.643e+00  3.997e-03  2.816e-03 
+  9.953e-04 -2.356e-05  1.697e-04  1.613e-03 -1.286e-03  9.354e-04  1.223e+00  1.985e+00  9.981e-05  9.152e-05 
+ -6.575e-02  1.064e-02 -6.250e-01 -1.286e-03  3.074e+01  4.549e-01  2.700e+03 -1.901e+02 -1.922e-01 -1.417e-01 
+ -8.419e-03  1.396e-04 -8.952e-03  9.354e-04  4.549e-01  4.634e-02  4.352e+01  1.871e+00 -2.705e-03 -1.976e-03 
+ -5.607e+00  9.061e-01 -5.443e+01  1.223e+00  2.700e+03  4.352e+01  2.429e+05 -9.464e+03 -1.670e+01 -1.223e+01 
+  7.984e-01 -1.090e-01  4.643e+00  1.985e+00 -1.901e+02  1.871e+00 -9.464e+03  1.171e+04  1.495e+00  1.204e+00 
+ -8.112e-04 -1.257e-05  3.997e-03  9.981e-05 -1.922e-01 -2.705e-03 -1.670e+01  1.495e+00  2.591e-03  2.977e-04 
+  1.297e-03 -1.341e-04  2.816e-03  9.152e-05 -1.417e-01 -1.976e-03 -1.223e+01  1.204e+00  2.977e-04  1.127e-03 
+ERR MATRIX NOT POS-DEF
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3      4      5      6      7      8      9     10
+        1  0.05655   1.000 -0.035  0.009  0.021 -0.010 -0.033 -0.010  0.006 -0.013  0.033
+        2  0.85082  -0.035  1.000 -0.290 -0.100  0.326  0.110  0.312 -0.171 -0.042 -0.678
+        3  0.99937   0.009 -0.290  1.000  0.037 -0.996 -0.367 -0.976  0.379  0.694  0.741
+        4  0.48977   0.021 -0.100  0.037  1.000 -0.006  0.108  0.062  0.457  0.049  0.068
+        5  0.99914  -0.010  0.326 -0.996 -0.006  1.000  0.381  0.988 -0.317 -0.681 -0.761
+        6  0.44154  -0.033  0.110 -0.367  0.108  0.381  1.000  0.410  0.080 -0.247 -0.273
+        7  0.99880  -0.010  0.312 -0.976  0.062  0.988  0.410  1.000 -0.177 -0.665 -0.739
+        8  0.97876   0.006 -0.171  0.379  0.457 -0.317  0.080 -0.177  1.000  0.271  0.331
+        9  0.91865  -0.013 -0.042  0.694  0.049 -0.681 -0.247 -0.665  0.271  1.000  0.174
+       10  0.96883   0.033 -0.678  0.741  0.068 -0.761 -0.273 -0.739  0.331  0.174  1.000
+ ERR MATRIX NOT POS-DEF
+ **********
+ **   44 **SET ERR         0.5
+ **********
+ **********
+ **   45 **SET PRINT           1
+ **********
+ **********
+ **   46 **HESSE        5000
+ **********
+ EIGENVALUES OF SECOND-DERIVATIVE MATRIX:
+        -2.4512e+01  1.0407e-01  3.9619e-01  9.8222e-01  9.9375e-01  1.0000e+00  1.0062e+00  1.2076e+00  2.3099e+00  2.6512e+01
+ MINUIT WARNING IN HESSE   
+ ============== MATRIX FORCED POS-DEF BY ADDING 24.538808 TO DIAGONAL.
+ FCN=-1.88082e+06 FROM HESSE     STATUS=NOT POSDEF     92 CALLS         878 TOTAL
+                     EDM=0.00115989    STRATEGY= 1      ERR MATRIX NOT POS-DEF
+  EXT PARAMETER                APPROXIMATE     INTERNAL      INTERNAL  
+  NO.   NAME      VALUE            ERROR       STEP SIZE       VALUE   
+   1  a            1.49423e-01   1.52231e+00   5.00000e-01   1.49984e-01
+   2  alpha        6.49753e-01   6.31949e-04   1.79787e-03  -2.30838e+00
+   3  mean         9.07186e+01   1.13031e-03   5.42261e-04   7.19174e-02
+   4  n            9.99968e+00   1.45844e-03   1.15536e-01   1.58219e+00
+   5  n_back       5.59033e-04   5.18085e+01   1.19490e-02  -1.57066e+00
+                                 WARNING -   - ABOVE PARAMETER IS AT LIMIT.
+   6  n_back_pass   2.25513e-03   3.69895e+01   1.08326e-02  -1.57053e+00
+                                 WARNING -   - ABOVE PARAMETER IS AT LIMIT.
+   7  n_signal_total   1.29349e+05   3.32576e+01   9.75468e-02   1.54300e+00
+   8  n_signal_total_pass   1.28109e+05   1.61517e+01   1.11789e-01   1.55752e+00
+   9  sigma        3.89661e+00   4.18067e-03   1.04637e-03  -1.17839e+00
+  10  sigma_cb     2.18885e+00   1.78488e-03   1.27294e-03  -1.21981e+00
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  25    NPAR= 10    ERR DEF=0.5
+  4.970e+03 -1.067e-05  3.577e-04 -1.062e-06 -2.395e+01 -4.063e+01 -6.482e+00 -5.031e+00  7.010e-03  2.134e-04 
+ -1.067e-05  3.994e-07  9.310e-09 -3.601e-09  5.154e-08  8.742e-08  1.395e-08  1.082e-08 -4.616e-08 -2.870e-08 
+  3.577e-04  9.310e-09  1.278e-06  1.327e-09 -1.727e-06 -2.930e-06 -4.675e-07 -3.628e-07 -1.423e-08 -1.417e-08 
+ -1.062e-06 -3.601e-09  1.327e-09  1.892e-06  5.128e-09  8.700e-09  1.388e-09  1.077e-09 -8.250e-09 -6.995e-09 
+ -2.395e+01  5.154e-08 -1.727e-06  5.128e-09  1.159e-01  1.958e-01  3.136e-02  2.424e-02 -3.386e-05 -1.031e-06 
+ -4.063e+01  8.742e-08 -2.930e-06  8.700e-09  1.958e-01  3.337e-01  5.299e-02  4.132e-02 -5.743e-05 -1.748e-06 
+ -6.482e+00  1.395e-08 -4.675e-07  1.388e-09  3.136e-02  5.299e-02  1.106e+03  6.561e-03 -9.163e-06 -2.789e-07 
+ -5.031e+00  1.082e-08 -3.628e-07  1.077e-09  2.424e-02  4.132e-02  6.561e-03  2.609e+02 -7.110e-06 -2.164e-07 
+  7.010e-03 -4.616e-08 -1.423e-08 -8.250e-09 -3.386e-05 -5.743e-05 -9.163e-06 -7.110e-06  1.748e-05 -2.306e-07 
+  2.134e-04 -2.870e-08 -1.417e-08 -6.995e-09 -1.031e-06 -1.748e-06 -2.789e-07 -2.164e-07 -2.306e-07  3.186e-06 
+ERR MATRIX NOT POS-DEF
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3      4      5      6      7      8      9     10
+        1  0.99896   1.000 -0.000  0.004 -0.000 -0.998 -0.998 -0.003 -0.004  0.024  0.002
+        2  0.03410  -0.000  1.000  0.013 -0.004  0.000  0.000  0.000  0.000 -0.017 -0.025
+        3  0.01567   0.004  0.013  1.000  0.001 -0.004 -0.004 -0.000 -0.000 -0.003 -0.007
+        4  0.00541  -0.000 -0.004  0.001  1.000  0.000  0.000  0.000  0.000 -0.001 -0.003
+        5  0.99805  -0.998  0.000 -0.004  0.000  1.000  0.996  0.003  0.004 -0.024 -0.002
+        6  0.99778  -0.998  0.000 -0.004  0.000  0.996  1.000  0.003  0.004 -0.024 -0.002
+        7  0.00277  -0.003  0.000 -0.000  0.000  0.003  0.003  1.000  0.000 -0.000 -0.000
+        8  0.00443  -0.004  0.000 -0.000  0.000  0.004  0.004  0.000  1.000 -0.000 -0.000
+        9  0.04325   0.024 -0.017 -0.003 -0.001 -0.024 -0.024 -0.000 -0.000  1.000 -0.031
+       10  0.04113   0.002 -0.025 -0.007 -0.003 -0.002 -0.002 -0.000 -0.000 -0.031  1.000
+ ERR MATRIX NOT POS-DEF
+[#1] INFO:Minization -- RooMinimizer::optimizeConst: deactivating const optimization
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model) directly selected PDF components: (signal)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model) indirectly selected PDF components: (CBS,BW)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model) directly selected PDF components: (BG)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model) indirectly selected PDF components: ()
+[#0] ERROR:Plotting -- RooAbsPdf::plotOn(model) ERROR: component selection expression 'VT' does not select any components of p.d.f.
+[#0] ERROR:Plotting -- RooAbsPdf::plotOn(model) ERROR: component selection expression 'VT2' does not select any components of p.d.f.
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model) directly selected PDF components: (CBS)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model) indirectly selected PDF components: (signal)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model) directly selected PDF components: (BW)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model) indirectly selected PDF components: (signal)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_pass) directly selected PDF components: (signal)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_pass) indirectly selected PDF components: (CBS,BW)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_pass) directly selected PDF components: (BG)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_pass) indirectly selected PDF components: ()
+[#0] ERROR:Plotting -- RooAbsPdf::plotOn(model_pass) ERROR: component selection expression 'VT' does not select any components of p.d.f.
+[#0] ERROR:Plotting -- RooAbsPdf::plotOn(model_pass) ERROR: component selection expression 'VT2' does not select any components of p.d.f.
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_pass) directly selected PDF components: (CBS)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_pass) indirectly selected PDF components: (signal)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_pass) directly selected PDF components: (BW)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_pass) indirectly selected PDF components: (signal)
+integralbackground = 9.17831e+07
+###################################################################################################################################################
+background = 692489
+###################################################################################################################################################
+[#1] INFO:InputArguments -- The formula PPTM_cond claims to use the variables (ProbeMuon_Pt,ProbeMuon_Eta,ProbeMuon_Phi) but only (ProbeMuon_Pt) seem to be in use.
+  inputs:         ProbeMuon_Pt>=40.000000 && ProbeMuon_Pt< 45.000000
+[#1] INFO:DataHandling -- RooAbsCategory::attachToTree(PassingProbeTrackingMuon) TTree branch PassingProbeTrackingMuon will be interpreted as category index
+[#1] INFO:DataHandling -- RooTreeDataStore::loadValues(DATA) Skipping event #1 because ProbeMuon_Pt cannot accommodate the value 8.94856
+[#1] INFO:DataHandling -- RooTreeDataStore::loadValues(DATA) Skipping event #4 because InvariantMass cannot accommodate the value 60.6086
+[#1] INFO:DataHandling -- RooTreeDataStore::loadValues(DATA) Skipping event #7 because InvariantMass cannot accommodate the value 68.1354
+[#1] INFO:DataHandling -- RooTreeDataStore::loadValues(DATA) Skipping event #9 because InvariantMass cannot accommodate the value 64.0556
+[#1] INFO:DataHandling -- RooTreeDataStore::loadValues(DATA) Skipping ...
+[#0] WARNING:DataHandling -- RooTreeDataStore::loadValues(DATA) Ignored 71424 out-of-range events
+[#1] INFO:InputArguments -- RooDataHist::importDHistSet(combData) defining state "ALL" in index category sample
+[#1] INFO:Minization -- p.d.f. provides expected number of events, including extended term in likelihood.
+[#1] INFO:Minization -- RooMinimizer::optimizeConst: activating const optimization
+RooAbsTestStatistic::initSimMode: creating slave calculator #0 for state ALL (100 dataset entries)
+RooAbsTestStatistic::initSimMode: creating slave calculator #1 for state PASSING (100 dataset entries)
+[#1] INFO:Fitting -- RooAbsTestStatistic::initSimMode: created 2 slave calculators.
+[#1] INFO:Minization --  The following expressions will be evaluated in cache-and-track mode: (CBS,BW,BG)
+[#1] INFO:Minization --  The following expressions will be evaluated in cache-and-track mode: (CBS,BW,BG)
+ **********
+ **   47 **SET PRINT           1
+ **********
+ **********
+ **   48 **SET NOGRAD
+ **********
+ PARAMETER DEFINITIONS:
+    NO.   NAME         VALUE      STEP SIZE      LIMITS
+     1 a            0.00000e+00  2.00000e-01   -1.00000e+00  1.00000e+00
+     2 alpha        3.30000e+00  5.00000e-01    0.00000e+00  5.00000e+00
+     3 mean         9.11976e+01  2.00000e+00    8.00000e+01  1.00000e+02
+     4 n            5.10000e+00  1.00000e+00    0.00000e+00  1.00000e+01
+     5 n_back       1.00000e+04  5.00000e+03    0.00000e+00  1.31134e+05
+     6 n_back_pass   1.00000e+04  5.00000e+03    0.00000e+00  1.29884e+05
+     7 n_signal_total   8.00000e+04  1.31134e+04    0.00000e+00  1.31134e+05
+     8 n_signal_total_pass   8.00000e+04  1.29884e+04    0.00000e+00  1.29884e+05
+     9 sigma        4.12000e+00  2.01000e+00    1.00000e-01  1.00000e+02
+    10 sigma_cb     2.00000e+00  5.00000e-01    1.00000e+00  4.00000e+01
+ **********
+ **   49 **SET ERR         0.5
+ **********
+ **********
+ **   50 **SET PRINT           1
+ **********
+ **********
+ **   51 **SET STR           1
+ **********
+ NOW USING STRATEGY  1: TRY TO BALANCE SPEED AGAINST RELIABILITY
+ **********
+ **   52 **MIGRAD        5000           1
+ **********
+ FIRST CALL TO USER FUNCTION AT NEW START POINT, WITH IFLAG=4.
+ START MIGRAD MINIMIZATION.  STRATEGY  1.  CONVERGENCE WHEN EDM .LT. 1.00e-03
+ FCN=-1.94891e+06 FROM MIGRAD    STATUS=INITIATE       46 CALLS          47 TOTAL
+                     EDM= unknown      STRATEGY= 1      NO ERROR MATRIX       
+  EXT PARAMETER               CURRENT GUESS       STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  a            0.00000e+00   2.00000e-01   2.01358e-01  -4.34812e+04
+   2  alpha        3.30000e+00   5.00000e-01   2.13281e-01  -7.73602e+01
+   3  mean         9.11976e+01   2.00000e+00   2.02901e-01   9.65624e+04
+   4  n            5.10000e+00   1.00000e+00   2.01400e-01  -1.18889e+01
+   5  n_back       1.00000e+04   5.00000e+03   1.48486e-01   3.91795e+03
+   6  n_back_pass   1.00000e+04   5.00000e+03   1.49256e-01   4.65591e+03
+   7  n_signal_total   8.00000e+04   1.31134e+04   2.06728e-01  -3.37942e+04
+   8  n_signal_total_pass   8.00000e+04   1.29884e+04   2.07345e-01  -3.25644e+04
+   9  sigma        4.12000e+00   2.01000e+00   1.05899e-01   4.51747e+04
+  10  sigma_cb     2.00000e+00   5.00000e-01   8.39245e-02   2.56658e+03
+                               ERR DEF= 0.5
+ MIGRAD FAILS TO FIND IMPROVEMENT
+ MACHINE ACCURACY LIMITS FURTHER IMPROVEMENT.
+ MIGRAD MINIMIZATION HAS CONVERGED.
+ FCN=-1.97661e+06 FROM MIGRAD    STATUS=CONVERGED     426 CALLS         427 TOTAL
+                     EDM=0.0045751    STRATEGY= 1  ERROR MATRIX UNCERTAINTY   3.4 per cent
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  a            9.27952e-02   3.05735e-03   0.00000e+00   1.07940e+01
+   2  alpha        4.52926e+00   7.73043e-02   0.00000e+00  -1.47094e+00
+   3  mean         9.09678e+01   5.04530e-03   0.00000e+00  -4.17368e+01
+   4  n            9.04507e+00   5.30632e-01   0.00000e+00  -1.20403e-02
+   5  n_back       1.23340e+03   9.50699e+01  -0.00000e+00   4.84796e+00
+   6  n_back_pass   1.11306e+03   7.81658e+01   0.00000e+00  -3.59532e+00
+   7  n_signal_total   1.29916e+05   2.89575e+02   0.00000e+00  -9.63659e-01
+   8  n_signal_total_pass   1.28789e+05   2.69158e+02   0.00000e+00  -8.76603e-01
+   9  sigma        2.78096e+00   2.21367e-02   0.00000e+00   3.11908e+00
+  10  sigma_cb     2.60647e+00   1.27801e-02  -0.00000e+00   4.79866e+00
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  25    NPAR= 10    ERR DEF=0.5
+  9.347e-06  9.699e-05  1.098e-06  1.298e-04 -1.010e-01 -4.485e-02  2.716e-01  2.664e-01  3.447e-06  1.817e-06 
+  9.699e-05  5.982e-03  1.753e-04  3.135e-03 -5.062e+00  6.961e-01  1.372e+01  1.287e+01  3.240e-04 -1.672e-04 
+  1.098e-06  1.753e-04  2.546e-05  8.993e-05 -1.030e-01  2.308e-03  2.777e-01  2.581e-01  6.148e-06 -1.511e-06 
+  1.298e-04  3.135e-03  8.993e-05  2.847e-01 -3.528e+00 -2.581e-01  1.201e+01  1.132e+01  2.388e-04 -7.584e-05 
+ -1.010e-01 -5.062e+00 -1.030e-01 -3.528e+00  9.038e+03  8.387e+02 -1.275e+04 -1.196e+04 -6.094e-01  1.621e-01 
+ -4.485e-02  6.961e-01  2.308e-03 -2.581e-01  8.387e+02  6.110e+03 -1.175e+03 -1.171e+03 -4.871e-01  1.138e-01 
+  2.716e-01  1.372e+01  2.777e-01  1.201e+01 -1.275e+04 -1.175e+03  8.387e+04  7.608e+04  1.165e+00 -4.623e-01 
+  2.664e-01  1.287e+01  2.581e-01  1.132e+01 -1.196e+04 -1.171e+03  7.608e+04  7.246e+04  1.077e+00 -4.210e-01 
+  3.447e-06  3.240e-04  6.148e-06  2.388e-04 -6.094e-01 -4.871e-01  1.165e+00  1.077e+00  4.900e-04 -2.058e-04 
+  1.817e-06 -1.672e-04 -1.511e-06 -7.584e-05  1.621e-01  1.138e-01 -4.623e-01 -4.210e-01 -2.058e-04  1.633e-04 
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3      4      5      6      7      8      9     10
+        1  0.52452   1.000  0.410  0.071  0.080 -0.348 -0.188  0.307  0.324  0.051  0.046
+        2  0.85702   0.410  1.000  0.449  0.076 -0.688  0.115  0.613  0.618  0.189 -0.169
+        3  0.51471   0.071  0.449  1.000  0.033 -0.215  0.006  0.190  0.190  0.055 -0.023
+        4  0.10221   0.080  0.076  0.033  1.000 -0.070 -0.006  0.078  0.079  0.020 -0.011
+        5  0.74291  -0.348 -0.688 -0.215 -0.070  1.000  0.113 -0.463 -0.467 -0.290  0.133
+        6  0.48988  -0.188  0.115  0.006 -0.006  0.113  1.000 -0.052 -0.056 -0.282  0.114
+        7  0.97617   0.307  0.613  0.190  0.078 -0.463 -0.052  1.000  0.976  0.182 -0.125
+        8  0.97654   0.324  0.618  0.190  0.079 -0.467 -0.056  0.976  1.000  0.181 -0.122
+        9  0.77640   0.051  0.189  0.055  0.020 -0.290 -0.282  0.182  0.181  1.000 -0.727
+       10  0.75079   0.046 -0.169 -0.023 -0.011  0.133  0.114 -0.125 -0.122 -0.727  1.000
+ **********
+ **   53 **SET ERR         0.5
+ **********
+ **********
+ **   54 **SET PRINT           1
+ **********
+ **********
+ **   55 **HESSE        5000
+ **********
+ COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=-1.97661e+06 FROM HESSE     STATUS=OK            104 CALLS         531 TOTAL
+                     EDM=0.0270524    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                INTERNAL      INTERNAL  
+  NO.   NAME      VALUE            ERROR       STEP SIZE       VALUE   
+   1  a            9.27952e-02   4.44912e-03   3.69193e-03   9.29289e-02
+   2  alpha        4.52926e+00   5.56698e-01   4.24595e-01   9.47062e-01
+   3  mean         9.09678e+01   4.82292e-03   4.68509e-04   9.69270e-02
+   4  n            9.04507e+00   5.23558e+00   5.00000e-01   9.42472e-01
+   5  n_back       1.23340e+03   8.91617e+01   5.86900e-03  -1.37653e+00
+   6  n_back_pass   1.11306e+03   8.47724e+01   6.04819e-03  -1.38539e+00
+   7  n_signal_total   1.29916e+05   3.68745e+02   2.78519e-02   1.37775e+00
+   8  n_signal_total_pass   1.28789e+05   3.66523e+02   2.93579e-02   1.38687e+00
+   9  sigma        2.78096e+00   2.22598e-02   8.68523e-04  -1.24168e+00
+  10  sigma_cb     2.60647e+00   1.26125e-02   1.08360e-03  -1.16204e+00
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  25    NPAR= 10    ERR DEF=0.5
+  1.979e-05 -1.516e-07  6.141e-07 -6.501e-06 -1.697e-01 -1.431e-01  1.569e-01  1.313e-01  1.087e-05  1.177e-06 
+ -1.516e-07  3.262e-01 -6.836e-08 -3.341e-01  1.258e-03  8.800e-04 -1.161e-03 -8.047e-04  5.383e-07  2.096e-07 
+  6.141e-07 -6.836e-08  2.326e-05 -2.306e-06 -2.799e-02 -2.637e-02  2.602e-02  2.436e-02  2.505e-06  9.138e-07 
+ -6.501e-06 -3.341e-01 -2.306e-06  3.570e+02  4.423e-02  2.783e-02 -4.072e-02 -2.530e-02  4.022e-05 -6.840e-06 
+ -1.697e-01  1.258e-03 -2.799e-02  4.423e-02  7.950e+03  1.697e+03 -6.253e+03 -1.562e+03 -5.387e-01  1.028e-01 
+ -1.431e-01  8.800e-04 -2.637e-02  2.783e-02  1.697e+03  7.186e+03 -1.573e+03 -5.621e+03 -5.125e-01  1.035e-01 
+  1.569e-01 -1.161e-03  2.602e-02 -4.072e-02 -6.253e+03 -1.573e+03  1.360e+05  1.447e+03  5.016e-01 -9.617e-02 
+  1.313e-01 -8.047e-04  2.436e-02 -2.530e-02 -1.562e+03 -5.621e+03  1.447e+03  1.344e+05  4.742e-01 -9.618e-02 
+  1.087e-05  5.383e-07  2.505e-06  4.022e-05 -5.387e-01 -5.125e-01  5.016e-01  4.742e-01  4.955e-04 -2.004e-04 
+  1.177e-06  2.096e-07  9.138e-07 -6.840e-06  1.028e-01  1.035e-01 -9.617e-02 -9.618e-02 -2.004e-04  1.591e-04 
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3      4      5      6      7      8      9     10
+        1  0.52476   1.000 -0.000  0.029 -0.000 -0.428 -0.379  0.096  0.081  0.110  0.021
+        2  0.03096  -0.000  1.000 -0.000 -0.031  0.000  0.000 -0.000 -0.000  0.000  0.000
+        3  0.09037   0.029 -0.000  1.000 -0.000 -0.065 -0.065  0.015  0.014  0.023  0.015
+        4  0.03096  -0.000 -0.031 -0.000  1.000  0.000  0.000 -0.000 -0.000  0.000 -0.000
+        5  0.51250  -0.428  0.000 -0.065  0.000  1.000  0.225 -0.190 -0.048 -0.271  0.091
+        6  0.47572  -0.379  0.000 -0.065  0.000  0.225  1.000 -0.050 -0.181 -0.272  0.097
+        7  0.19113   0.096 -0.000  0.015 -0.000 -0.190 -0.050  1.000  0.011  0.061 -0.021
+        8  0.18160   0.081 -0.000  0.014 -0.000 -0.048 -0.181  0.011  1.000  0.058 -0.021
+        9  0.76092   0.110  0.000  0.023  0.000 -0.271 -0.272  0.061  0.058  1.000 -0.714
+       10  0.72770   0.021  0.000  0.015 -0.000  0.091  0.097 -0.021 -0.021 -0.714  1.000
+[#1] INFO:Minization -- RooMinimizer::optimizeConst: deactivating const optimization
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model) directly selected PDF components: (signal)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model) indirectly selected PDF components: (CBS,BW)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model) directly selected PDF components: (BG)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model) indirectly selected PDF components: ()
+[#0] ERROR:Plotting -- RooAbsPdf::plotOn(model) ERROR: component selection expression 'VT' does not select any components of p.d.f.
+[#0] ERROR:Plotting -- RooAbsPdf::plotOn(model) ERROR: component selection expression 'VT2' does not select any components of p.d.f.
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model) directly selected PDF components: (CBS)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model) indirectly selected PDF components: (signal)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model) directly selected PDF components: (BW)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model) indirectly selected PDF components: (signal)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_pass) directly selected PDF components: (signal)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_pass) indirectly selected PDF components: (CBS,BW)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_pass) directly selected PDF components: (BG)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_pass) indirectly selected PDF components: ()
+[#0] ERROR:Plotting -- RooAbsPdf::plotOn(model_pass) ERROR: component selection expression 'VT' does not select any components of p.d.f.
+[#0] ERROR:Plotting -- RooAbsPdf::plotOn(model_pass) ERROR: component selection expression 'VT2' does not select any components of p.d.f.
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_pass) directly selected PDF components: (CBS)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_pass) indirectly selected PDF components: (signal)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_pass) directly selected PDF components: (BW)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_pass) indirectly selected PDF components: (signal)
+integralbackground = 284957
+###################################################################################################################################################
+background = 4236.81
+###################################################################################################################################################
+[#1] INFO:InputArguments -- The formula PPTM_cond claims to use the variables (ProbeMuon_Pt,ProbeMuon_Eta,ProbeMuon_Phi) but only (ProbeMuon_Pt) seem to be in use.
+  inputs:         ProbeMuon_Pt>=45.000000 && ProbeMuon_Pt< 50.000000
+[#1] INFO:DataHandling -- RooAbsCategory::attachToTree(PassingProbeTrackingMuon) TTree branch PassingProbeTrackingMuon will be interpreted as category index
+[#1] INFO:DataHandling -- RooTreeDataStore::loadValues(DATA) Skipping event #1 because ProbeMuon_Pt cannot accommodate the value 8.94856
+[#1] INFO:DataHandling -- RooTreeDataStore::loadValues(DATA) Skipping event #4 because InvariantMass cannot accommodate the value 60.6086
+[#1] INFO:DataHandling -- RooTreeDataStore::loadValues(DATA) Skipping event #7 because InvariantMass cannot accommodate the value 68.1354
+[#1] INFO:DataHandling -- RooTreeDataStore::loadValues(DATA) Skipping event #9 because InvariantMass cannot accommodate the value 64.0556
+[#1] INFO:DataHandling -- RooTreeDataStore::loadValues(DATA) Skipping ...
+[#0] WARNING:DataHandling -- RooTreeDataStore::loadValues(DATA) Ignored 71424 out-of-range events
+[#1] INFO:InputArguments -- RooDataHist::importDHistSet(combData) defining state "ALL" in index category sample
+[#1] INFO:Minization -- p.d.f. provides expected number of events, including extended term in likelihood.
+[#1] INFO:Minization -- RooMinimizer::optimizeConst: activating const optimization
+RooAbsTestStatistic::initSimMode: creating slave calculator #0 for state ALL (100 dataset entries)
+RooAbsTestStatistic::initSimMode: creating slave calculator #1 for state PASSING (100 dataset entries)
+[#1] INFO:Fitting -- RooAbsTestStatistic::initSimMode: created 2 slave calculators.
+[#1] INFO:Minization --  The following expressions will be evaluated in cache-and-track mode: (CBS,BW,BG)
+[#1] INFO:Minization --  The following expressions will be evaluated in cache-and-track mode: (CBS,BW,BG)
+ **********
+ **   56 **SET PRINT           1
+ **********
+ **********
+ **   57 **SET NOGRAD
+ **********
+ PARAMETER DEFINITIONS:
+    NO.   NAME         VALUE      STEP SIZE      LIMITS
+     1 a            0.00000e+00  2.00000e-01   -1.00000e+00  1.00000e+00
+     2 alpha        3.30000e+00  5.00000e-01    0.00000e+00  5.00000e+00
+     3 mean         9.11976e+01  2.00000e+00    8.00000e+01  1.00000e+02
+     4 n            5.10000e+00  1.00000e+00    0.00000e+00  1.00000e+01
+     5 n_back       1.00000e+04  3.02580e+03    0.00000e+00  3.02580e+04
+     6 n_back_pass   1.00000e+04  2.93780e+03    0.00000e+00  2.93780e+04
+     7 n_signal_total   3.02580e+04  3.02580e+03    0.00000e+00  3.02580e+04
+ MINUIT WARNING IN PARAM DEF
+ ============== STARTING VALUE IS AT LIMIT.
+ MINUIT WARNING IN PARAMETR
+ ============== VARIABLE7 IS AT ITS UPPER ALLOWED LIMIT.
+ MINUIT WARNING IN PARAMETR
+ ============== VARIABLE7 BROUGHT BACK INSIDE LIMITS.
+     8 n_signal_total_pass   2.93780e+04  2.93780e+03    0.00000e+00  2.93780e+04
+ MINUIT WARNING IN PARAM DEF
+ ============== STARTING VALUE IS AT LIMIT.
+ MINUIT WARNING IN PARAMETR
+ ============== VARIABLE8 IS AT ITS UPPER ALLOWED LIMIT.
+ MINUIT WARNING IN PARAMETR
+ ============== VARIABLE8 BROUGHT BACK INSIDE LIMITS.
+     9 sigma        4.12000e+00  2.01000e+00    1.00000e-01  1.00000e+02
+    10 sigma_cb     2.00000e+00  5.00000e-01    1.00000e+00  4.00000e+01
+ **********
+ **   58 **SET ERR         0.5
+ **********
+ **********
+ **   59 **SET PRINT           1
+ **********
+ **********
+ **   60 **SET STR           1
+ **********
+ NOW USING STRATEGY  1: TRY TO BALANCE SPEED AGAINST RELIABILITY
+ **********
+ **   61 **MIGRAD        5000           1
+ **********
+ FIRST CALL TO USER FUNCTION AT NEW START POINT, WITH IFLAG=4.
+ MINUIT WARNING IN MIGrad    
+ ============== VARIABLE7 IS AT ITS UPPER ALLOWED LIMIT.
+ MINUIT WARNING IN MIGrad    
+ ============== VARIABLE8 IS AT ITS UPPER ALLOWED LIMIT.
+ START MIGRAD MINIMIZATION.  STRATEGY  1.  CONVERGENCE WHEN EDM .LT. 1.00e-03
+ FCN=-327875 FROM MIGRAD    STATUS=INITIATE      104 CALLS         105 TOTAL
+                     EDM= unknown      STRATEGY= 1      NO ERROR MATRIX       
+  EXT PARAMETER               CURRENT GUESS       STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  a            0.00000e+00   2.00000e-01   0.00000e+00  -1.19605e+05
+   2  alpha        3.30000e+00   5.00000e-01   0.00000e+00  -2.32821e+01
+   3  mean         9.11976e+01   2.00000e+00   0.00000e+00  -8.48989e+04
+   4  n            5.10000e+00   1.00000e+00   0.00000e+00  -2.64550e+00
+   5  n_back       1.00000e+04   3.02580e+03   0.00000e+00   1.93525e+03
+   6  n_back_pass   1.00000e+04   2.93780e+03   0.00000e+00   2.27837e+03
+   7  n_signal_total   2.14537e+04   3.02580e+03   0.00000e+00  -1.05123e+02
+   8  n_signal_total_pass   2.12854e+04   2.93780e+03  -1.10312e+00   1.66805e+02
+   9  sigma        4.12000e+00   2.01000e+00   0.00000e+00  -8.19379e+03
+  10  sigma_cb     2.00000e+00   5.00000e-01   0.00000e+00  -1.32406e+04
+                               ERR DEF= 0.5
+ MIGRAD MINIMIZATION HAS CONVERGED.
+ MIGRAD WILL VERIFY CONVERGENCE AND ERROR MATRIX.
+ COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=-340193 FROM MIGRAD    STATUS=CONVERGED     630 CALLS         631 TOTAL
+                     EDM=0.000101854    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  a            9.62800e-02   2.36635e-03   7.95140e-04  -4.37290e-01
+   2  alpha        4.98365e+00   3.23038e+00   5.00000e-01  -6.31786e-04
+   3  mean         9.28762e+01   1.56937e-02   6.03212e-04   3.02067e-01
+   4  n            9.97744e+00   6.68262e+00   5.00000e-01  -1.54221e-05
+   5  n_back       3.22891e+03   1.04209e+02   3.54963e-03   1.03682e-02
+   6  n_back_pass   3.10078e+03   1.00020e+02   3.59437e-03   7.63386e-02
+   7  n_signal_total   2.70303e+04   1.85997e+02   7.32199e-03   4.29353e-01
+   8  n_signal_total_pass   2.62771e+04   1.81963e+02   7.47072e-03  -5.39998e-02
+   9  sigma        3.39097e+00   5.50521e-02   9.26380e-04   8.09832e-01
+  10  sigma_cb     3.61274e+00   3.87669e-02   1.16224e-03  -1.64154e-01
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  25    NPAR= 10    ERR DEF=0.5
+  5.600e-06  2.055e-06  3.156e-06  5.792e-06 -1.125e-01 -1.014e-01  1.118e-01  1.007e-01  1.488e-05  1.986e-05 
+  2.055e-06  4.364e+00 -2.122e-06 -3.316e+00 -6.853e-02 -6.051e-02  6.811e-02  6.012e-02 -3.666e-05  4.709e-05 
+  3.156e-06 -2.122e-06  2.463e-04 -1.635e-06 -3.259e-01 -3.111e-01  3.242e-01  3.094e-01  3.054e-04 -5.473e-05 
+  5.792e-06 -3.316e+00 -1.635e-06  1.319e+03 -1.582e-01 -1.320e-01  1.574e-01  1.314e-01 -5.206e-05  6.187e-05 
+ -1.125e-01 -6.853e-02 -3.259e-01 -1.582e-01  1.086e+04  3.275e+03 -7.585e+03 -3.254e+03 -8.533e-01 -1.236e+00 
+ -1.014e-01 -6.051e-02 -3.111e-01 -1.320e-01  3.275e+03  1.000e+04 -3.255e+03 -6.860e+03 -7.844e-01 -1.167e+00 
+  1.118e-01  6.811e-02  3.242e-01  1.574e-01 -7.585e+03 -3.255e+03  3.460e+04  3.235e+03  8.491e-01  1.229e+00 
+  1.007e-01  6.012e-02  3.094e-01  1.314e-01 -3.254e+03 -6.860e+03  3.235e+03  3.311e+04  7.803e-01  1.160e+00 
+  1.488e-05 -3.666e-05  3.054e-04 -5.206e-05 -8.533e-01 -7.844e-01  8.491e-01  7.803e-01  3.031e-03 -1.057e-03 
+  1.986e-05  4.709e-05 -5.473e-05  6.187e-05 -1.236e+00 -1.167e+00  1.229e+00  1.160e+00 -1.057e-03  1.503e-03 
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3      4      5      6      7      8      9     10
+        1  0.55697   1.000  0.000  0.085  0.000 -0.456 -0.429  0.254  0.234  0.114  0.217
+        2  0.04372   0.000  1.000 -0.000 -0.044 -0.000 -0.000  0.000  0.000 -0.000  0.001
+        3  0.40567   0.085 -0.000  1.000 -0.000 -0.199 -0.198  0.111  0.108  0.354 -0.090
+        4  0.04372   0.000 -0.044 -0.000  1.000 -0.000 -0.000  0.000  0.000 -0.000  0.000
+        5  0.61302  -0.456 -0.000 -0.199 -0.000  1.000  0.314 -0.391 -0.172 -0.149 -0.306
+        6  0.59276  -0.429 -0.000 -0.198 -0.000  0.314  1.000 -0.175 -0.377 -0.142 -0.301
+        7  0.40800   0.254  0.000  0.111  0.000 -0.391 -0.175  1.000  0.096  0.083  0.170
+        8  0.39298   0.234  0.000  0.108  0.000 -0.172 -0.377  0.096  1.000  0.078  0.164
+        9  0.66709   0.114 -0.000  0.354 -0.000 -0.149 -0.142  0.083  0.078  1.000 -0.495
+       10  0.68792   0.217  0.001 -0.090  0.000 -0.306 -0.301  0.170  0.164 -0.495  1.000
+ **********
+ **   62 **SET ERR         0.5
+ **********
+ **********
+ **   63 **SET PRINT           1
+ **********
+ **********
+ **   64 **HESSE        5000
+ **********
+ COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=-340193 FROM HESSE     STATUS=OK             90 CALLS         721 TOTAL
+                     EDM=0.000102843    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                INTERNAL      INTERNAL  
+  NO.   NAME      VALUE            ERROR       STEP SIZE       VALUE   
+   1  a            9.62800e-02   2.36225e-03   3.18056e-05   9.64294e-02
+   2  alpha        4.98365e+00   3.22477e+00   5.00000e-01   1.45636e+00
+   3  mean         9.28762e+01   1.56964e-02   2.41285e-05   2.91745e-01
+   4  n            9.97744e+00   9.95603e+00   2.00000e-02   1.47578e+00
+   5  n_back       3.22891e+03   1.04230e+02   1.41985e-04  -9.05242e-01
+   6  n_back_pass   3.10078e+03   1.00042e+02   1.43775e-04  -9.09024e-01
+   7  n_signal_total   2.70303e+04   1.86192e+02   2.92880e-04   9.05376e-01
+   8  n_signal_total_pass   2.62771e+04   1.82145e+02   2.98829e-04   9.09010e-01
+   9  sigma        3.39097e+00   5.51113e-02   3.70552e-05  -1.20577e+00
+  10  sigma_cb     3.61274e+00   3.88208e-02   4.64895e-05  -1.04717e+00
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  25    NPAR= 10    ERR DEF=0.5
+  5.580e-06  1.970e-06  3.124e-06 -5.139e-06 -1.119e-01 -1.008e-01  1.119e-01  1.008e-01  1.482e-05  1.978e-05 
+  1.970e-06  4.358e+00 -1.894e-06  1.848e+00 -6.320e-02 -5.540e-02  6.334e-02  5.538e-02 -3.204e-05  4.047e-05 
+  3.124e-06 -1.894e-06  2.464e-04  6.733e-06 -3.269e-01 -3.121e-01  3.269e-01  3.121e-01  3.057e-04 -5.464e-05 
+ -5.139e-06  1.848e+00  6.733e-06  1.379e+03  9.349e-02  9.763e-02 -9.854e-03 -9.760e-02  9.056e-05 -8.354e-05 
+ -1.119e-01 -6.320e-02 -3.269e-01  9.349e-02  1.086e+04  3.271e+03 -7.635e+03 -3.270e+03 -8.548e-01 -1.239e+00 
+ -1.008e-01 -5.540e-02 -3.121e-01  9.763e-02  3.271e+03  1.001e+04 -3.271e+03 -6.906e+03 -7.857e-01 -1.170e+00 
+  1.119e-01  6.334e-02  3.269e-01 -9.854e-03 -7.635e+03 -3.271e+03  3.467e+04  3.270e+03  8.548e-01  1.239e+00 
+  1.008e-01  5.538e-02  3.121e-01 -9.760e-02 -3.270e+03 -6.906e+03  3.270e+03  3.318e+04  7.855e-01  1.170e+00 
+  1.482e-05 -3.204e-05  3.057e-04  9.056e-05 -8.548e-01 -7.857e-01  8.548e-01  7.855e-01  3.037e-03 -1.061e-03 
+  1.978e-05  4.047e-05 -5.464e-05 -8.354e-05 -1.239e+00 -1.170e+00  1.239e+00  1.170e+00 -1.061e-03  1.507e-03 
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3      4      5      6      7      8      9     10
+        1  0.55481   1.000  0.000  0.084 -0.000 -0.454 -0.427  0.254  0.234  0.114  0.216
+        2  0.02385   0.000  1.000 -0.000  0.024 -0.000 -0.000  0.000  0.000 -0.000  0.000
+        3  0.40603   0.084 -0.000  1.000  0.000 -0.200 -0.199  0.112  0.109  0.353 -0.090
+        4  0.02384  -0.000  0.024  0.000  1.000  0.000  0.000 -0.000 -0.000  0.000 -0.000
+        5  0.61323  -0.454 -0.000 -0.200  0.000  1.000  0.314 -0.393 -0.172 -0.149 -0.306
+        6  0.59300  -0.427 -0.000 -0.199  0.000  0.314  1.000 -0.176 -0.379 -0.143 -0.301
+        7  0.41010   0.254  0.000  0.112 -0.000 -0.393 -0.176  1.000  0.096  0.083  0.171
+        8  0.39510   0.234  0.000  0.109 -0.000 -0.172 -0.379  0.096  1.000  0.078  0.165
+        9  0.66798   0.114 -0.000  0.353  0.000 -0.149 -0.143  0.083  0.078  1.000 -0.496
+       10  0.68899   0.216  0.000 -0.090 -0.000 -0.306 -0.301  0.171  0.165 -0.496  1.000
+[#1] INFO:Minization -- RooMinimizer::optimizeConst: deactivating const optimization
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model) directly selected PDF components: (signal)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model) indirectly selected PDF components: (CBS,BW)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model) directly selected PDF components: (BG)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model) indirectly selected PDF components: ()
+[#0] ERROR:Plotting -- RooAbsPdf::plotOn(model) ERROR: component selection expression 'VT' does not select any components of p.d.f.
+[#0] ERROR:Plotting -- RooAbsPdf::plotOn(model) ERROR: component selection expression 'VT2' does not select any components of p.d.f.
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model) directly selected PDF components: (CBS)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model) indirectly selected PDF components: (signal)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model) directly selected PDF components: (BW)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model) indirectly selected PDF components: (signal)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_pass) directly selected PDF components: (signal)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_pass) indirectly selected PDF components: (CBS,BW)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_pass) directly selected PDF components: (BG)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_pass) indirectly selected PDF components: ()
+[#0] ERROR:Plotting -- RooAbsPdf::plotOn(model_pass) ERROR: component selection expression 'VT' does not select any components of p.d.f.
+[#0] ERROR:Plotting -- RooAbsPdf::plotOn(model_pass) ERROR: component selection expression 'VT2' does not select any components of p.d.f.
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_pass) directly selected PDF components: (CBS)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_pass) indirectly selected PDF components: (signal)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_pass) directly selected PDF components: (BW)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_pass) indirectly selected PDF components: (signal)
+integralbackground = 404259
+###################################################################################################################################################
+background = 5797.6
+###################################################################################################################################################
+[#1] INFO:InputArguments -- The formula PPTM_cond claims to use the variables (ProbeMuon_Pt,ProbeMuon_Eta,ProbeMuon_Phi) but only (ProbeMuon_Pt) seem to be in use.
+  inputs:         ProbeMuon_Pt>=50.000000 && ProbeMuon_Pt< 65.000000
+[#1] INFO:DataHandling -- RooAbsCategory::attachToTree(PassingProbeTrackingMuon) TTree branch PassingProbeTrackingMuon will be interpreted as category index
+[#1] INFO:DataHandling -- RooTreeDataStore::loadValues(DATA) Skipping event #1 because ProbeMuon_Pt cannot accommodate the value 8.94856
+[#1] INFO:DataHandling -- RooTreeDataStore::loadValues(DATA) Skipping event #4 because InvariantMass cannot accommodate the value 60.6086
+[#1] INFO:DataHandling -- RooTreeDataStore::loadValues(DATA) Skipping event #7 because InvariantMass cannot accommodate the value 68.1354
+[#1] INFO:DataHandling -- RooTreeDataStore::loadValues(DATA) Skipping event #9 because InvariantMass cannot accommodate the value 64.0556
+[#1] INFO:DataHandling -- RooTreeDataStore::loadValues(DATA) Skipping ...
+[#0] WARNING:DataHandling -- RooTreeDataStore::loadValues(DATA) Ignored 71424 out-of-range events
+[#1] INFO:InputArguments -- RooDataHist::importDHistSet(combData) defining state "ALL" in index category sample
+[#1] INFO:Minization -- p.d.f. provides expected number of events, including extended term in likelihood.
+[#1] INFO:Minization -- RooMinimizer::optimizeConst: activating const optimization
+RooAbsTestStatistic::initSimMode: creating slave calculator #0 for state ALL (100 dataset entries)
+RooAbsTestStatistic::initSimMode: creating slave calculator #1 for state PASSING (100 dataset entries)
+[#1] INFO:Fitting -- RooAbsTestStatistic::initSimMode: created 2 slave calculators.
+[#1] INFO:Minization --  The following expressions will be evaluated in cache-and-track mode: (CBS,BW,BG)
+[#1] INFO:Minization --  The following expressions will be evaluated in cache-and-track mode: (CBS,BW,BG)
+ **********
+ **   65 **SET PRINT           1
+ **********
+ **********
+ **   66 **SET NOGRAD
+ **********
+ PARAMETER DEFINITIONS:
+    NO.   NAME         VALUE      STEP SIZE      LIMITS
+     1 a            0.00000e+00  2.00000e-01   -1.00000e+00  1.00000e+00
+     2 alpha        3.30000e+00  5.00000e-01    0.00000e+00  5.00000e+00
+     3 mean         9.11976e+01  2.00000e+00    8.00000e+01  1.00000e+02
+     4 n            5.10000e+00  1.00000e+00    0.00000e+00  1.00000e+01
+     5 n_back       1.00000e+04  3.82500e+02    0.00000e+00  1.07650e+04
+     6 n_back_pass   9.75800e+03  9.75800e+02    0.00000e+00  9.75800e+03
+ MINUIT WARNING IN PARAM DEF
+ ============== STARTING VALUE IS AT LIMIT.
+ MINUIT WARNING IN PARAMETR
+ ============== VARIABLE6 IS AT ITS UPPER ALLOWED LIMIT.
+ MINUIT WARNING IN PARAMETR
+ ============== VARIABLE6 BROUGHT BACK INSIDE LIMITS.
+     7 n_signal_total   1.07650e+04  1.07650e+03    0.00000e+00  1.07650e+04
+ MINUIT WARNING IN PARAM DEF
+ ============== STARTING VALUE IS AT LIMIT.
+ MINUIT WARNING IN PARAMETR
+ ============== VARIABLE7 IS AT ITS UPPER ALLOWED LIMIT.
+ MINUIT WARNING IN PARAMETR
+ ============== VARIABLE7 BROUGHT BACK INSIDE LIMITS.
+     8 n_signal_total_pass   9.75800e+03  9.75800e+02    0.00000e+00  9.75800e+03
+ MINUIT WARNING IN PARAM DEF
+ ============== STARTING VALUE IS AT LIMIT.
+ MINUIT WARNING IN PARAMETR
+ ============== VARIABLE8 IS AT ITS UPPER ALLOWED LIMIT.
+ MINUIT WARNING IN PARAMETR
+ ============== VARIABLE8 BROUGHT BACK INSIDE LIMITS.
+     9 sigma        4.12000e+00  2.01000e+00    1.00000e-01  1.00000e+02
+    10 sigma_cb     2.00000e+00  5.00000e-01    1.00000e+00  4.00000e+01
+ **********
+ **   67 **SET ERR         0.5
+ **********
+ **********
+ **   68 **SET PRINT           1
+ **********
+ **********
+ **   69 **SET STR           1
+ **********
+ NOW USING STRATEGY  1: TRY TO BALANCE SPEED AGAINST RELIABILITY
+ **********
+ **   70 **MIGRAD        5000           1
+ **********
+ FIRST CALL TO USER FUNCTION AT NEW START POINT, WITH IFLAG=4.
+ MINUIT WARNING IN MIGrad    
+ ============== VARIABLE6 IS AT ITS UPPER ALLOWED LIMIT.
+ MINUIT WARNING IN MIGrad    
+ ============== VARIABLE7 IS AT ITS UPPER ALLOWED LIMIT.
+ MINUIT WARNING IN MIGrad    
+ ============== VARIABLE8 IS AT ITS UPPER ALLOWED LIMIT.
+ START MIGRAD MINIMIZATION.  STRATEGY  1.  CONVERGENCE WHEN EDM .LT. 1.00e-03
+ FCN=-87719.3 FROM MIGRAD    STATUS=INITIATE      202 CALLS         203 TOTAL
+                     EDM= unknown      STRATEGY= 1      NO ERROR MATRIX       
+  EXT PARAMETER               CURRENT GUESS       STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  a            0.00000e+00   2.00000e-01   0.00000e+00  -4.04617e+04
+   2  alpha        1.50559e+00   5.00000e-01   0.00000e+00  -6.77571e+01
+   3  mean         9.11976e+01   2.00000e+00   0.00000e+00  -5.98990e+03
+   4  n            5.10000e+00   1.00000e+00   0.00000e+00  -2.75738e+01
+   5  n_back       3.10254e+03   3.82500e+02   0.00000e+00  -6.28771e+02
+   6  n_back_pass   1.05215e+03   9.75800e+02   0.00000e+00   2.33984e+03
+   7  n_signal_total   7.61841e+03   1.07650e+03   0.00000e+00   2.28799e+02
+   8  n_signal_total_pass   7.92936e+03   9.75800e+02  -8.93453e-01   1.77162e+01
+   9  sigma        4.12000e+00   2.01000e+00   0.00000e+00  -5.88850e+03
+  10  sigma_cb     2.00000e+00   5.00000e-01   0.00000e+00  -3.05145e+03
+                               ERR DEF= 0.5
+ MIGRAD MINIMIZATION HAS CONVERGED.
+ MIGRAD WILL VERIFY CONVERGENCE AND ERROR MATRIX.
+ COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=-90065.1 FROM MIGRAD    STATUS=CONVERGED     936 CALLS         937 TOTAL
+                     EDM=9.50682e-06    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  a            6.96340e-02   1.79546e-03   3.17344e-04   5.82919e-01
+   2  alpha        4.98462e+00   2.58229e+00   5.00000e-01  -8.67341e-05
+   3  mean         9.13201e+01   2.68980e-02   5.55251e-04   8.71402e-01
+   4  n            9.95374e+00   9.35645e+00   5.00000e-01   2.12531e-06
+   5  n_back       3.48367e+03   8.56573e+01   2.95695e-03   2.58600e-02
+   6  n_back_pass   2.90272e+03   7.63512e+01   3.06201e-03   9.08483e-04
+   7  n_signal_total   7.28132e+03   1.05489e+02   3.82112e-03  -1.67871e-02
+   8  n_signal_total_pass   6.85531e+03   9.88671e+01   4.14879e-03   1.82645e-02
+   9  sigma        3.33947e+00   1.30418e-01   1.03129e-03  -1.91408e-02
+  10  sigma_cb     3.04077e+00   7.88242e-02   1.25754e-03  -3.63010e-02
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  25    NPAR= 10    ERR DEF=0.5
+  3.224e-06  5.593e-06 -1.874e-06  1.309e-04 -5.907e-02  4.704e-02  5.899e-02  4.694e-02  3.620e-05  2.376e-05 
+  5.593e-06  2.583e+01 -1.442e-06 -1.332e+02 -2.131e-01  1.636e-01  2.129e-01  1.633e-01 -5.665e-04  5.896e-04 
+ -1.874e-06 -1.442e-06  7.235e-04 -5.523e-05 -1.580e-01  1.445e-01  1.580e-01  1.441e-01  1.749e-04  8.390e-05 
+  1.309e-04 -1.332e+02 -5.523e-05  2.856e+04 -4.134e+00  3.062e+00  4.131e+00  3.055e+00 -3.525e-03  5.053e-03 
+ -5.907e-02 -2.131e-01 -1.580e-01 -4.134e+00  7.338e+03 -1.359e+03 -3.847e+03 -1.355e+03 -1.742e+00 -1.299e+00 
+  4.704e-02  1.636e-01  1.445e-01  3.062e+00 -1.359e+03  5.830e+03  1.357e+03  2.922e+03  1.467e+00  1.051e+00 
+  5.899e-02  2.129e-01  1.580e-01  4.131e+00 -3.847e+03  1.357e+03  1.113e+04  1.354e+03  1.742e+00  1.297e+00 
+  4.694e-02  1.633e-01  1.441e-01  3.055e+00 -1.355e+03  2.922e+03  1.354e+03  9.776e+03  1.463e+00  1.048e+00 
+  3.620e-05 -5.665e-04  1.749e-04 -3.525e-03 -1.742e+00  1.467e+00  1.742e+00  1.463e+00  1.701e-02 -6.417e-03 
+  2.376e-05  5.896e-04  8.390e-05  5.053e-03 -1.299e+00  1.051e+00  1.297e+00  1.048e+00 -6.417e-03  6.213e-03 
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3      4      5      6      7      8      9     10
+        1  0.52528   1.000  0.001 -0.039  0.000 -0.384  0.343  0.311  0.264  0.155  0.168
+        2  0.15510   0.001  1.000 -0.000 -0.155 -0.000  0.000  0.000  0.000 -0.001  0.001
+        3  0.15850  -0.039 -0.000  1.000 -0.000 -0.069  0.070  0.056  0.054  0.050  0.040
+        4  0.15509   0.000 -0.155 -0.000  1.000 -0.000  0.000  0.000  0.000 -0.000  0.000
+        5  0.54425  -0.384 -0.000 -0.069 -0.000  1.000 -0.208 -0.426 -0.160 -0.156 -0.192
+        6  0.50492   0.343  0.000  0.070  0.000 -0.208  1.000  0.168  0.387  0.147  0.175
+        7  0.47447   0.311  0.000  0.056  0.000 -0.426  0.168  1.000  0.130  0.127  0.156
+        8  0.42916   0.264  0.000  0.054  0.000 -0.160  0.387  0.130  1.000  0.113  0.135
+        9  0.73770   0.155 -0.001  0.050 -0.000 -0.156  0.147  0.127  0.113  1.000 -0.624
+       10  0.74366   0.168  0.001  0.040  0.000 -0.192  0.175  0.156  0.135 -0.624  1.000
+ **********
+ **   71 **SET ERR         0.5
+ **********
+ **********
+ **   72 **SET PRINT           1
+ **********
+ **********
+ **   73 **HESSE        5000
+ **********
+ COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=-90065.1 FROM HESSE     STATUS=OK             90 CALLS        1027 TOTAL
+                     EDM=9.29392e-06    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                INTERNAL      INTERNAL  
+  NO.   NAME      VALUE            ERROR       STEP SIZE       VALUE   
+   1  a            6.96340e-02   1.79526e-03   1.26938e-05   6.96904e-02
+   2  alpha        4.98462e+00   2.69349e+00   5.00000e-01   1.45981e+00
+   3  mean         9.13201e+01   2.68965e-02   1.11050e-04   1.32398e-01
+   4  n            9.95374e+00   5.02257e+00   2.00000e-02   1.70693e+00
+   5  n_back       3.48367e+03   8.57153e+01   1.18278e-04  -3.60539e-01
+   6  n_back_pass   2.90272e+03   7.63486e+01   1.22480e-04  -2.72455e+00
+   7  n_signal_total   7.28132e+03   1.05563e+02   1.52845e-04   3.60538e-01
+   8  n_signal_total_pass   6.85531e+03   9.88964e+01   1.65951e-04   4.17049e-01
+   9  sigma        3.33947e+00   1.30649e-01   4.12515e-05  -1.20867e+00
+  10  sigma_cb     3.04077e+00   7.89691e-02   5.03017e-05  -1.10921e+00
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  25    NPAR= 10    ERR DEF=0.5
+  3.223e-06  5.681e-06 -1.881e-06  5.676e-05 -5.911e-02  4.698e-02  5.911e-02  4.698e-02  3.616e-05  2.378e-05 
+  5.681e-06  2.529e+01 -3.329e-06 -4.817e+01 -2.067e-01  1.567e-01  2.060e-01  1.560e-01 -4.677e-04  4.996e-04 
+ -1.881e-06 -3.329e-06  7.234e-04 -2.610e-05 -1.584e-01  1.442e-01  1.584e-01  1.442e-01  1.724e-04  8.408e-05 
+  5.676e-05 -4.817e+01 -2.610e-05  2.912e+04 -1.668e+00  1.391e+00  2.076e+00  1.804e+00 -1.907e-03  2.486e-03 
+ -5.911e-02 -2.067e-01 -1.584e-01 -1.668e+00  7.348e+03 -1.360e+03 -3.864e+03 -1.360e+03 -1.747e+00 -1.302e+00 
+  4.698e-02  1.567e-01  1.442e-01  1.391e+00 -1.360e+03  5.830e+03  1.360e+03  2.927e+03  1.464e+00  1.051e+00 
+  5.911e-02  2.060e-01  1.584e-01  2.076e+00 -3.864e+03  1.360e+03  1.115e+04  1.360e+03  1.747e+00  1.302e+00 
+  4.698e-02  1.560e-01  1.442e-01  1.804e+00 -1.360e+03  2.927e+03  1.360e+03  9.782e+03  1.464e+00  1.051e+00 
+  3.616e-05 -4.677e-04  1.724e-04 -1.907e-03 -1.747e+00  1.464e+00  1.747e+00  1.464e+00  1.707e-02 -6.454e-03 
+  2.378e-05  4.996e-04  8.408e-05  2.486e-03 -1.302e+00  1.051e+00  1.302e+00  1.051e+00 -6.454e-03  6.236e-03 
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3      4      5      6      7      8      9     10
+        1  0.52512   1.000  0.001 -0.039  0.000 -0.384  0.343  0.312  0.265  0.154  0.168
+        2  0.05614   0.001  1.000 -0.000 -0.056 -0.000  0.000  0.000  0.000 -0.001  0.001
+        3  0.15816  -0.039 -0.000  1.000 -0.000 -0.069  0.070  0.056  0.054  0.049  0.040
+        4  0.05612   0.000 -0.056 -0.000  1.000 -0.000  0.000  0.000  0.000 -0.000  0.000
+        5  0.54512  -0.384 -0.000 -0.069 -0.000  1.000 -0.208 -0.427 -0.160 -0.156 -0.192
+        6  0.50487   0.343  0.000  0.070  0.000 -0.208  1.000  0.169  0.388  0.147  0.174
+        7  0.47561   0.312  0.000  0.056  0.000 -0.427  0.169  1.000  0.130  0.127  0.156
+        8  0.42973   0.265  0.000  0.054  0.000 -0.160  0.388  0.130  1.000  0.113  0.135
+        9  0.73879   0.154 -0.001  0.049 -0.000 -0.156  0.147  0.127  0.113  1.000 -0.626
+       10  0.74476   0.168  0.001  0.040  0.000 -0.192  0.174  0.156  0.135 -0.626  1.000
+[#1] INFO:Minization -- RooMinimizer::optimizeConst: deactivating const optimization
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model) directly selected PDF components: (signal)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model) indirectly selected PDF components: (CBS,BW)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model) directly selected PDF components: (BG)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model) indirectly selected PDF components: ()
+[#0] ERROR:Plotting -- RooAbsPdf::plotOn(model) ERROR: component selection expression 'VT' does not select any components of p.d.f.
+[#0] ERROR:Plotting -- RooAbsPdf::plotOn(model) ERROR: component selection expression 'VT2' does not select any components of p.d.f.
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model) directly selected PDF components: (CBS)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model) indirectly selected PDF components: (signal)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model) directly selected PDF components: (BW)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model) indirectly selected PDF components: (signal)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_pass) directly selected PDF components: (signal)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_pass) indirectly selected PDF components: (CBS,BW)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_pass) directly selected PDF components: (BG)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_pass) indirectly selected PDF components: ()
+[#0] ERROR:Plotting -- RooAbsPdf::plotOn(model_pass) ERROR: component selection expression 'VT' does not select any components of p.d.f.
+[#0] ERROR:Plotting -- RooAbsPdf::plotOn(model_pass) ERROR: component selection expression 'VT2' does not select any components of p.d.f.
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_pass) directly selected PDF components: (CBS)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_pass) indirectly selected PDF components: (signal)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_pass) directly selected PDF components: (BW)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_pass) indirectly selected PDF components: (signal)
+integralbackground = 28582.4
+###################################################################################################################################################
+background = 526.925
+###################################################################################################################################################
+"results/efficiencies/Z0_Run_2011/" directory OK
+
+[Settings]
+Z0_Run_2011
+Pt trackerMuon
+Fitting:     BW + CrystalBall + Exponnecial
+Fit between: 70 and 110 GeV
+Bins:        100
+
+------------------------
+Output: results/efficiencies/Z0_Run_2011/Pt_trackerMuon.root
+------------------------

@@ -7,11 +7,7 @@ const char* output_folder_name = "Z0_Run_2011";
 //Header of this function
 double _mmin = 70;
 double _mmax = 110;
-double fit_bins = 0;
-
-// Information for output at the end of run
-const char* fit_functions = "BW + CrystalBall + Exponnecial";
-string prefix_file_name = "";
+double fit_bins = 0;	const char* path_bins_fit_folder = "results/bins_fit/globalMuon/";
 
 double* doFit(string condition, string MuonId, const char* savePath = NULL) // RETURNS ARRAY WITH [yield_all, yield_pass, err_all, err_pass]
 {
@@ -69,7 +65,7 @@ double* doFit(string condition, string MuonId, const char* savePath = NULL) // R
 	//BACKGROUND VARIABLES
     RooRealVar a0("a0", "a0", 0, -10, 100);
     RooRealVar a1("a1", "a1", 0, -10, 100);
-    RooRealVar a("a", "a", 0.,-1.0, 1.0);
+    RooRealVar a("a", "a", 0.,-20.0, 20.0);
 
 	//FIT FUNCTIONS
 
@@ -84,11 +80,12 @@ double* doFit(string condition, string MuonId, const char* savePath = NULL) // R
 
 	double n_signal_initial_total = 80000;
 	double n_back_initial = 10000;
-	RooRealVar frac1("frac1","frac1",0.3);
+	RooRealVar frac1("frac1","frac1",0.5);
 	//RooRealVar frac2("frac2","frac2",0.3);
 
 	RooAddPdf* signal;
-	
+	//cout << "background = " << background.getVal() << endl << "###################################################################################################################################################"<< endl;
+	//background = new RooAddPdf()
 	signal      = new RooAddPdf("signal", "signal", RooArgList(crystalball, BW), RooArgList(frac1));
 
 	RooRealVar n_signal_total("n_signal_total","n_signal_total",n_signal_initial_total,0.,Data_ALL->sumEntries());
@@ -148,10 +145,17 @@ double* doFit(string condition, string MuonId, const char* savePath = NULL) // R
 	output[2] = yield_ALL->getError();
 	output[3] = yield_PASS->getError();
 	
-	frame->SetTitle("TODOS");
+	frame->SetTitle("Probe");
+	frame->SetYTitle("Eventos");
 	frame->SetXTitle("#mu^{+}#mu^{-} Massa invariante [GeV/c^{2}]");
 	Data_ALL->plotOn(frame);
-	
+	/*
+	TH1 * h1 = Data_ALL->createHistogram(InvariantMass);
+	TF1 * f1 = model->asTF(RooArgList(InvariantMass));
+	h1->Fit(f1);
+*/
+
+
 	model->plotOn(frame);
 	double chis = frame->chiSquare();
 	model->plotOn(frame,RooFit::Components("signal"),RooFit::LineStyle(kDashed),RooFit::LineColor(kGreen));
@@ -167,7 +171,7 @@ double* doFit(string condition, string MuonId, const char* savePath = NULL) // R
 	//CREATING LEGEND
 	TLegend *leg = new TLegend(0.3,0.6,0.1,0.9);
 	leg->AddEntry(blue,"Ajuste Total","l");
-	leg->AddEntry(green,"Signal","l");
+	leg->AddEntry(green,"Sinal","l");
 	leg->AddEntry(Teal,"BreitWigner","l");
 	leg->AddEntry(magenta,"Crystalball","l");
 	leg->AddEntry(red,"Background","l");
@@ -178,7 +182,8 @@ double* doFit(string condition, string MuonId, const char* savePath = NULL) // R
 	
 	c_pass->cd();
 	
-	frame_pass->SetTitle("PASSARAM");
+	frame_pass->SetTitle("Tag");
+	frame_pass->SetYTitle("Eventos");
 	frame_pass->SetXTitle("#mu^{+}#mu^{-} Massa invariante [GeV/c^{2}]");
 	Data_PASSING->plotOn(frame_pass);
 	
@@ -218,6 +223,10 @@ double* doFit(string condition, string MuonId, const char* savePath = NULL) // R
 		c_pass->SaveAs((string(savePath) + condition + "_PASS.root").c_str());
 		c_all->SaveAs ((string(savePath) + condition + "_ALL.root").c_str());
 	}
+
+
+
+
 	// DELETING ALLOCATED MEMORY*/
 	delete file0;
 	//

@@ -1,4 +1,3 @@
-
 TEfficiency* get_efficiency(TH1D* all, TH1D* pass, string quantity, string MuonId, string prefix_name = "", bool shouldWrite = false)
 {
 	//Copy histograms to change axis titles later
@@ -19,12 +18,12 @@ TEfficiency* get_efficiency(TH1D* all, TH1D* pass, string quantity, string MuonI
 	if (prefix_name != "")
 	{
 		pEff->SetName(string(MuonId + "_" + quantity + "_" + prefix_name + "_Efficiency").c_str());
-		pEff->SetTitle(string("Efficiency for " + MuonId + " " + quantity + " (" + prefix_name + ")").c_str());
+		pEff->SetTitle(string("Eficiencia do " + MuonId + " " + quantity + " (" + prefix_name + ")").c_str());
 	}
 	else
 	{
 		pEff->SetName(string(MuonId + "_" + quantity + "_Efficiency").c_str());
-		pEff->SetTitle(string("Efficiency for " + MuonId + " " + quantity).c_str());
+		pEff->SetTitle(string("Eficiencia do " + MuonId + " " + quantity).c_str());
 	}
 
 	pEff->SetLineColor(kBlack);
