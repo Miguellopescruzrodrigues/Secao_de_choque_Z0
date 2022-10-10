@@ -5,9 +5,13 @@ using namespace std;
 const char* output_folder_name = "Z0_Run_2011";
 
 //Header of this function
-double _mmin = 70;
-double _mmax = 110;
-double fit_bins = 0;	const char* path_bins_fit_folder = "results/bins_fit/globalMuon/";
+double _mmin = 60;
+double _mmax = 120;
+double fit_bins = 0;
+
+// Information for output at the end of run
+const char* fit_functions = "BW + CrystalBall + Exponnecial";
+string prefix_file_name = "";
 
 double* doFit(string condition, string MuonId, const char* savePath = NULL) // RETURNS ARRAY WITH [yield_all, yield_pass, err_all, err_pass]
 {
@@ -29,7 +33,6 @@ double* doFit(string condition, string MuonId, const char* savePath = NULL) // R
 
 	if (fit_bins > 0) InvariantMass.setBins(fit_bins);
 	fit_bins = InvariantMass.getBinning().numBins();
-
 	RooFormulaVar* redeuce   = new RooFormulaVar("PPTM_cond", condition.c_str(), RooArgList(quantityPt, quantityEta, quantityPhi));
 	RooDataSet *Data_ALL     = new RooDataSet("DATA", "DATA", DataTree, RooArgSet(InvariantMass, MuonId_var, quantityPt, quantityEta, quantityPhi),*redeuce);
 
@@ -69,9 +72,6 @@ double* doFit(string condition, string MuonId, const char* savePath = NULL) // R
 
 	//FIT FUNCTIONS
 
-	//RooVoigtian voitgtian("VT","VT",InvariantMass,mean,width,sigma);
-	//RooPolynomial background("BG", "BG", InvariantMass, RooArgList(a0,a1));
-
 	RooCBShape crystalball("CBS", "CBS", InvariantMass, mean, sigma_cb, alpha, n); //-----------------------------------
 
 	RooBreitWigner BW("BW","BW",InvariantMass,mean,sigma); //----------------------------------
@@ -81,11 +81,10 @@ double* doFit(string condition, string MuonId, const char* savePath = NULL) // R
 	double n_signal_initial_total = 80000;
 	double n_back_initial = 10000;
 	RooRealVar frac1("frac1","frac1",0.5);
-	//RooRealVar frac2("frac2","frac2",0.3);
+
+
 
 	RooAddPdf* signal;
-	//cout << "background = " << background.getVal() << endl << "###################################################################################################################################################"<< endl;
-	//background = new RooAddPdf()
 	signal      = new RooAddPdf("signal", "signal", RooArgList(crystalball, BW), RooArgList(frac1));
 
 	RooRealVar n_signal_total("n_signal_total","n_signal_total",n_signal_initial_total,0.,Data_ALL->sumEntries());
@@ -99,11 +98,11 @@ double* doFit(string condition, string MuonId, const char* savePath = NULL) // R
 	model      = new RooAddPdf("model","model", RooArgList(*signal, background),RooArgList(n_signal_total, n_back));
 	model_pass = new RooAddPdf("model_pass", "model_pass", RooArgList(*signal, background),RooArgList(n_signal_total_pass, n_back_pass));
 
+
 	// SIMULTANEOUS FIT
 	RooCategory sample("sample","sample") ;
 	sample.defineType("All") ;
 	sample.defineType("PASSING") ;
-	
 	RooDataHist combData("combData","combined data",InvariantMass,Index(sample),Import("ALL",*dh_ALL),Import("PASSING",*dh_PASSING));
 	
 	RooSimultaneous simPdf("simPdf","simultaneous pdf",sample) ;
@@ -113,6 +112,13 @@ double* doFit(string condition, string MuonId, const char* savePath = NULL) // R
 	
 	RooFitResult* fitres = new RooFitResult;
 	fitres = simPdf.fitTo(combData, RooFit::Save());
+
+
+
+RooAbsReal *integral_bkg = background.createIntegral(InvariantMass);
+Double_t integral_bkg_value = integral_bkg->getVal();
+//Double_t integral_bkg_value_error = integral_bkg->getPropagatedError(*fit_result_data, x);
+
 
 	//legenda
 	TH1F *orange = new TH1F("h1","Ex",1,-10,10);
@@ -149,11 +155,6 @@ double* doFit(string condition, string MuonId, const char* savePath = NULL) // R
 	frame->SetYTitle("Eventos");
 	frame->SetXTitle("#mu^{+}#mu^{-} Massa invariante [GeV/c^{2}]");
 	Data_ALL->plotOn(frame);
-	/*
-	TH1 * h1 = Data_ALL->createHistogram(InvariantMass);
-	TF1 * f1 = model->asTF(RooArgList(InvariantMass));
-	h1->Fit(f1);
-*/
 
 
 	model->plotOn(frame);
@@ -174,8 +175,10 @@ double* doFit(string condition, string MuonId, const char* savePath = NULL) // R
 	leg->AddEntry(green,"Sinal","l");
 	leg->AddEntry(Teal,"BreitWigner","l");
 	leg->AddEntry(magenta,"Crystalball","l");
-	leg->AddEntry(red,"Background","l");
+	leg->AddEntry(red,"Fundo","l");
 	leg->AddEntry("frame",(Form("#Chi^{2}: %2.5f", chis)),"" );
+	leg->AddEntry("frame_pass",(Form("Entradas: %f", dh_ALL->sumEntries())),"" );
+	leg->AddEntry("frame_pass",(Form("Fundo: %f", integral_bkg->getVal())),"" );
 	leg->Draw();
 
 	RooPlot *frame_pass = InvariantMass.frame(RooFit::Title("Invariant Mass"));
@@ -204,6 +207,9 @@ double* doFit(string condition, string MuonId, const char* savePath = NULL) // R
 	leg2->AddEntry(magenta,"Crystalball","l");
 	leg2->AddEntry(red,"Background","l");
 	leg2->AddEntry("frame_pass",(Form("#Chi^{2}: %2.5f", chis_pass)),"" );
+	leg2->AddEntry("frame_pass",(Form("Entradas: %f", dh_PASSING->sumEntries())),"" );
+	leg2->AddEntry("frame_pass",(Form("Entradas: %f", integral_bkg->getVal())),"" );
+
 	leg2->Draw();
 
 	frame_pass->Draw();

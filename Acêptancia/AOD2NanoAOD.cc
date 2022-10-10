@@ -342,7 +342,7 @@ AOD2NanoAOD::AOD2NanoAOD(const edm::ParameterSet &iConfig)
   PlotControl->Branch("ProbeMuon_Pt", &ProbeMuon_Pt, "ProbeMuon_Pt/D");
   PlotControl->Branch("ProbeMuon_Eta", &ProbeMuon_Eta, "ProbeMuon_Eta/D");
   PlotControl->Branch("ProbeMuon_Phi", &ProbeMuon_Phi, "ProbeMuon_Phi/D");
-
+/*
   AnalysisTree->Branch("InvariantMass", &InvariantMass, "InvariantMass/D");
 
   AnalysisTree->Branch("PassingProbeGlobalMuon", 		&PassingProbeGlobalMuon, 		"PassingProbeGlobalMuon/I");

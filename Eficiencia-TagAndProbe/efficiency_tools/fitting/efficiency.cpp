@@ -73,6 +73,7 @@ string MuonId   = "trackerMuon";
 string quantity = "Pt";     double bins[] =  {15., 20., 25., 30., 35., 40., 45., 50.0, 65.0};
 //string quantity = "Eta";    double bins[] =  {-2.0, -1.5, -1.0, -0.5, 0., 0.5, 1.0, 1.5, 2.0};
 //string quantity = "Phi";    double bins[] = {-3.0, -2.5, -2.0, -1.5, -1.0, -0.5, -0, 0.5, 1.0, 1.5, 2.0, 2.5, 3.0};
+//string quantity = "Phi";    double bins[] = {-3.0, -2.5};
 
 void efficiency()
 {
@@ -84,6 +85,7 @@ void efficiency()
     strcat(path_bins_fit_folder,"/");
     strcat(path_bins_fit_folder,quantity.c_str());
     strcat(path_bins_fit_folder,"/");
+	//strcpy(path_bins_fit_folder,"testes/");
 
 	//const char* path_bins_fit_folder = str;
 	create_folder(path_bins_fit_folder);
