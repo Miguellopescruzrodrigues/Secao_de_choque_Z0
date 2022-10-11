@@ -60,7 +60,7 @@ double* doFit(string condition, string MuonId, const char* savePath = NULL) // R
 	//CRYSTALBALL VARIABLES
 	RooRealVar sigma_cb("sigma_cb","sigma_cb", 2.0, 1.0, 40.0);
 	RooRealVar alpha("alpha", "alpha", 3.3, 0., 5.);
-	RooRealVar n("n", "n",  5.1, 0., 10.);
+	RooRealVar n("n", "n",  5.1, 0., 20.);
 
 	//BreitWigner VARIABLES
 	RooRealVar largura("largura","largura", 2.4952);
@@ -78,8 +78,8 @@ double* doFit(string condition, string MuonId, const char* savePath = NULL) // R
 
 	RooExponential background("BG", "BG", InvariantMass, a);
 
-	double n_signal_initial_total = 80000;
-	double n_back_initial = 10000;
+	double n_signal_initial_total = Data_PASSING->sumEntries()*0.1;
+	double n_back_initial = Data_PASSING->sumEntries()*0.1;
 	RooRealVar frac1("frac1","frac1",0.5);
 
 
@@ -111,14 +111,12 @@ double* doFit(string condition, string MuonId, const char* savePath = NULL) // R
 	simPdf.addPdf(*model_pass,"PASSING");
 	
 	RooFitResult* fitres = new RooFitResult;
-	fitres = simPdf.fitTo(combData, RooFit::Save());
+	fitres = simPdf.fitTo(combData, RooFit::Save(), PrintLevel(3));
 
 
 
-RooAbsReal *integral_bkg = background.createIntegral(InvariantMass);
-Double_t integral_bkg_value = integral_bkg->getVal();
-//Double_t integral_bkg_value_error = integral_bkg->getPropagatedError(*fit_result_data, x);
-
+	RooAbsReal* integral_bkg = background.createIntegral(InvariantMass);
+	Double_t integral_bkg_value = integral_bkg->getVal();
 
 	//legenda
 	TH1F *orange = new TH1F("h1","Ex",1,-10,10);
@@ -178,6 +176,7 @@ Double_t integral_bkg_value = integral_bkg->getVal();
 	leg->AddEntry(red,"Fundo","l");
 	leg->AddEntry("frame",(Form("#Chi^{2}: %2.5f", chis)),"" );
 	leg->AddEntry("frame_pass",(Form("Entradas: %f", dh_ALL->sumEntries())),"" );
+	leg->AddEntry("frame_pass",(Form("Ajuste Total: %f", signal->createIntegral(InvariantMass)->getVal())),"" );
 	leg->AddEntry("frame_pass",(Form("Fundo: %f", integral_bkg->getVal())),"" );
 	leg->Draw();
 
@@ -208,7 +207,8 @@ Double_t integral_bkg_value = integral_bkg->getVal();
 	leg2->AddEntry(red,"Background","l");
 	leg2->AddEntry("frame_pass",(Form("#Chi^{2}: %2.5f", chis_pass)),"" );
 	leg2->AddEntry("frame_pass",(Form("Entradas: %f", dh_PASSING->sumEntries())),"" );
-	leg2->AddEntry("frame_pass",(Form("Entradas: %f", integral_bkg->getVal())),"" );
+	leg2->AddEntry("frame_pass",(Form("Sinal(sem Bkg): %f", signal->createIntegral(InvariantMass)->getVal())),"" );
+	leg2->AddEntry("frame_pass",(Form("Fundo: %f", background.createIntegral(InvariantMass)->getVal())),"" );
 
 	leg2->Draw();
 
