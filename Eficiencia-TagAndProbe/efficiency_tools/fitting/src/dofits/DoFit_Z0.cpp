@@ -49,7 +49,9 @@ double* doFit(string condition, string MuonId, const char* savePath = NULL) // R
 
 
 //====================================AJUSTE COM AS FUNÇÕES=========================
-	   
+	
+	double mass_Z0 = 91.1976;
+
 	// Variaveis gerais
 	RooRealVar mean("mean","mean",91.1976, 80., 100.); //Z0 mass
 	RooRealVar sigma("sigma","sigma", 4.12, 0.1, 100.0);
@@ -78,8 +80,12 @@ double* doFit(string condition, string MuonId, const char* savePath = NULL) // R
 
 	RooExponential background("BG", "BG", InvariantMass, a);
 
-	double n_signal_initial_total = Data_PASSING->sumEntries()*0.1;
-	double n_back_initial = Data_PASSING->sumEntries()*0.1;
+
+
+ 	double n_signal_initial_total =(Data_ALL->sumEntries(TString::Format("abs(InvariantMass-%g)<0.1",mass_Z0))-Data_ALL->sumEntries(TString::Format("abs(InvariantMass-%g)<0.15&&abs(InvariantMass-%g)>.1",mass_Z0,mass_Z0)));
+	double n_back_initial = Data_PASSING->sumEntries() - n_signal_initial_total;
+	//double n_signal_initial_total = Data_PASSING->sumEntries()*0.1;
+	//double n_back_initial = Data_PASSING->sumEntries();
 	RooRealVar frac1("frac1","frac1",0.5);
 
 
@@ -175,9 +181,11 @@ double* doFit(string condition, string MuonId, const char* savePath = NULL) // R
 	leg->AddEntry(magenta,"Crystalball","l");
 	leg->AddEntry(red,"Fundo","l");
 	leg->AddEntry("frame",(Form("#Chi^{2}: %2.5f", chis)),"" );
-	leg->AddEntry("frame_pass",(Form("Entradas: %f", dh_ALL->sumEntries())),"" );
-	leg->AddEntry("frame_pass",(Form("Ajuste Total: %f", signal->createIntegral(InvariantMass)->getVal())),"" );
-	leg->AddEntry("frame_pass",(Form("Fundo: %f", integral_bkg->getVal())),"" );
+	leg->AddEntry("frame",(Form("Entradas: %f", dh_ALL->sumEntries())),"" );
+	leg->AddEntry("frame",(Form("Ajuste Total: %f", signal->createIntegral(InvariantMass)->getVal())),"" );
+	leg->AddEntry("frame",(Form("Fundo: %f", integral_bkg->createIntegral(InvariantMass)->getVal())),"" );
+	leg->AddEntry("frame",(Form("CBS: %f", crystalball.createIntegral(InvariantMass)->getVal())),"" );
+	leg->AddEntry("frame",(Form("BW: %f", BW.createIntegral(InvariantMass)->getVal())),"" );
 	leg->Draw();
 
 	RooPlot *frame_pass = InvariantMass.frame(RooFit::Title("Invariant Mass"));
@@ -209,6 +217,8 @@ double* doFit(string condition, string MuonId, const char* savePath = NULL) // R
 	leg2->AddEntry("frame_pass",(Form("Entradas: %f", dh_PASSING->sumEntries())),"" );
 	leg2->AddEntry("frame_pass",(Form("Sinal(sem Bkg): %f", signal->createIntegral(InvariantMass)->getVal())),"" );
 	leg2->AddEntry("frame_pass",(Form("Fundo: %f", background.createIntegral(InvariantMass)->getVal())),"" );
+	leg2->AddEntry("frame_pass",(Form("CBS: %f", crystalball.createIntegral(InvariantMass)->getVal())),"" );
+	leg2->AddEntry("frame_pass",(Form("BW: %f", BW.createIntegral(InvariantMass)->getVal())),"" );
 
 	leg2->Draw();
 
