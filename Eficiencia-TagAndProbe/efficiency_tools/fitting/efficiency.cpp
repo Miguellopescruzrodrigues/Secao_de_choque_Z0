@@ -65,9 +65,9 @@
 
 
 //Which Muon Id do you want to study?
-string MuonId   = "trackerMuon";
+//string MuonId   = "trackerMuon";
 //string MuonId   = "standaloneMuon";
-//string MuonId   = "globalMuon";
+string MuonId   = "globalMuon";
 
 //Which quantity do you want to use?
 string quantity = "Pt";     double bins[] =  {15., 20., 25., 30., 35., 40., 45., 50.0, 65.0};

@@ -40,8 +40,8 @@ TEfficiency* get_efficiency(TH1D* all, TH1D* pass, string quantity, string MuonI
 	
 	gPad->Update();
 	auto graph = pEff->GetPaintedGraph();
-	graph->SetMinimum(0.8);
-	graph->SetMaximum(1.2);
+	graph->SetMinimum(0.6);
+	graph->SetMaximum(1.0);
 	gPad->Update();
 	
 	return pEff;

@@ -1,3 +1,30 @@
+
+
+#include <TFile.h>
+#include <TTree.h>
+#include <TH1F.h>
+#include <RooCategory.h>
+#include <RooRealVar.h>
+#include <TMath.h>
+#include <TCanvas.h>
+#include <RooCBShape.h>
+#include <RooBreitWigner.h>
+#include <RooExponential.h>
+#include <RooAddPdf.h>
+#include <RooPlot.h>
+#include <RooFitResult.h>
+#include <RooDataSet.h>
+#include <RooFormulaVar.h>
+#include <TLegend.h>
+#include <RooDataHist.h>
+#include <RooSimultaneous.h>
+#include <TEfficiency.h>
+#include <TGraphAsymmErrors.h>
+#include <TSystem.h>
+#include <fstream> // if not use error: implicit instantiation of undefined template 'std::basic_ofstream<char, std::char_traits<char> >'
+
+
+
 using namespace RooFit;
 using namespace std;
 
@@ -5,8 +32,8 @@ using namespace std;
 const char* output_folder_name = "Z0_Run_2011";
 
 //Header of this function
-double _mmin = 60;
-double _mmax = 120;
+double _mmin = 70;
+double _mmax = 110;
 double fit_bins = 0;
 
 // Information for output at the end of run
@@ -27,7 +54,7 @@ double* doFit(string condition, string MuonId, const char* savePath = NULL) // R
 	MuonId_var.defineType("All");
 	MuonId_var.defineType("PASSING");
 	RooRealVar  InvariantMass("InvariantMass", "InvariantMass", _mmin, _mmax);
-	RooRealVar  quantityPt   ("ProbeMuon_Pt",  "ProbeMuon_Pt",  15.0, 110.);
+	RooRealVar  quantityPt   ("ProbeMuon_Pt",  "ProbeMuon_Pt",  15.0, 65.);
 	RooRealVar  quantityEta  ("ProbeMuon_Eta", "ProbeMuon_Eta", -2.4, 2.4);
 	RooRealVar  quantityPhi  ("ProbeMuon_Phi", "ProbeMuon_Phi", -TMath::Pi(), TMath::Pi());
 
@@ -104,21 +131,19 @@ double* doFit(string condition, string MuonId, const char* savePath = NULL) // R
 	model      = new RooAddPdf("model","model", RooArgList(*signal, background),RooArgList(n_signal_total, n_back));
 	model_pass = new RooAddPdf("model_pass", "model_pass", RooArgList(*signal, background),RooArgList(n_signal_total_pass, n_back_pass));
 
-
 	// SIMULTANEOUS FIT
 	RooCategory sample("sample","sample") ;
 	sample.defineType("All") ;
 	sample.defineType("PASSING") ;
 	RooDataHist combData("combData","combined data",InvariantMass,Index(sample),Import("ALL",*dh_ALL),Import("PASSING",*dh_PASSING));
+
 	
 	RooSimultaneous simPdf("simPdf","simultaneous pdf",sample) ;
-	
 	simPdf.addPdf(*model,"ALL");
 	simPdf.addPdf(*model_pass,"PASSING");
-	
-	RooFitResult* fitres = new RooFitResult;
-	fitres = simPdf.fitTo(combData, RooFit::Save(), PrintLevel(3));
 
+	RooFitResult* fitres = new RooFitResult;
+	fitres = simPdf.fitTo(combData, RooFit::Save(), PrintLevel(1));
 
 
 	RooAbsReal* integral_bkg = background.createIntegral(InvariantMass);
@@ -144,7 +169,7 @@ double* doFit(string condition, string MuonId, const char* savePath = NULL) // R
 	magenta->SetLineStyle(2);
 	
 	// OUTPUT ARRAY
-	double* output = new double[4];
+ 	double* output = new double[4];
 	
 	RooRealVar* yield_ALL = (RooRealVar*) fitres->floatParsFinal().find("n_signal_total");
 	RooRealVar* yield_PASS = (RooRealVar*) fitres->floatParsFinal().find("n_signal_total_pass");
@@ -155,9 +180,39 @@ double* doFit(string condition, string MuonId, const char* savePath = NULL) // R
 	output[2] = yield_ALL->getError();
 	output[3] = yield_PASS->getError();
 	
+
+	double* output_bkg = new double[4];
+	
+	RooRealVar* yield_ALL_Bkg = (RooRealVar*) fitres->floatParsFinal().find("n_back");
+	RooRealVar* yield_PASS_Bkg = (RooRealVar*) fitres->floatParsFinal().find("n_back_pass");
+	
+	output_bkg[0] = yield_ALL_Bkg->getVal();
+	output_bkg[1] = yield_PASS_Bkg->getVal();
+	
+	output_bkg[2] = yield_ALL_Bkg->getError();
+	output_bkg[3] = yield_PASS_Bkg->getError();
+
+
+	cout <<"yield_ALL:" << output[0] << "\n\n";
+	cout <<"yield_PASS:" << output[1] << "\n\n";
+	//cout <<"yield_ALL_erro:" << output[2] << "\n\n";
+	//cout <<"yield_PASS_erro:" << output[3] << "\n\n";
+
+	cout <<"yield_ALL_Bkg:" << output_bkg[0] << "\n\n";
+	cout <<"yield_PASS_Bkg:" << output_bkg[1] << "\n\n";
+	//cout <<"yield_ALL_Bkg_erro:" << output_bkg[2] << "\n\n";
+	//cout <<"yield_PASS_Bkg_erro:" << output_bkg[3] << "\n\n";
+
+
 	frame->SetTitle("Probe");
 	frame->SetYTitle("Eventos");
+	//frame->SetYTitle("Eventos com 15#leqpT#leq20");
 	frame->SetXTitle("#mu^{+}#mu^{-} Massa invariante [GeV/c^{2}]");
+
+	// frame->SetTitle("Massa Invariante 15,0#leqpT#leq20,0");
+	// frame->SetYTitle("Eventos");
+	// frame->SetXTitle("#mu^{+}#mu^{-} Massa invariante [GeV/c^{2}]");
+
 	Data_ALL->plotOn(frame);
 
 
@@ -169,30 +224,33 @@ double* doFit(string condition, string MuonId, const char* savePath = NULL) // R
 	model->plotOn(frame,RooFit::Components("VT2"),RooFit::LineStyle(kDashed),RooFit::LineColor(kTeal));
 	model->plotOn(frame,RooFit::Components("CBS"),RooFit::LineStyle(kDashed),RooFit::LineColor(kMagenta));
 	model->plotOn(frame,RooFit::Components("BW"),RooFit::LineStyle(kDashed),RooFit::LineColor(kTeal));
-	
-	
+
 	c_all->cd();
 	frame->Draw("");
 	//CREATING LEGEND
 	TLegend *leg = new TLegend(0.3,0.6,0.1,0.9);
+	TLegend *leg_1 = new TLegend(0.9,0.9,0.6,0.8);
 	leg->AddEntry(blue,"Ajuste Total","l");
 	leg->AddEntry(green,"Sinal","l");
 	leg->AddEntry(Teal,"BreitWigner","l");
 	leg->AddEntry(magenta,"Crystalball","l");
 	leg->AddEntry(red,"Fundo","l");
 	leg->AddEntry("frame",(Form("#Chi^{2}: %2.5f", chis)),"" );
-	leg->AddEntry("frame",(Form("Entradas: %f", dh_ALL->sumEntries())),"" );
-	leg->AddEntry("frame",(Form("Ajuste Total: %f", signal->createIntegral(InvariantMass)->getVal())),"" );
-	leg->AddEntry("frame",(Form("Fundo: %f", integral_bkg->createIntegral(InvariantMass)->getVal())),"" );
-	leg->AddEntry("frame",(Form("CBS: %f", crystalball.createIntegral(InvariantMass)->getVal())),"" );
-	leg->AddEntry("frame",(Form("BW: %f", BW.createIntegral(InvariantMass)->getVal())),"" );
-	leg->Draw();
+	leg_1->AddEntry("frame",(Form("Entradas: %f", dh_ALL->sumEntries())),"" );
+	leg->AddEntry("frame",(Form("Ajuste Total: %f", output[0])),"" );
+	leg_1->AddEntry("frame",(Form("Fundo: %f", output_bkg[0])),"" );
+
+
+	 leg->Draw();
+	 leg_1->Draw();
+
 
 	RooPlot *frame_pass = InvariantMass.frame(RooFit::Title("Invariant Mass"));
 	
 	c_pass->cd();
 	
-	frame_pass->SetTitle("Tag");
+	//frame_pass->SetTitle("Tag");
+	frame_pass->SetTitle("Massa invariante");
 	frame_pass->SetYTitle("Eventos");
 	frame_pass->SetXTitle("#mu^{+}#mu^{-} Massa invariante [GeV/c^{2}]");
 	Data_PASSING->plotOn(frame_pass);
@@ -208,23 +266,24 @@ double* doFit(string condition, string MuonId, const char* savePath = NULL) // R
 	
 
 	TLegend *leg2 = new TLegend(0.3,0.6,0.1,0.9);
+	TLegend *leg_2 = new TLegend(0.9,0.9,0.6,0.8);
 	leg2->AddEntry(blue,"Ajuste Total","l");
-	leg2->AddEntry(green,"Signal","l");
+	leg2->AddEntry(green,"Sinal","l");
 	leg2->AddEntry(Teal,"BreitWigner","l");
 	leg2->AddEntry(magenta,"Crystalball","l");
-	leg2->AddEntry(red,"Background","l");
+	leg2->AddEntry(red,"Fundo","l");
 	leg2->AddEntry("frame_pass",(Form("#Chi^{2}: %2.5f", chis_pass)),"" );
 	leg2->AddEntry("frame_pass",(Form("Entradas: %f", dh_PASSING->sumEntries())),"" );
-	leg2->AddEntry("frame_pass",(Form("Sinal(sem Bkg): %f", signal->createIntegral(InvariantMass)->getVal())),"" );
-	leg2->AddEntry("frame_pass",(Form("Fundo: %f", background.createIntegral(InvariantMass)->getVal())),"" );
-	leg2->AddEntry("frame_pass",(Form("CBS: %f", crystalball.createIntegral(InvariantMass)->getVal())),"" );
-	leg2->AddEntry("frame_pass",(Form("BW: %f", BW.createIntegral(InvariantMass)->getVal())),"" );
+	leg_2->AddEntry("frame_pass",(Form("Ajuste Total: %f", output[1])),"" );
+	leg_2->AddEntry("frame_pass",(Form("Fundo: %f", output_bkg[1])),"" );
 
 	leg2->Draw();
 
 	frame_pass->Draw();
 		//CREATING LEGEND
 	leg2->Draw();
+	leg_2->Draw();
+
 
 
 	ofstream fout("chiSquare.txt", ios::app); 
